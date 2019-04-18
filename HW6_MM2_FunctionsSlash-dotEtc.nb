@@ -1,0 +1,2060 @@
+(* Content-type: application/mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 6.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       145,          7]
+NotebookDataLength[     86613,       2052]
+NotebookOptionsPosition[     82062,       1917]
+NotebookOutlinePosition[     82604,       1938]
+CellTagsIndexPosition[     82561,       1935]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell["\<\
+Mathematica 2 - Advanced Functions, Slash-dot, Prefix & Postfix Notation, \
+Plotting Derivatives, Simplifying Expressions\
+\>", "Title",
+ CellChangeTimes->{{3.399308987464324*^9, 3.399308997477577*^9}, {
+   3.3996509147507887`*^9, 3.3996509168582067`*^9}, 3.4274817158062444`*^9, {
+   3.427505828304313*^9, 3.427505832757467*^9}, {3.4275745555520296`*^9, 
+   3.42757455564578*^9}, {3.427574731865658*^9, 3.4275747372563176`*^9}, {
+   3.4332596447706146`*^9, 3.4332596557552705`*^9}, {3.4332800782155266`*^9, 
+   3.4332800788717937`*^9}, {3.439671351819152*^9, 3.439671380928713*^9}, {
+   3.544801770492015*^9, 3.5448017744090147`*^9}, {3.7392099063630695`*^9, 
+   3.7392099170024056`*^9}, {3.739632745776862*^9, 3.739632753951367*^9}, {
+   3.7396459317222805`*^9, 3.7396459352479253`*^9}, 3.740834752594935*^9, 
+   3.74084185314863*^9, {3.7408443729025803`*^9, 3.7408443874250326`*^9}, {
+   3.740844432381528*^9, 3.7408444626525545`*^9}, {3.7408457161870165`*^9, 
+   3.740845724780157*^9}}],
+
+Cell[TextData[{
+ "\n",
+ StyleBox["Remember these three helpful tips:",
+  FontWeight->"Bold"],
+ "  \n\n",
+ StyleBox["(1)  ",
+  FontWeight->"Bold"],
+ "If things are NOT working as you would expect and you \
+can\[CloseCurlyQuote]t spot why, it\[CloseCurlyQuote]s time to restart.  Go \
+to ",
+ StyleBox["Evaluation",
+  FontWeight->"Bold",
+  FontColor->RGBColor[1, 0.5, 0]],
+ "\[RightArrow]",
+ StyleBox["Quit Kernel",
+  FontWeight->"Bold",
+  FontColor->RGBColor[1, 0.5, 0]],
+ "\[RightArrow]",
+ StyleBox["Local",
+  FontWeight->"Bold",
+  FontColor->RGBColor[1, 0.5, 0]],
+ ". That shuts down the \[OpenCurlyDoubleQuote]kernel\[CloseCurlyDoubleQuote] \
+(jprocessing engine) andclears everything; and Mathematica will automacally \
+restart as soon as you execute a command.  Or, if you just want to end the \
+current calculation (that is progressing v e r y  s l o w l y...) use ",
+ StyleBox["Evaluation",
+  FontWeight->"Bold",
+  FontColor->RGBColor[1, 0.5, 0]],
+ "\[RightArrow]",
+ StyleBox["Abort",
+  FontWeight->"Bold",
+  FontColor->RGBColor[1, 0.5, 0]],
+ StyleBox[".",
+  FontWeight->"Bold",
+  FontColor->RGBColor[0., 0.5019607843137255, 0.]],
+ "\n\n",
+ StyleBox["(2)",
+  FontWeight->"Bold"],
+ "  Make use of Mathematica\[CloseCurlyQuote]s online help. Click anywhere in \
+a function name and press ",
+ StyleBox["F1",
+  FontWeight->"Bold",
+  FontColor->RGBColor[1, 0.5, 0]],
+ " to get information about the function.  Search for help topics by going to \
+",
+ StyleBox["Help",
+  FontWeight->"Bold",
+  FontColor->RGBColor[1, 0.5, 0]],
+ "\[RightArrow]",
+ StyleBox["Documentation",
+  FontWeight->"Bold",
+  FontColor->RGBColor[1, 0.5, 0]],
+ StyleBox[" ",
+  FontWeight->"Bold",
+  FontColor->RGBColor[0., 0.5019607843137255, 0.]],
+ StyleBox["Center",
+  FontWeight->"Bold",
+  FontColor->RGBColor[1, 0.5, 0]],
+ ". Remember the help documents are themselves active Mathematica documents, \
+so you can execute code directly in the help pages.\n\n",
+ StyleBox["(3)",
+  FontWeight->"Bold"],
+ " Mathematica cares a LOT about what types of brackets you use, and will not \
+understand what you want if  you use the wrong ones.  Use parentheses ( ) for \
+arethmatic grouping just as you would in your calculator; use [ ] square \
+brackets for function calls and function definitions, and { } curly brackets \
+to enclose lists of items."
+}], "Text",
+ CellChangeTimes->{{3.405709666581501*^9, 3.4057097023331814`*^9}, {
+   3.4057131772798314`*^9, 3.4057131945238028`*^9}, {3.427511589997438*^9, 
+   3.4275115905755663`*^9}, {3.4275136544481506`*^9, 
+   3.4275137827145963`*^9}, {3.4275908020488167`*^9, 
+   3.4275908849712224`*^9}, {3.4291570411218367`*^9, 3.4291570423249536`*^9}, 
+   3.4293340703039846`*^9, {3.429375396378108*^9, 3.4293754693790426`*^9}, {
+   3.429384747466551*^9, 3.4293847851701584`*^9}, {3.4396669267439566`*^9, 
+   3.439666927447086*^9}, {3.544209778236388*^9, 3.5442099046056566`*^9}, {
+   3.5443601594836693`*^9, 3.544360211412862*^9}, {3.607952635367624*^9, 
+   3.607952742055624*^9}, {3.6079527779976234`*^9, 3.6079527806396236`*^9}, {
+   3.6079528106936235`*^9, 3.607952914341624*^9}, {3.6079529634746237`*^9, 
+   3.607953040630624*^9}, {3.7396327664159265`*^9, 3.7396327696919684`*^9}, {
+   3.739632841499689*^9, 3.739633097812975*^9}, {3.7396332067959723`*^9, 
+   3.7396335960716867`*^9}, {3.7396336409378614`*^9, 
+   3.7396337840550966`*^9}, {3.7396338544431987`*^9, 3.73963386389692*^9}, {
+   3.7408446601693044`*^9, 3.7408446855118384`*^9}, {3.7473280227559257`*^9, 
+   3.747328037332383*^9}}],
+
+Cell[TextData[{
+ StyleBox["A helpful way to start your worksheet",
+  FontWeight->"Bold"],
+ " is with a command that clears the memory but stops short of a full kernel \
+reboot.  This way if you want to go back and re-do the commands in your \
+worksheet, or if you happen to have several worksheets open at once, all you \
+need to do is click on this line and begin again."
+}], "Text",
+ CellFrame->{{0, 0}, {0, 2}},
+ CellChangeTimes->{{3.405709666581501*^9, 3.4057097023331814`*^9}, {
+   3.4057131772798314`*^9, 3.4057131945238028`*^9}, {3.427511589997438*^9, 
+   3.4275115905755663`*^9}, {3.4275136544481506`*^9, 
+   3.4275137827145963`*^9}, {3.4275908020488167`*^9, 
+   3.4275908849712224`*^9}, {3.4291570411218367`*^9, 3.4291570423249536`*^9}, 
+   3.4293340703039846`*^9, {3.429375396378108*^9, 3.4293754693790426`*^9}, {
+   3.429384747466551*^9, 3.4293847851701584`*^9}, {3.4396669267439566`*^9, 
+   3.439666927447086*^9}, {3.544209778236388*^9, 3.5442099046056566`*^9}, {
+   3.5443601594836693`*^9, 3.544360211412862*^9}, {3.607952635367624*^9, 
+   3.607952742055624*^9}, {3.6079527779976234`*^9, 3.6079527806396236`*^9}, {
+   3.6079528106936235`*^9, 3.607952914341624*^9}, {3.6079529634746237`*^9, 
+   3.607953040630624*^9}, {3.7396327664159265`*^9, 3.7396327696919684`*^9}, {
+   3.739632841499689*^9, 3.739633097812975*^9}, {3.7396332067959723`*^9, 
+   3.7396335960716867`*^9}, {3.7396336409378614`*^9, 
+   3.7396337840550966`*^9}, {3.7396338544431987`*^9, 3.73963386389692*^9}, {
+   3.7408446601693044`*^9, 3.7408446855118384`*^9}, 3.7473280227559257`*^9, 
+   3.747328065286178*^9}],
+
+Cell[BoxData[
+ RowBox[{"ClearAll", "[", "\"\<Global`*\>\"", "]"}]], "Input",
+ CellChangeTimes->{{3.739634104701607*^9, 3.7396341156529474`*^9}, 
+   3.7410098330450535`*^9}],
+
+Cell["\<\
+This command erases all symbol definitions and clears assumptions so that \
+they don\[CloseCurlyQuote]t interfere with what comes next.  Here the \
+\[OpenCurlyQuote] refers to the \[OpenCurlyDoubleQuote]current session\
+\[CloseCurlyDoubleQuote] and * means \[OpenCurlyDoubleQuote]everything\
+\[CloseCurlyDoubleQuote]\
+\>", "Text",
+ CellChangeTimes->{{3.405709666581501*^9, 3.4057097023331814`*^9}, {
+   3.4057131772798314`*^9, 3.4057131945238028`*^9}, {3.427511589997438*^9, 
+   3.4275115905755663`*^9}, {3.4275136544481506`*^9, 
+   3.4275137827145963`*^9}, {3.4275908020488167`*^9, 
+   3.4275908849712224`*^9}, {3.4291570411218367`*^9, 3.4291570423249536`*^9}, 
+   3.4293340703039846`*^9, {3.429375396378108*^9, 3.4293754693790426`*^9}, {
+   3.429384747466551*^9, 3.4293847851701584`*^9}, {3.4396669267439566`*^9, 
+   3.439666927447086*^9}, {3.544209778236388*^9, 3.5442099046056566`*^9}, {
+   3.5443601594836693`*^9, 3.544360211412862*^9}, {3.607952635367624*^9, 
+   3.6079527670146236`*^9}, {3.607952874064624*^9, 3.607952874800624*^9}, {
+   3.607952938340624*^9, 3.6079529386276236`*^9}, 3.607953048157624*^9, {
+   3.73963380070051*^9, 3.739633829311277*^9}, {3.7396338725862317`*^9, 
+   3.7396339390430837`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[TextData[StyleBox["Delayed function assignments with :=", "Section"]], \
+"Text",
+ CellChangeTimes->{{3.740845628739762*^9, 3.7408456357020655`*^9}}],
+
+Cell[TextData[{
+ "In Intro to Mathematica you learned the basics of how to define and refer \
+to functions, such as this to define ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"f", "(", "x", ")"}], "=", 
+    RowBox[{
+     RowBox[{"5", 
+      SuperscriptBox["x", "2"]}], "+", 
+     RowBox[{"2", "x"}]}]}], TraditionalForm]]],
+ ":"
+}], "Text",
+ CellChangeTimes->{{3.546001695070283*^9, 3.546001747200283*^9}, {
+  3.5460018232032833`*^9, 3.5460018443382835`*^9}, {3.555357200130744*^9, 
+  3.5553572014188414`*^9}, {3.7392100192617164`*^9, 3.739210023270968*^9}, {
+  3.739630176063054*^9, 3.739630176749463*^9}, {3.739634024937785*^9, 
+  3.7396340599290333`*^9}, {3.740842190890401*^9, 3.7408421908914013`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"f", "[", "x_", "]"}], " ", "=", " ", 
+  RowBox[{
+   RowBox[{"5", " ", 
+    RowBox[{"x", "^", "2"}]}], " ", "+", " ", 
+   RowBox[{"2", "x"}]}]}]], "Input",
+ CellChangeTimes->{{3.5460017512742834`*^9, 3.546001756481283*^9}, {
+   3.739634063875884*^9, 3.739634067011524*^9}, 3.7396346381351347`*^9}],
+
+Cell[BoxData[
+ RowBox[{"f", "[", "3", "]"}]], "Input",
+ CellChangeTimes->{{3.5460017636182833`*^9, 3.546001764864283*^9}, 
+   3.7396340738288116`*^9}],
+
+Cell[TextData[{
+ "Sometimes functions are defined with  :=  instead of with  =.  This causes \
+a subtle difference in the way ",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ " handles the function. With equals, the function is immediately defined as \
+was specified by the right hand side of the equation. With a colon-equals, \
+the function definition is postponed until it is actually called later. And \
+it\[CloseCurlyQuote]s reevaluated each time it\[CloseCurlyQuote]s called. \n\n\
+Here\[CloseCurlyQuote]s an example which illustrates this difference:"
+}], "Text",
+ CellChangeTimes->{{3.399171132555125*^9, 3.39917119725825*^9}, 
+   3.39917183088325*^9, 3.399172477211375*^9, {3.39917292400825*^9, 
+   3.39917311832075*^9}, {3.3991731504145*^9, 3.399173255352*^9}, {
+   3.399173341586375*^9, 3.399173348398875*^9}, {3.405699056134295*^9, 
+   3.4056991011817465`*^9}, {3.40569945690505*^9, 3.405699459170704*^9}, 
+   3.405699850066332*^9, {3.427510101987915*^9, 3.4275101553476315`*^9}, {
+   3.4275101872540855`*^9, 3.427510236879403*^9}, {3.427510689382299*^9, 
+   3.4275108316644597`*^9}, {3.4275457507270546`*^9, 3.427545768680295*^9}, {
+   3.4275458020867586`*^9, 3.4275458379932384`*^9}, {3.4275459124937153`*^9, 
+   3.427546010400592*^9}, {3.427546083401059*^9, 3.4275461347920127`*^9}, {
+   3.4275462471833572`*^9, 3.4275462941367826`*^9}, {3.427590945690361*^9, 
+   3.4275909707998967`*^9}, {3.4396667604303923`*^9, 3.439666771242961*^9}, {
+   3.439666810618213*^9, 3.439666829071456*^9}, {3.544063314731146*^9, 
+   3.5440633192345963`*^9}, {3.5442086317043495`*^9, 
+   3.5442086513343496`*^9}, {3.5442087537763495`*^9, 
+   3.5442089554193497`*^9}, {3.54420907602835*^9, 3.5442090769163494`*^9}, {
+   3.5443614570984173`*^9, 3.544361462249933*^9}, {3.740842258373149*^9, 
+   3.7408422758718987`*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"m", "=", "2"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"fn", "[", "x_", "]"}], " ", "=", " ", 
+   RowBox[{"m", " ", 
+    RowBox[{"x", "^", "2"}]}]}], "  ", 
+  RowBox[{"(*", " ", 
+   RowBox[{
+    RowBox[{"immediate", " ", 
+     RowBox[{"assignment", " ", "--"}], " ", "evaluated", " ", "right", " ", 
+     "now"}], ",", " ", 
+    RowBox[{
+     RowBox[{"so", " ", "fn", 
+      RowBox[{"(", "x", ")"}]}], " ", "=", " ", 
+     RowBox[{"2", 
+      SuperscriptBox["x", "2"]}]}]}], " ", "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"fndelay", "[", "x_", "]"}], ":=", " ", 
+   RowBox[{"m", " ", 
+    RowBox[{"x", "^", "2"}]}]}], "   ", 
+  RowBox[{"(*", " ", 
+   RowBox[{"delayed", " ", 
+    RowBox[{"assignment", " ", "--"}], " ", "not", " ", "evaluated", " ", 
+    "until", " ", "used", " ", "later"}], " ", 
+   "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{"fna", "[", "4", "]"}], "\[IndentingNewLine]", 
+ RowBox[{"fndelay", "[", "4", "]"}]}], "Input",
+ CellChangeTimes->{{3.399173512367625*^9, 3.399173527055125*^9}, {
+   3.39917356838325*^9, 3.39917357332075*^9}, {3.399173638648875*^9, 
+   3.399173639242625*^9}, {3.399404603845406*^9, 3.399404605981606*^9}, {
+   3.399758539316167*^9, 3.3997585408624477`*^9}, {3.401126831059501*^9, 
+   3.401126831715151*^9}, {3.4011268749567895`*^9, 3.4011269390387135`*^9}, {
+   3.4011272213894444`*^9, 3.4011272281176558`*^9}, {3.4011272649745183`*^9, 
+   3.401127273560404*^9}, {3.4011273116505117`*^9, 3.401127319533915*^9}, {
+   3.405699528312214*^9, 3.4056996122351627`*^9}, {3.4056998715509825`*^9, 
+   3.405699880316719*^9}, 3.4057085914952865`*^9, {3.4275110768066535`*^9, 
+   3.4275113005893354`*^9}, {3.4275114849655156`*^9, 3.427511486043648*^9}, {
+   3.4275911079882746`*^9, 3.4275911311134224`*^9}, {3.54420897577835*^9, 
+   3.5442090366643496`*^9}, {3.5442090966523495`*^9, 
+   3.5442091785923495`*^9}, {3.618862718188151*^9, 3.618862718891221*^9}, 
+   3.6188628029426255`*^9, {3.739638404900281*^9, 3.739638410095148*^9}, {
+   3.7408423181471252`*^9, 3.7408423339177027`*^9}, {3.7408425689182*^9, 
+   3.740842619456253*^9}}],
+
+Cell["Now change the value of m:", "Text",
+ CellChangeTimes->{{3.5442093134703493`*^9, 3.5442093378503494`*^9}, {
+  3.5976922104661984`*^9, 3.5976922143775897`*^9}, {3.7396382980701113`*^9, 
+  3.739638454930123*^9}, {3.7396386769551697`*^9, 3.7396386805744157`*^9}, {
+  3.7408423822825384`*^9, 3.740842385038814*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"m", "=", "3"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"fn", "[", "4", "]"}], "  ", 
+  RowBox[{"(*", " ", 
+   RowBox[{
+    RowBox[{"uses", " ", "the", " ", "original", " ", "value", " ", "m"}], 
+    "=", 
+    RowBox[{
+    "2", " ", "that", " ", "was", " ", "in", " ", "force", " ", "when", " ", 
+     "the", " ", "assignment", " ", "was", " ", "first", " ", "made"}]}], " ",
+    "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"fndelay", "[", "4", "]"}], "   ", 
+  RowBox[{"(*", " ", 
+   RowBox[{
+   "reevaluated", " ", "now", " ", "using", " ", "the", " ", "current", " ", 
+    "value", " ", "of", " ", "m"}], " ", "*)"}]}]}], "Input",
+ CellChangeTimes->{{3.399173512367625*^9, 3.399173527055125*^9}, {
+   3.39917356838325*^9, 3.39917357332075*^9}, {3.399173638648875*^9, 
+   3.399173639242625*^9}, {3.399404603845406*^9, 3.399404605981606*^9}, {
+   3.399758539316167*^9, 3.3997585408624477`*^9}, {3.401126831059501*^9, 
+   3.401126831715151*^9}, {3.4011268749567895`*^9, 3.4011269390387135`*^9}, {
+   3.4011272213894444`*^9, 3.4011272281176558`*^9}, {3.4011272649745183`*^9, 
+   3.401127273560404*^9}, {3.4011273116505117`*^9, 3.401127319533915*^9}, {
+   3.405699528312214*^9, 3.4056996122351627`*^9}, {3.4056998715509825`*^9, 
+   3.405699880316719*^9}, 3.4057085914952865`*^9, {3.4275110768066535`*^9, 
+   3.4275113005893354`*^9}, {3.4275114849655156`*^9, 3.427511486043648*^9}, {
+   3.4275911079882746`*^9, 3.4275911311134224`*^9}, {3.54420897577835*^9, 
+   3.5442090325663495`*^9}, {3.54420916982535*^9, 3.5442091839993496`*^9}, {
+   3.618862737612093*^9, 3.618862738259158*^9}, 3.7396384678782887`*^9, {
+   3.739638611354328*^9, 3.7396386126803455`*^9}, {3.740842344273738*^9, 
+   3.740842369890299*^9}}],
+
+Cell[TextData[{
+ StyleBox["Things to notice:",
+  FontWeight->"Bold"],
+ " \n\n1. The semicolons at the ends of the m= statements suppress output \
+from these statements.  Similarly, the function definition fndelay[x_] := m \
+x^2  generates no output (because it\[CloseCurlyQuote]s not evaluated yet). \
+In that respect it\[CloseCurlyQuote]s like there is a semicolon at the end of \
+the line.\n\n2. The function fn(x) was defined to be ",
+ Cell[BoxData[
+  RowBox[{"2", 
+   SuperscriptBox["x", "2"]}]],
+  CellChangeTimes->{3.7396382833903236`*^9}],
+ " for all time (or at least, until it gets redefined).\n\n3. The function \
+fndelay(x) was defined to be ",
+ Cell[BoxData[
+  SuperscriptBox["mx", "2"]],
+  CellChangeTimes->{3.7396382833903236`*^9}],
+ ", NOT ",
+ Cell[BoxData[
+  RowBox[{"2", 
+   SuperscriptBox["x", "2"]}]],
+  CellChangeTimes->{3.7396382833903236`*^9}],
+ ".  Each time the function fndelay(x) is used, ",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ " has to detect what the value of ",
+ StyleBox["m",
+  FontSlant->"Italic"],
+ " is in order to evaluate the function. And so the value of fndelay(4) in \
+the second call is different than the value of fndelay(4) in the first call."
+}], "Text",
+ CellChangeTimes->{{3.54420904849535*^9, 3.5442090905383496`*^9}, {
+   3.5442091963873496`*^9, 3.5442093043483496`*^9}, {3.5442093495713496`*^9, 
+   3.5442094178863497`*^9}, {3.5442094555723495`*^9, 3.544209521884765*^9}, {
+   3.5443615318378906`*^9, 3.544361531907898*^9}, {3.544361580205727*^9, 
+   3.5443616989215975`*^9}, {3.544372196737274*^9, 3.5443722046730676`*^9}, {
+   3.561908670403822*^9, 3.561908813729153*^9}, {3.597692248868038*^9, 
+   3.597692249163068*^9}, {3.739638618904825*^9, 3.7396386520084496`*^9}, {
+   3.739638698405444*^9, 3.7396389973988776`*^9}, {3.739639064262335*^9, 
+   3.7396390708768196`*^9}, {3.7396392453514566`*^9, 
+   3.7396392482530937`*^9}, {3.739639296630314*^9, 3.7396392995319514`*^9}, {
+   3.740842411821492*^9, 3.740842509091218*^9}, {3.7408426445417614`*^9, 
+   3.740842644667774*^9}, 3.7408427635936656`*^9}],
+
+Cell[TextData[{
+ "4. ",
+ StyleBox["However",
+  FontWeight->"Bold"],
+ ": If you had defined fn[x_] = m x^2 ",
+ StyleBox["before assigning a set value to m",
+  FontSlant->"Italic"],
+ ", then fn(x) would be defined as ",
+ Cell[BoxData[
+  SuperscriptBox["mx", "2"]],
+  CellChangeTimes->{3.7396382833903236`*^9}],
+ ", and would behave just like fndelay(x), even if you later fix m to have a \
+particular value.  Take a look:"
+}], "Text",
+ CellChangeTimes->{{3.54420904849535*^9, 3.5442090905383496`*^9}, {
+  3.5442091963873496`*^9, 3.5442093043483496`*^9}, {3.5442093495713496`*^9, 
+  3.5442094178863497`*^9}, {3.5442094555723495`*^9, 3.544209521884765*^9}, {
+  3.5443615318378906`*^9, 3.544361531907898*^9}, {3.544361580205727*^9, 
+  3.5443616989215975`*^9}, {3.544372196737274*^9, 3.5443722046730676`*^9}, {
+  3.561908670403822*^9, 3.561908813729153*^9}, {3.597692248868038*^9, 
+  3.597692249163068*^9}, {3.739638618904825*^9, 3.7396386520084496`*^9}, {
+  3.739638698405444*^9, 3.7396389973988776`*^9}, {3.739639064262335*^9, 
+  3.7396390708768196`*^9}, {3.7396392453514566`*^9, 3.7396392482530937`*^9}, {
+  3.739639296630314*^9, 3.7396392995319514`*^9}, {3.740842411821492*^9, 
+  3.740842509091218*^9}, {3.7408426445417614`*^9, 3.740842644667774*^9}, {
+  3.7408427635936656`*^9, 3.740842786806987*^9}}],
+
+Cell[BoxData[{
+ RowBox[{"Clear", "[", 
+  RowBox[{"fn", ",", "fndelay", ",", "m"}], "]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"fn", "[", "x_", "]"}], " ", "=", " ", 
+   RowBox[{"m", " ", 
+    RowBox[{"x", "^", "2"}]}]}], " "}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"m", "=", "2"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"fn", "[", "4", "]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"m", "=", "3"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"fn", "[", "4", "]"}]}], "Input",
+ CellChangeTimes->{{3.73963908965946*^9, 3.739639210811614*^9}, {
+  3.7408425189862075`*^9, 3.7408425393592443`*^9}}],
+
+Cell[TextData[{
+ StyleBox["Most of the time ",
+  FontWeight->"Bold"],
+ "you won\[CloseCurlyQuote]t need to stress over the dfference in these ways \
+of defining f(x).  For now, if a function isn\[CloseCurlyQuote]t behaving as \
+you expect, remember this distinction and check to see if you should have \
+used := instead of =. \n\n",
+ StyleBox["ALSO",
+  FontWeight->"Bold"],
+ ": The  :=  notation works for ",
+ StyleBox["any",
+  FontSlant->"Italic"],
+ " type of assignment that you\[CloseCurlyQuote]d otherwise do with a regular \
+equals sign, not just functions. "
+}], "Text",
+ CellChangeTimes->{
+  3.739639066149959*^9, {3.7408426880681143`*^9, 3.7408427339787045`*^9}, {
+   3.7408428468879943`*^9, 3.7408429699823027`*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[StyleBox["Slash-dot notation /.", "Section"]], "Text",
+ CellChangeTimes->{{3.7408455403825984`*^9, 3.740845545654071*^9}}],
+
+Cell[TextData[{
+ "As you learned in the Intro to Mathematica assignment, the arrow symbol ",
+ Cell[BoxData[
+  FormBox["\[Rule]", TraditionalForm]]],
+ " ( which you get by typing \"-\" followed by \">\" ) can be used inside \
+functions to specify parameters.  More generally, \[Rule] defines a \
+\[OpenCurlyDoubleQuote]rule\[CloseCurlyDoubleQuote] by which one quantity is \
+replaced with another, and has very general usage when paired with a \
+\[OpenCurlyDoubleQuote]slash-dot\[CloseCurlyDoubleQuote] to apply that rule \
+to an expression: "
+}], "Text",
+ CellChangeTimes->{{3.54420691174535*^9, 3.5442070383273497`*^9}, {
+  3.5443602349822187`*^9, 3.544360264543174*^9}, {3.7392100393401737`*^9, 
+  3.739210043614629*^9}, {3.73963267228432*^9, 3.7396326745307484`*^9}, {
+  3.739634172844281*^9, 3.739634232218642*^9}, {3.739634440129715*^9, 
+  3.739634496618039*^9}, {3.7396345305640745`*^9, 3.7396345500643244`*^9}, {
+  3.7396346067621317`*^9, 3.739634618541283*^9}, {3.740842032980612*^9, 
+  3.7408420331616297`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"5", " ", 
+    RowBox[{"x", "^", "2"}]}], " ", "+", " ", 
+   RowBox[{"2", "x"}]}], "  ", "/.", " ", 
+  RowBox[{"x", "\[Rule]", "3"}]}]], "Input",
+ CellChangeTimes->{{3.5442070431923494`*^9, 3.5442070544873495`*^9}, {
+  3.739634653236128*^9, 3.7396346588990006`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"expr", " ", "=", " ", 
+  RowBox[{
+   RowBox[{"5", " ", 
+    RowBox[{"x", "^", "2"}]}], " ", "+", " ", 
+   RowBox[{"2", "x", " "}]}]}]], "Input",
+ CellChangeTimes->{{3.5442072214023495`*^9, 3.5442072348833494`*^9}, {
+  3.739634692065026*^9, 3.7396346959026747`*^9}, {3.7396357105718307`*^9, 
+  3.739635711305045*^9}}],
+
+Cell[BoxData[
+ RowBox[{"expr", " ", "/.", " ", 
+  RowBox[{"x", "\[Rule]", "3"}]}]], "Input",
+ CellChangeTimes->{{3.5442072377693496`*^9, 3.5442072408353496`*^9}, {
+   3.7396346988823133`*^9, 3.7396347064952106`*^9}, {3.7396357132238817`*^9, 
+   3.739635714393904*^9}, 3.740843137367039*^9}],
+
+Cell[BoxData[
+ RowBox[{"expr", "/.", " ", 
+  RowBox[{"x", "\[Rule]", " ", 
+   RowBox[{"y", "^", "2"}]}]}]], "Input",
+ CellChangeTimes->{{3.5442072890843496`*^9, 3.54420729539135*^9}, {
+  3.739634711315673*^9, 3.739634712423287*^9}, {3.739635716063136*^9, 
+  3.7396357172175584`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"Plot", "[", 
+  RowBox[{"expr", ",", 
+   RowBox[{"{", 
+    RowBox[{"x", ",", 
+     RowBox[{"-", "2"}], ",", "2"}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.5442073474393497`*^9, 3.5442073700833497`*^9}, {
+  3.7396347166977415`*^9, 3.739634717134547*^9}, {3.7396357193079987`*^9, 
+  3.739635720322018*^9}, {3.739636288209583*^9, 3.7396362896136007`*^9}}],
+
+Cell[TextData[{
+ StyleBox["Things to notice: \n",
+  FontWeight->"Bold"],
+ "\n1. Read the arrow symbol \[Rule] as \[OpenCurlyDoubleQuote]",
+ StyleBox["replaced by.",
+  FontWeight->"Bold"],
+ "\[CloseCurlyDoubleQuote] Read \[OpenCurlyDoubleQuote]slash-dot\
+\[CloseCurlyDoubleQuote] as the word \[OpenCurlyDoubleQuote]",
+ StyleBox["with",
+  FontWeight->"Bold"],
+ "\[CloseCurlyDoubleQuote]\nSo the command ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{
+     RowBox[{"5", 
+      SuperscriptBox["x", "2"]}], "+", 
+     RowBox[{"2", "x"}]}], "  ", "/.", " ", 
+    RowBox[{"x", "\[Rule]", "3"}]}], TraditionalForm]]],
+ "\[CloseCurlyDoubleQuote]  translates as  \[OpenCurlyDoubleQuote]",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"5", 
+     SuperscriptBox["x", "2"]}], "+", 
+    RowBox[{"2", "x"}]}], TraditionalForm]]],
+ ", ",
+ StyleBox["with",
+  FontWeight->"Bold"],
+ " x ",
+ StyleBox["replaced by",
+  FontWeight->"Bold"],
+ " 3\[CloseCurlyDoubleQuote]. So it gives you \[OpenCurlyDoubleQuote]",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"5", "\[CenterDot]", 
+     SuperscriptBox["3", "2"]}], "+", 
+    RowBox[{"2", "\[CenterDot]", "3"}]}], TraditionalForm]]],
+ ", or 51.  \n\n2. Slash-dot commands have the general format: ",
+ StyleBox["expression",
+  FontSlant->"Italic"],
+ " /. ",
+ StyleBox["rule",
+  FontSlant->"Italic"],
+ "\n\n3. Slash-dot can be used to make expressions behave a bit like \
+functions.  The expression ",
+ StyleBox["expr",
+  FontSlant->"Italic"],
+ " isn\[CloseCurlyQuote]t a function (it\[CloseCurlyQuote]s just the name of \
+the expression), but using slash-dot we can evaluate it by replacing the \
+variables it contains with numbers.\n\n4. As shown in the   /. x\[Rule] y^2   \
+example, you can use slash-dot to replace a variable with pretty much \
+anything, including a function of another variable.\n\n5. Slash-dot doesn\
+\[CloseCurlyQuote]t change values permanently.  In the examples above, ",
+ StyleBox["expr",
+  FontSlant->"Italic"],
+ " doesn\[CloseCurlyQuote]t change to 51 or become a function of ",
+ Cell[BoxData[
+  FormBox[
+   SuperscriptBox["y", "2"], TraditionalForm]]],
+ ".  So the Plot function behaves as you might expect - you get the same \
+thing as if you had typed in \[OpenCurlyDoubleQuote]Plot[5 x^2 + 2 \
+x,{x,-2,2}]. \n"
+}], "Text",
+ CellChangeTimes->{{3.5442070795253496`*^9, 3.5442071776303496`*^9}, {
+   3.5442072452423496`*^9, 3.5442073443243494`*^9}, {3.5442073770903497`*^9, 
+   3.5442075885883493`*^9}, {3.5442076231453495`*^9, 
+   3.5442076629583497`*^9}, {3.54436029040876*^9, 3.5443603118889084`*^9}, {
+   3.5443609731120243`*^9, 3.544361051610873*^9}, {3.5443610842451363`*^9, 
+   3.5443611780085115`*^9}, {3.546010552563283*^9, 3.5460105951042833`*^9}, {
+   3.5619861896847653`*^9, 3.5619862082357655`*^9}, {3.597681380064266*^9, 
+   3.59768139559982*^9}, {3.6188626336216955`*^9, 3.6188626362219553`*^9}, {
+   3.6322474409777675`*^9, 3.632247451334803*^9}, {3.739634872372137*^9, 
+   3.7396351662401056`*^9}, {3.739635219389987*^9, 3.739635270543043*^9}, {
+   3.7396353684046183`*^9, 3.7396354827894845`*^9}, {3.7396355609791903`*^9, 
+   3.739635622461336*^9}, {3.739635681477271*^9, 3.7396357030680866`*^9}, {
+   3.7396357604771905`*^9, 3.7396357946418476`*^9}, 3.739635971036916*^9, {
+   3.7396360803641176`*^9, 3.739636321952815*^9}, {3.7396363671943955`*^9, 
+   3.739636369784029*^9}, {3.7396368888670835`*^9, 3.739636939583334*^9}, {
+   3.740843168610163*^9, 3.7408432224015417`*^9}}],
+
+Cell[TextData[{
+ StyleBox["Slash-dot usage with FindRoot and Solve. ",
+  FontWeight->"Bold"],
+ "Slash-dot can be used to make the solutions to FindRoot and Solve look a \
+bit more \[OpenCurlyDoubleQuote]normal\[CloseCurlyDoubleQuote]. Look at the \
+difference between the outputs of these commands:"
+}], "Text",
+ CellChangeTimes->{{3.5442077307273493`*^9, 3.5442077688073497`*^9}, {
+  3.5442079214373493`*^9, 3.5442079320373497`*^9}, {3.5442081634463496`*^9, 
+  3.5442081647583494`*^9}, {3.5460104802722836`*^9, 3.546010509093283*^9}, {
+  3.546010609511283*^9, 3.5460106116712832`*^9}, {3.7396363746824913`*^9, 
+  3.739636408254122*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"FindRoot", "[", 
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      RowBox[{"Cos", "[", "x", "]"}], "^", "2"}], "\[Equal]", "x"}], ",", " ", 
+    RowBox[{"{", 
+     RowBox[{"x", ",", ".5"}], "}"}]}], "]"}], " "}]], "Input",
+ CellChangeTimes->{{3.54420777062035*^9, 3.5442077981993494`*^9}, {
+  3.5442078295333495`*^9, 3.5442078429403496`*^9}, {3.5443612904297523`*^9, 
+  3.544361290781788*^9}, {3.7396302241428704`*^9, 3.7396302265609016`*^9}, {
+  3.739636495366639*^9, 3.739636553446183*^9}}],
+
+Cell[BoxData[
+ RowBox[{"x", " ", "/.", " ", 
+  RowBox[{"FindRoot", "[", 
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      RowBox[{"Cos", "[", "x", "]"}], "^", "2"}], "\[Equal]", "x"}], ",", " ", 
+    RowBox[{"{", 
+     RowBox[{"x", ",", ".5"}], "}"}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.5442078015113497`*^9, 3.5442078030713496`*^9}, 
+   3.54420784954935*^9, {3.739636574912059*^9, 3.739636580559331*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Solve", "[", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"3", " ", 
+      RowBox[{"x", "^", "2"}]}], " ", "\[Equal]", " ", 
+     RowBox[{
+      RowBox[{"4", " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"3", " ", "x"}], " ", "-", " ", 
+         RowBox[{"x", "^", "2"}]}], ")"}]}], " ", "+", "5"}]}], ",", " ", 
+    "x"}], "]"}], "  ", 
+  RowBox[{"(*", " ", 
+   RowBox[{"from", " ", "Intro", " ", "worksheet"}], " ", "*)"}]}]], "Input",
+ CellChangeTimes->{{3.5442078114993496`*^9, 3.5442078147013493`*^9}, {
+  3.5442078758603497`*^9, 3.5442078838503494`*^9}, {3.739636613491353*^9, 
+  3.739636620059037*^9}}],
+
+Cell[BoxData[
+ RowBox[{"x", " ", "/.", " ", "%"}]], "Input",
+ CellChangeTimes->{{3.5442078902483497`*^9, 3.5442078921853495`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"N", "[", "%", "]"}]], "Input",
+ CellChangeTimes->{{3.5442078950903497`*^9, 3.5442078972093496`*^9}}],
+
+Cell[TextData[{
+ StyleBox["Things to notice: \n",
+  FontWeight->"Bold"],
+ "\n1. FindRoot and Solve return lists of ",
+ StyleBox["rules",
+  FontSlant->"Italic"],
+ " as their output.  The fact that an output expression is a ",
+ StyleBox["rule",
+  FontSlant->"Italic"],
+ " rather than a number is indicated by the arrow \[Rule]. The output of the \
+first FindRoot command is the rule \[OpenCurlyDoubleQuote]x ",
+ StyleBox["replaced by",
+  FontWeight->"Bold"],
+ " 0.641714\[CloseCurlyDoubleQuote].\n\n2. The rules returned by those \
+commands can be used as the \[OpenCurlyDoubleQuote]rules\
+\[CloseCurlyDoubleQuote] part of a slash-dot command. So the second input can \
+be read like this: \[OpenCurlyDoubleQuote]x, ",
+ StyleBox["with",
+  FontWeight->"Bold"],
+ " x ",
+ StyleBox["replaced by",
+  FontWeight->"Bold"],
+ " 0.641714\[CloseCurlyDoubleQuote]. This of course gives you just 0.641714."
+}], "Text",
+ CellChangeTimes->{{3.5442070795253496`*^9, 3.5442071776303496`*^9}, {
+   3.5442072452423496`*^9, 3.5442073443243494`*^9}, {3.5442073770903497`*^9, 
+   3.5442075885883493`*^9}, {3.5442076231453495`*^9, 
+   3.5442076629583497`*^9}, {3.5442079409893494`*^9, 
+   3.5442081243213496`*^9}, {3.5442081548313494`*^9, 
+   3.5442081569183493`*^9}, {3.5443613235020595`*^9, 
+   3.5443613271894283`*^9}, {3.7396366586071315`*^9, 
+   3.7396367147366514`*^9}, {3.7396367452662425`*^9, 3.739636764017683*^9}, 
+   3.7396367964348984`*^9, {3.7396369681327*^9, 3.7396370284430733`*^9}, 
+   3.739638169399662*^9, {3.7396382045313125`*^9, 3.7396382095389767`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["Assignment 1. Three slash-dot tasks ", "Subsubsection",
+ CellChangeTimes->{{3.5442082290573497`*^9, 3.5442082922063494`*^9}, {
+   3.54420833513935*^9, 3.5442083711443496`*^9}, {3.5451833391985874`*^9, 
+   3.5451833613858056`*^9}, 3.545420681626286*^9, {3.5460104576252832`*^9, 
+   3.5460104588482833`*^9}, {3.5460106502762833`*^9, 3.546010650860283*^9}, {
+   3.5619086537151537`*^9, 3.561908653818164*^9}}],
+
+Cell[TextData[{
+ "(a) Use slash-dot notation to figure out what this complicated expression \
+is equal to when x is 4:  1/(3 (1+x))-(-1 + 2x)/(6 (1-x +x^2))+2/(3(1 + (1/3) \
+(-1 +2 x)^2)).  \n(b) Figure out the expression in terms of y, given x = 2y \
+(and simplify your result)\n(c) Define the following two expressions: ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["y", "1"], "=", 
+    RowBox[{"x", " ", 
+     RowBox[{"sin", "(", "x", ")"}]}]}], TraditionalForm]]],
+ " and ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["y", "2"], "=", 
+    SuperscriptBox["e", "x"]}], TraditionalForm]]],
+ ". When plotted, the two curves intersect in an infinite number of places. \
+Use ",
+ StyleBox["FindRoot ",
+  FontWeight->"Bold"],
+ "to find the intersection that occurs closest to x=0, and use slash-dot to \
+determine what the y-value of the intersection is without doing any copying & \
+pasting of your own."
+}], "Text",
+ CellChangeTimes->{{3.5442082290573497`*^9, 3.5442082922063494`*^9}, {
+  3.54420833513935*^9, 3.5442083711443496`*^9}, {3.5451833391985874`*^9, 
+  3.545183344817149*^9}, {3.546010653325283*^9, 3.546010657483283*^9}, {
+  3.5460107198002834`*^9, 3.5460107382622833`*^9}, {3.5460109000622835`*^9, 
+  3.5460110560592833`*^9}, {3.618863040940423*^9, 3.6188631036546936`*^9}, {
+  3.618863143247653*^9, 3.6188631767209997`*^9}, {3.6192255978819427`*^9, 
+  3.61922559854801*^9}}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[StyleBox["Postfix and Prefix notation", "Section"]], "Text",
+ CellChangeTimes->{{3.7408434670660057`*^9, 3.7408434736306624`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["Postfix notation //", "Subsection",
+ CellChangeTimes->{{3.399174072852*^9, 3.399174093836375*^9}, {
+   3.399761770200031*^9, 3.3997617717619305`*^9}, {3.4057025135379243`*^9, 
+   3.4057025141004314`*^9}, {3.4057213369726944`*^9, 3.405721337535716*^9}, {
+   3.4293831238988943`*^9, 3.429383132649006*^9}, {3.429465487563163*^9, 
+   3.4294654946568675`*^9}, {3.4311840546812043`*^9, 3.431184056384362*^9}, 
+   3.4311874194958076`*^9, {3.431187559607873*^9, 3.4311875599360037`*^9}, {
+   3.544210051912112*^9, 3.5442100823952723`*^9}, {3.7396394679246874`*^9, 
+   3.739639481325774*^9}}],
+
+Cell[TextData[{
+ "In addition to the standard ",
+ StyleBox["g",
+  FontSlant->"Italic"],
+ "[",
+ StyleBox["x",
+  FontSlant->"Italic"],
+ "] form for calling a function, ",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ " provides several different alternate forms for calling functions. One of \
+these is the \[OpenCurlyDoubleQuote]postfix\[CloseCurlyDoubleQuote] form, \
+indicated by two slashes: //.  The following two function calls are \
+equivalent:"
+}], "Text",
+ CellChangeTimes->{{3.4293858573870077`*^9, 3.429386004717018*^9}, {
+  3.429455411190152*^9, 3.429455435908744*^9}, {3.4294643441329813`*^9, 
+  3.429464404773218*^9}, {3.429464475413391*^9, 3.4294644997726097`*^9}, {
+  3.4294666904598026`*^9, 3.429466755804389*^9}, {3.431803967883357*^9, 
+  3.431803977446041*^9}, {3.4332811483522964`*^9, 3.433281151571129*^9}, {
+  3.5442100613059907`*^9, 3.544210061883106*^9}, {3.5442101291429462`*^9, 
+  3.5442101434863806`*^9}, {3.5442101791599474`*^9, 3.544210218137845*^9}, {
+  3.54421037290232*^9, 3.5442103729593253`*^9}, {3.544361713253031*^9, 
+  3.5443617273634415`*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"g", "[", "x", "]"}], "     ", 
+  RowBox[{"(*", " ", 
+   RowBox[{
+   "function", " ", "call", " ", "in", " ", "standard", " ", "notation"}], 
+   " ", "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{"x", "//", "g", "  ", 
+  RowBox[{"(*", " ", 
+   RowBox[{
+   "equivalent", " ", "shorthand", " ", "call", " ", "in", " ", 
+    "\"\<postfix\>\"", " ", "notation"}], " ", "*)"}]}]}], "Input",
+ CellChangeTimes->{{3.3991394562604237`*^9, 3.399139476448053*^9}, {
+  3.4057007725000143`*^9, 3.4057009121111765`*^9}, {3.405700959205529*^9, 
+  3.405700967346258*^9}, {3.4057010095499234`*^9, 3.4057010182219095`*^9}, {
+  3.405783273560341*^9, 3.4057832772326155`*^9}, {3.429455371190408*^9, 
+  3.429455390612159*^9}, {3.4294554425805764`*^9, 3.429455453064884*^9}, {
+  3.42946441224192*^9, 3.4294644180075083`*^9}, {3.429467424969204*^9, 
+  3.429467426391097*^9}, {3.4294674642665825`*^9, 3.4294674690635185`*^9}, {
+  3.544210243099341*^9, 3.5442102435073814`*^9}}],
+
+Cell["\<\
+The postfix notation is a bit like \[OpenCurlyDoubleQuote]Reverse Polish \
+Notation\[CloseCurlyDoubleQuote] (RPN) if you have ever used an older HP \
+calculator or are familiar with the concept of a \[OpenCurlyDoubleQuote]stack\
+\[CloseCurlyDoubleQuote].\
+\>", "Text",
+ CellChangeTimes->{{3.4293860120608625`*^9, 3.4293860748272905`*^9}, {
+   3.4294576062386036`*^9, 3.4294578145653954`*^9}, {3.429457907283552*^9, 
+   3.4294579083772955`*^9}, {3.4294581471570168`*^9, 
+   3.4294581524069834`*^9}, {3.4294584036710005`*^9, 
+   3.4294584045303698`*^9}, {3.4294639946508427`*^9, 3.4294640247444*^9}, 
+   3.42946584976397*^9, {3.429467521845444*^9, 3.429467522798581*^9}, {
+   3.5442102521302433`*^9, 3.54421028519555*^9}, {3.5442117458315988`*^9, 
+   3.544211752872303*^9}, {3.73963958420045*^9, 3.739639585089696*^9}}],
+
+Cell[BoxData[
+ RowBox[{"Log", "[", "2.4", "]"}]], "Input",
+ CellChangeTimes->{{3.544210287757806*^9, 3.5442103025572863`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"2.4", " ", "//", "Log", "  ", 
+  RowBox[{"(*", " ", 
+   RowBox[{"the", " ", "same", " ", 
+    RowBox[{"thing", "!"}]}], " ", "*)"}]}]], "Input",
+ CellChangeTimes->{{3.5442103044544754`*^9, 3.544210315190549*^9}}],
+
+Cell[BoxData[
+ RowBox[{"N", "[", 
+  RowBox[{"Sin", "[", "1", "]"}], "]"}]], "Input",
+ CellChangeTimes->{{3.5442103256235924`*^9, 3.5442103396869984`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Sin", "[", "1", "]"}], " ", "//", "N"}]], "Input",
+ CellChangeTimes->{{3.544210342224252*^9, 3.5442103440944395`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"ArcSin", "[", ".7", "]"}], "  ", "/", "Degree", " "}]], "Input",
+ CellChangeTimes->{{3.5442106822062473`*^9, 3.544210683018328*^9}, {
+  3.5442107318602123`*^9, 3.544210742973323*^9}, {3.5442107939204173`*^9, 
+  3.544210848081833*^9}, {3.5442114189659157`*^9, 3.544211419796999*^9}}],
+
+Cell[TextData[{
+ StyleBox["Things to notice: ",
+  FontWeight->"Bold"],
+ "\n\n1. The second log command can be read: \[OpenCurlyDoubleQuote]Consider \
+the number 2.4.  Now take the log of it.\[CloseCurlyDoubleQuote]\n\n2. The \
+postfix method of forcing a numerical answer ( //N ) is extremely helpful.  \
+Just tack it on to your command line after you realize you want a numerical \
+value.\n\n3. There\[CloseCurlyQuote]s not an easy way of specifying a second \
+argument via postfix form. So if you want sin(1) to 50 decimal places it\
+\[CloseCurlyQuote]s usually best to use something like N[Sin[1],50].\n\n4. \
+The constant \[OpenCurlyDoubleQuote]Degree\[CloseCurlyDoubleQuote] is equal \
+to pi/180, the conversion factor for going from degrees to radians. To go \
+from radians to degrees, you can divide by it. Its slash has nothing to do \
+with postfix form; it\[CloseCurlyQuote]s simple division. But it\
+\[CloseCurlyQuote]s included here because it sort of works to think of it as \
+a \[OpenCurlyDoubleQuote]convert to degrees\[CloseCurlyDoubleQuote] postfix \
+function."
+}], "Text",
+ CellChangeTimes->{{3.4293860120608625`*^9, 3.4293860748272905`*^9}, {
+   3.4294576062386036`*^9, 3.4294578145653954`*^9}, {3.429457907283552*^9, 
+   3.4294579083772955`*^9}, {3.4294581471570168`*^9, 
+   3.4294581524069834`*^9}, {3.4294584036710005`*^9, 
+   3.4294584045303698`*^9}, {3.4294639946508427`*^9, 3.4294640247444*^9}, 
+   3.42946584976397*^9, {3.429467521845444*^9, 3.429467522798581*^9}, {
+   3.5442102521302433`*^9, 3.54421028519555*^9}, {3.544210362678297*^9, 
+   3.544210458760905*^9}, {3.544210852687293*^9, 3.54421096556358*^9}, {
+   3.5442114246754866`*^9, 3.5442114700290213`*^9}, {3.5443617930210066`*^9, 
+   3.5443618529539995`*^9}, {3.5976923055897098`*^9, 3.59769230589374*^9}, {
+   3.739639599957258*^9, 3.739639600362879*^9}, {3.7408435805013485`*^9, 
+   3.7408436423585334`*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Prefix notation @", "Subsection",
+ CellChangeTimes->{{3.399174072852*^9, 3.399174093836375*^9}, {
+   3.399761770200031*^9, 3.3997617717619305`*^9}, {3.4057025135379243`*^9, 
+   3.4057025141004314`*^9}, {3.4057213369726944`*^9, 3.405721337535716*^9}, {
+   3.4293831238988943`*^9, 3.429383132649006*^9}, {3.429465487563163*^9, 
+   3.4294654946568675`*^9}, {3.4311840546812043`*^9, 3.431184056384362*^9}, 
+   3.4311874194958076`*^9, {3.431187559607873*^9, 3.4311875599360037`*^9}, {
+   3.544210051912112*^9, 3.5442100914521775`*^9}, {3.7396396322041116`*^9, 
+   3.7396396352618685`*^9}}],
+
+Cell["\<\
+Another alternate way of calling a function is the \
+\[OpenCurlyDoubleQuote]prefix\[CloseCurlyDoubleQuote] form, indicated by an \
+at sign: @.  The following two function calls are equivalent:\
+\>", "Text",
+ CellChangeTimes->{{3.4293858573870077`*^9, 3.429386004717018*^9}, {
+   3.429455411190152*^9, 3.429455435908744*^9}, {3.4294643441329813`*^9, 
+   3.429464404773218*^9}, {3.429464475413391*^9, 3.4294644997726097`*^9}, {
+   3.4294666904598026`*^9, 3.429466755804389*^9}, {3.431803967883357*^9, 
+   3.431803977446041*^9}, {3.4332811483522964`*^9, 3.433281151571129*^9}, {
+   3.5442100613059907`*^9, 3.544210061883106*^9}, {3.5442101291429462`*^9, 
+   3.5442101434863806`*^9}, {3.5442101791599474`*^9, 3.544210218137845*^9}, {
+   3.54421037290232*^9, 3.5442103729593253`*^9}, {3.5442117620722227`*^9, 
+   3.5442117969697123`*^9}, 3.5442118778608007`*^9}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"g", "[", "x", "]"}], "     ", 
+  RowBox[{"(*", " ", 
+   RowBox[{
+   "function", " ", "call", " ", "in", " ", "standard", " ", "notation"}], 
+   " ", "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{"g", "@", "x", "      ", 
+  RowBox[{"(*", " ", 
+   RowBox[{
+   "equivalent", " ", "shorthand", " ", "call", " ", "in", " ", 
+    "\"\<prefix\>\"", " ", "notation"}], " ", "*)"}]}]}], "Input",
+ CellChangeTimes->{{3.3991394562604237`*^9, 3.399139476448053*^9}, {
+   3.4057007725000143`*^9, 3.4057009121111765`*^9}, {3.405700959205529*^9, 
+   3.405700967346258*^9}, {3.4057010095499234`*^9, 3.4057010182219095`*^9}, {
+   3.405783273560341*^9, 3.4057832772326155`*^9}, {3.429455371190408*^9, 
+   3.429455390612159*^9}, {3.4294554425805764`*^9, 3.429455453064884*^9}, {
+   3.42946441224192*^9, 3.4294644180075083`*^9}, {3.429467424969204*^9, 
+   3.429467426391097*^9}, {3.4294674642665825`*^9, 3.4294674690635185`*^9}, {
+   3.544210243099341*^9, 3.5442102435073814`*^9}, {3.5442118049635115`*^9, 
+   3.5442118140764227`*^9}, 3.7392101426134977`*^9}],
+
+Cell["The expression \"g@x\" can be read as \"g evaluated at x\"", "Text",
+ CellChangeTimes->{{3.5442118851215267`*^9, 3.5442119043724513`*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"g", "[", "x_", "]"}], "=", 
+   RowBox[{"Sqrt", "[", 
+    RowBox[{"x", "/", "3"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"g", "[", "13", "]"}], "\[IndentingNewLine]", 
+ RowBox[{"g", "@", "13"}]}], "Input",
+ CellChangeTimes->{{3.5442118168156967`*^9, 3.5442118560376186`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["Assignment 2. Postfix and prefix calculations", "Subsubsection",
+ CellChangeTimes->{{3.5442110934993725`*^9, 3.5442111517221937`*^9}, {
+  3.544211497110729*^9, 3.544211534111429*^9}, {3.5451833898386507`*^9, 
+  3.545183446055272*^9}, {3.5555040892653985`*^9, 3.5555040946063986`*^9}, {
+  3.5619088281925993`*^9, 3.5619088284336233`*^9}}],
+
+Cell["\<\
+(a) Calculate the numerical value of log(sin(sqrt(exp(7.3)))) using standard \
+commands.
+(b) Repeat, using only postfix commands.
+(c) Repeat, using prefix form\
+\>", "Text",
+ CellChangeTimes->{{3.5442110934993725`*^9, 3.5442111517221937`*^9}, {
+   3.544211497110729*^9, 3.544211534111429*^9}, {3.5451833898386507`*^9, 
+   3.545183446055272*^9}, {3.5555040978533983`*^9, 3.5555041114533987`*^9}, {
+   3.5619035721410465`*^9, 3.561903621807013*^9}, {3.5619036969935308`*^9, 
+   3.561903697297561*^9}, 3.7392102222993193`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+Assignment 3. Using FindRoot to solve a transcendental equation... and using \
+the result\
+\>", "Subsubsection",
+ CellChangeTimes->{{3.399650526221054*^9, 3.3996507164193864`*^9}, {
+   3.4056967183924837`*^9, 3.4056968017019353`*^9}, {3.4056970660346003`*^9, 
+   3.4056972840459847`*^9}, {3.405782774240396*^9, 3.405782784507138*^9}, {
+   3.406055135081481*^9, 3.406055194881035*^9}, {3.4274826731404963`*^9, 
+   3.4274833530354724`*^9}, {3.427483388066947*^9, 3.4274836556311593`*^9}, {
+   3.4274837607099566`*^9, 3.4274837953976784`*^9}, {3.427483886695138*^9, 
+   3.4274838886795254`*^9}, {3.427483938882972*^9, 3.4274839502892947`*^9}, {
+   3.427488727710495*^9, 3.4274887293198805`*^9}, {3.427488858320706*^9, 
+   3.4274892221511593`*^9}, {3.4274893479332147`*^9, 
+   3.4274893484019675`*^9}, {3.439660264388818*^9, 3.43966029993592*^9}, {
+   3.4396607132666903`*^9, 3.4396607150479517`*^9}, {3.439660745610647*^9, 
+   3.439660752454441*^9}, {3.5440323987226896`*^9, 3.5440325130316896`*^9}, 
+   3.54403256308669*^9, {3.5440330373936896`*^9, 3.5440330386066895`*^9}, {
+   3.5440332255686893`*^9, 3.5440332847676897`*^9}, {3.5440335064276896`*^9, 
+   3.5440335218286896`*^9}, {3.5440346307866898`*^9, 
+   3.5440346781086893`*^9}, {3.5440347163806896`*^9, 
+   3.5440348770306897`*^9}, {3.5440355896986895`*^9, 3.54403560284369*^9}, {
+   3.5440356858626895`*^9, 3.5440356885796895`*^9}, {3.54403572393769*^9, 
+   3.54403584812669*^9}, {3.5440363464066896`*^9, 3.5440364846496897`*^9}, 
+   3.5440370966556897`*^9, {3.5440373067546897`*^9, 3.5440373130596895`*^9}, {
+   3.5440379422706895`*^9, 3.5440380255826893`*^9}, {3.5440380738296895`*^9, 
+   3.5440380900756893`*^9}, {3.5440382742506895`*^9, 
+   3.5440383302936897`*^9}, {3.5440385035946894`*^9, 3.54403850548969*^9}, {
+   3.5440385937346897`*^9, 3.5440389560096893`*^9}, {3.5440389877826896`*^9, 
+   3.5440390170796895`*^9}, {3.5440390917786894`*^9, 
+   3.5440392212026896`*^9}, {3.5440392996186895`*^9, 
+   3.5440393669956894`*^9}, {3.5440399888426895`*^9, 
+   3.5440400337666893`*^9}, {3.5440400951706896`*^9, 
+   3.5440401666356897`*^9}, {3.5440402058146896`*^9, 
+   3.5440405245826893`*^9}, {3.5440405550786896`*^9, 
+   3.5440405849196897`*^9}, {3.5440406513876896`*^9, 3.5440407745336895`*^9}, 
+   3.54404372737169*^9, {3.5440438889466896`*^9, 3.5440438991206894`*^9}, {
+   3.54404414915469*^9, 3.5440444668016896`*^9}, {3.5440545728096895`*^9, 
+   3.54405457562169*^9}, {3.5440556811206894`*^9, 3.5440557605466895`*^9}, {
+   3.5442084139663496`*^9, 3.54420842883735*^9}, {3.5443699396735907`*^9, 
+   3.5443700008507075`*^9}, {3.544370034260048*^9, 3.544370226780298*^9}, {
+   3.544370306758295*^9, 3.5443703698236012`*^9}, {3.5443704044330616`*^9, 
+   3.5443704090515237`*^9}, {3.544370479795597*^9, 3.5443704819728146`*^9}, {
+   3.544371707584364*^9, 3.544371707696375*^9}, {3.5443717820688114`*^9, 
+   3.544371790170622*^9}, {3.544371850121616*^9, 3.544371905239127*^9}, {
+   3.5443719664172444`*^9, 3.544371969297532*^9}, {3.544372519413539*^9, 
+   3.5443725194845457`*^9}, {3.544374210331873*^9, 3.5443742388328733`*^9}, {
+   3.544633138163286*^9, 3.544633151023286*^9}, {3.5451842230399623`*^9, 
+   3.5451842562962875`*^9}, {3.545184291759834*^9, 3.5451842996586237`*^9}, {
+   3.561908631322914*^9, 3.5619086480185843`*^9}, 3.7396401694100685`*^9}],
+
+Cell[TextData[{
+ "Let x0 represent the value of x for which ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"x", " ", "=", " ", 
+    SuperscriptBox["e", 
+     RowBox[{"-", "x"}]]}], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ ". This is a transcendental equation, an equation that has no closed-form \
+solution (i.e. you can\[CloseCurlyQuote]t write an equation for x).  \
+Determine x0 with ",
+ StyleBox["FindRoot",
+  FontWeight->"Bold"],
+ ", and then calculate sin(x0) using slash-dot (and no copy-and-paste). Hint: \
+when solving transcendental equations it's always good to start with a graph \
+of the functions that represent the left and right hand sides of the \
+equation, to give you a rough idea of the answer. The solution x0 is where \
+the functions intersect, because that\[CloseCurlyQuote]s the place where the \
+left and right hand sides of the equation equal each other."
+}], "Text",
+ CellChangeTimes->{{3.399650526221054*^9, 3.3996507164193864`*^9}, {
+   3.4056967183924837`*^9, 3.4056968017019353`*^9}, {3.4056970660346003`*^9, 
+   3.4056972840459847`*^9}, {3.405782774240396*^9, 3.405782784507138*^9}, {
+   3.406055135081481*^9, 3.406055194881035*^9}, {3.4274826731404963`*^9, 
+   3.4274833530354724`*^9}, {3.427483388066947*^9, 3.4274836556311593`*^9}, {
+   3.4274837607099566`*^9, 3.4274837953976784`*^9}, {3.427483886695138*^9, 
+   3.4274838886795254`*^9}, {3.427483938882972*^9, 3.4274839502892947`*^9}, {
+   3.427488727710495*^9, 3.4274887293198805`*^9}, {3.427488858320706*^9, 
+   3.4274892221511593`*^9}, {3.4274893479332147`*^9, 
+   3.4274893484019675`*^9}, {3.439660264388818*^9, 3.43966029993592*^9}, {
+   3.4396607132666903`*^9, 3.4396607150479517`*^9}, {3.439660745610647*^9, 
+   3.439660752454441*^9}, {3.5440323987226896`*^9, 3.5440325130316896`*^9}, 
+   3.54403256308669*^9, {3.5440330373936896`*^9, 3.5440330386066895`*^9}, {
+   3.5440332255686893`*^9, 3.5440332847676897`*^9}, {3.5440335064276896`*^9, 
+   3.5440335218286896`*^9}, {3.5440346307866898`*^9, 
+   3.5440346781086893`*^9}, {3.5440347163806896`*^9, 
+   3.5440348770306897`*^9}, {3.5440355896986895`*^9, 3.54403560284369*^9}, {
+   3.5440356858626895`*^9, 3.5440356885796895`*^9}, {3.54403572393769*^9, 
+   3.54403584812669*^9}, {3.5440363464066896`*^9, 3.5440364846496897`*^9}, 
+   3.5440370966556897`*^9, {3.5440373067546897`*^9, 3.5440373130596895`*^9}, {
+   3.5440379422706895`*^9, 3.5440380255826893`*^9}, {3.5440380738296895`*^9, 
+   3.5440380900756893`*^9}, {3.5440382742506895`*^9, 
+   3.5440383302936897`*^9}, {3.5440385035946894`*^9, 3.54403850548969*^9}, {
+   3.5440385937346897`*^9, 3.5440389560096893`*^9}, {3.5440389877826896`*^9, 
+   3.5440390170796895`*^9}, {3.5440390917786894`*^9, 
+   3.5440392212026896`*^9}, {3.5440392996186895`*^9, 
+   3.5440393669956894`*^9}, {3.5440399888426895`*^9, 
+   3.5440400337666893`*^9}, {3.5440400951706896`*^9, 
+   3.5440401666356897`*^9}, {3.5440402058146896`*^9, 
+   3.5440405245826893`*^9}, {3.5440405550786896`*^9, 
+   3.5440405849196897`*^9}, {3.5440406513876896`*^9, 3.5440407745336895`*^9}, 
+   3.54404372737169*^9, {3.5440438889466896`*^9, 3.5440438991206894`*^9}, {
+   3.54404414915469*^9, 3.5440444668016896`*^9}, {3.5440545728096895`*^9, 
+   3.54405457562169*^9}, {3.5440556811206894`*^9, 3.5440557605466895`*^9}, {
+   3.5442084139663496`*^9, 3.54420842883735*^9}, {3.5443699396735907`*^9, 
+   3.5443700008507075`*^9}, {3.544370034260048*^9, 3.544370226780298*^9}, {
+   3.544370306758295*^9, 3.5443703698236012`*^9}, {3.5443704044330616`*^9, 
+   3.5443704090515237`*^9}, {3.544370479795597*^9, 3.5443704819728146`*^9}, {
+   3.544371707584364*^9, 3.544371707696375*^9}, {3.5443717820688114`*^9, 
+   3.544371790170622*^9}, {3.544371850121616*^9, 3.544371905239127*^9}, {
+   3.5443719664172444`*^9, 3.544371969297532*^9}, {3.544372519413539*^9, 
+   3.5443725194845457`*^9}, {3.544374210331873*^9, 3.5443742388328733`*^9}, {
+   3.544633138163286*^9, 3.544633151023286*^9}, {3.5451842230399623`*^9, 
+   3.5451842240130596`*^9}, {3.545184262339892*^9, 3.5451842644961076`*^9}, {
+   3.5619088729870787`*^9, 3.561908877074487*^9}, {3.561986147791765*^9, 
+   3.5619861497027655`*^9}, {3.630083248811577*^9, 3.6300834744925766`*^9}, {
+   3.7408437357718735`*^9, 3.7408437663179283`*^9}, {3.7408438133876343`*^9, 
+   3.740843894138709*^9}}]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[StyleBox["Plotting Derivatives", "Section"]], "Text",
+ CellChangeTimes->{{3.7407623772923174`*^9, 3.7407623777915173`*^9}, 
+   3.7407627020482025`*^9, {3.740762754262306*^9, 3.7407627563995476`*^9}, {
+   3.740844332947585*^9, 3.7408443344157324`*^9}}],
+
+Cell["To take a derivative, use the D command:", "Text",
+ CellChangeTimes->{{3.740763727259018*^9, 3.740763737446014*^9}}],
+
+Cell[BoxData[
+ RowBox[{"D", "[", 
+  RowBox[{
+   RowBox[{"Sin", "[", "x", "]"}], ",", "x"}], "]"}]], "Input",
+ CellChangeTimes->{{3.740763742640914*^9, 3.7407637484754257`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"D", "[", 
+  RowBox[{
+   RowBox[{"Sin", "[", "x", "]"}], ",", "x", ",", "x"}], "]"}]], "Input",
+ CellChangeTimes->{{3.740763772156681*^9, 3.7407637804248405`*^9}}],
+
+Cell[TextData[{
+ "Take a moment to look over the Help file on this command (cursor on the D, \
+click F1)\n\n",
+ StyleBox["Something to be aware of",
+  FontWeight->"Bold"],
+ ":  Plot can handle so many different things that you may be tempted to plot \
+a derivative like this:"
+}], "Text",
+ CellChangeTimes->{{3.7407638203772087`*^9, 3.740763941748543*^9}, {
+   3.740764050607436*^9, 3.740764088423564*^9}, 3.7407641263488927`*^9}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"f", "[", "x_", "]"}], "=", 
+   RowBox[{"1", "/", 
+    RowBox[{
+     RowBox[{"Sin", "[", "x", "]"}], "^", "2"}]}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"diff", "=", 
+   RowBox[{"D", "[", 
+    RowBox[{
+     RowBox[{"f", "[", "x", "]"}], ",", "x"}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Plot", "[", 
+  RowBox[{
+   RowBox[{"D", "[", 
+    RowBox[{
+     RowBox[{"f", "[", "x", "]"}], ",", "x"}], "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"x", ",", 
+     RowBox[{"-", "2"}], ",", "2"}], "}"}]}], "]"}]}], "Input",
+ CellChangeTimes->{
+  3.7407641109503965`*^9, {3.7407645830854807`*^9, 3.7407645843022957`*^9}}],
+
+Cell[TextData[{
+ "The problem is that the Plot command works by calculating (x,y) points, \
+then drawing lines between them.  And here it first calculates a numerical \
+value for f[x], THEN tries to take the derivative - which makes no sense.\n\n \
+To plot a derivative, calculate the derivative ",
+ StyleBox["first",
+  FontSlant->"Italic"],
+ ", outside the Plot command."
+}], "Text",
+ CellChangeTimes->{{3.7407641443199778`*^9, 3.740764172945794*^9}, {
+  3.7407642601648355`*^9, 3.7407643314563785`*^9}, {3.7407644657095757`*^9, 
+  3.740764545535799*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"f", "[", "x_", "]"}], "=", 
+   RowBox[{"1", "/", 
+    RowBox[{
+     RowBox[{"Sin", "[", "x", "]"}], "^", "2"}]}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"diff", "=", 
+   RowBox[{"D", "[", 
+    RowBox[{
+     RowBox[{"f", "[", "x", "]"}], ",", "x"}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Plot", "[", 
+  RowBox[{"diff", ",", 
+   RowBox[{"{", 
+    RowBox[{"x", ",", 
+     RowBox[{"-", "2"}], ",", "2"}], "}"}]}], "]"}]}], "Input",
+ CellChangeTimes->{{3.7407638113134346`*^9, 3.7407638114694376`*^9}, {
+  3.7407639555236073`*^9, 3.740764025225748*^9}, {3.740764585690714*^9, 
+  3.7407645864863243`*^9}}],
+
+Cell[TextData[StyleBox["Assignment 4: Derivatives", "Subsection"]], "Text",
+ CellChangeTimes->{{3.740764713847357*^9, 3.740764719385428*^9}, {
+  3.7473190921858253`*^9, 3.747319092415802*^9}}],
+
+Cell[TextData[{
+ "For each of the following, use a ",
+ StyleBox["single ",
+  FontVariations->{"Underline"->True}],
+ StyleBox["D",
+  FontWeight->"Bold",
+  FontVariations->{"Underline"->True}],
+ StyleBox[" command",
+  FontVariations->{"Underline"->True}],
+ ":\n(a) Find the decimal value of the second derivative of f(x) = ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"1", "/", 
+    SqrtBox[
+     RowBox[{
+      SuperscriptBox["x", "2"], "+", "2"}]]}], TraditionalForm]]],
+ ", evaluated at x = 2.\n\n(b) Plot ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["P", "3"], "(", "x", ")"}], TraditionalForm]]],
+ " along with its first derivative, from 0 to 20. Plot the ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["P", "3"], TraditionalForm]]],
+ " function in blue and the derivative in red.",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{" ", 
+    RowBox[{
+     SubscriptBox["P", "n"], "(", "x", ")"}]}], TraditionalForm]]],
+ " is the \[OpenCurlyDoubleQuote]nth Legendre polynomial,\
+\[CloseCurlyDoubleQuote] where Legendre polynomials are special functions \
+which crop up in the solutions to the Schrodinger equation in 3 dimensions.  \
+These are built-in functions within Mathematica (see ",
+ StyleBox["LegendreP",
+  FontWeight->"Bold"],
+ " in help files). \n\n(c) Plot ",
+ Cell[BoxData[
+  FormBox[
+   SqrtBox[
+    RowBox[{"1", "+", 
+     SuperscriptBox["x", "2"]}]], TraditionalForm]]],
+ " along with ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    FractionBox[
+     SuperscriptBox["d", "3"], 
+     SuperscriptBox["dx", "3"]], 
+    SqrtBox[
+     RowBox[{"1", "+", 
+      SuperscriptBox["x", "2"]}]]}], TraditionalForm]]],
+ " , from -4 to 4. Plot the function in blue and the derivative in orange. \
+Use either the option PlotLegends \[Rule] \[OpenCurlyDoubleQuote]Expressions\
+\[CloseCurlyDoubleQuote] or PlotLabels \[Rule] \
+\[OpenCurlyDoubleQuote]Expressions\[CloseCurlyDoubleQuote] to identify each \
+plot.\n\n(d) Plot3D ",
+ Cell[BoxData[
+  FormBox[
+   FractionBox[
+    RowBox[{
+     SuperscriptBox["sin", "2"], "(", 
+     RowBox[{"x", "+", "y"}], ")"}], 
+    RowBox[{"x", "+", "y"}]], TraditionalForm]]],
+ " along with ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    FractionBox["\[PartialD]", 
+     RowBox[{"\[PartialD]", "y"}]], 
+    RowBox[{"(", 
+     RowBox[{
+      FractionBox["\[PartialD]", 
+       RowBox[{"\[PartialD]", "x"}]], 
+      FractionBox[
+       RowBox[{
+        SuperscriptBox["sin", "2"], "(", 
+        RowBox[{"x", "+", "y"}], ")"}], 
+       RowBox[{"x", "+", "y"}]]}], ")"}]}], TraditionalForm]]],
+ " (or equivalently  ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    FractionBox[
+     SuperscriptBox["\[PartialD]", "2"], 
+     RowBox[{
+      RowBox[{"\[PartialD]", "x"}], 
+      RowBox[{"\[PartialD]", "y"}]}]], 
+    FractionBox[
+     RowBox[{
+      SuperscriptBox["sin", "2"], "(", 
+      RowBox[{"x", "+", "y"}], ")"}], 
+     RowBox[{"x", "+", "y"}]]}], TraditionalForm]]],
+ ", from -\[Pi] to \[Pi] on both the x- and the y-axes. Plot the function in \
+blue and the derivative in orange. "
+}], "Text",
+ CellChangeTimes->{{3.740764742489324*^9, 3.740764812831626*^9}, {
+   3.7407648632524724`*^9, 3.740764873267801*^9}, {3.74076492389045*^9, 
+   3.740764926620485*^9}, {3.7407650989250593`*^9, 3.7407653528999434`*^9}, {
+   3.7407653902320633`*^9, 3.7407653902320633`*^9}, {3.7407656584140215`*^9, 
+   3.7407656584296217`*^9}, {3.740765860936318*^9, 3.7407658609675183`*^9}, {
+   3.740765928762224*^9, 3.7407659406496525`*^9}, 3.740765979200994*^9, {
+   3.740766136093211*^9, 3.740766163894946*^9}, {3.7407665066365376`*^9, 
+   3.7407666014405603`*^9}, {3.740766715744959*^9, 3.7407667640278873`*^9}, {
+   3.7407670468217273`*^9, 3.740767090846774*^9}, {3.740767142436966*^9, 
+   3.7407672071158094`*^9}, 3.7473213253522243`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[StyleBox["Simplifying expressions / writing them in different \
+forms.", "Section"]], "Text",
+ CellChangeTimes->{{3.7408387618305063`*^9, 3.7408387714234653`*^9}, {
+   3.7408388669100127`*^9, 3.7408388712134433`*^9}, {3.740838936780999*^9, 
+   3.74083894918824*^9}, {3.7408412876520863`*^9, 3.740841306249946*^9}, 
+   3.7408413590132217`*^9, {3.740841980671381*^9, 3.7408419911664305`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"Clear", "[", "\"\<'*\>\"", "]"}]], "Input",
+ CellChangeTimes->{3.7408413665549755`*^9}],
+
+Cell[TextData[{
+ StyleBox["Simplify",
+  FontWeight->"Bold"],
+ " is a powerful command you will use a lot.  In the Wavefunctions worksheet \
+you'll get some practice using it with ",
+ StyleBox["assumptions",
+  FontSlant->"Italic"]
+}], "Text",
+ CellChangeTimes->{{3.7408387618305063`*^9, 3.7408387714234653`*^9}, {
+  3.7408388669100127`*^9, 3.7408388712134433`*^9}, {3.740838936780999*^9, 
+  3.74083894918824*^9}, {3.7408412876520863`*^9, 3.740841306249946*^9}, {
+  3.7408413590132217`*^9, 3.740841374026723*^9}, {3.7409362174552593`*^9, 
+  3.7409362206075745`*^9}, {3.7409364838427687`*^9, 3.7409364870287685`*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"Cos", "[", "x", "]"}], "^", "2"}], "+", 
+  RowBox[{
+   RowBox[{"Sin", "[", "x", "]"}], "^", "2"}]}], "\[IndentingNewLine]", 
+ RowBox[{"Simplify", "[", "%", "]"}]}], "Input",
+ CellChangeTimes->{{3.740838857940116*^9, 3.740838862933615*^9}}],
+
+Cell[TextData[{
+ "Use ",
+ StyleBox["Expand",
+  FontWeight->"Bold"],
+ " to expand an expression.  If Simplify doesn\[CloseCurlyQuote]t get you \
+what you want, try Expanding first, then Simplify"
+}], "Text",
+ CellChangeTimes->{{3.7408365994763536`*^9, 3.7408366065744443`*^9}, {
+  3.7408390619575157`*^9, 3.7408390987051897`*^9}, {3.7408391509574146`*^9, 
+  3.740839160393358*^9}}],
+
+Cell[BoxData[
+ RowBox[{"Expand", "[", 
+  RowBox[{
+   RowBox[{"(", 
+    RowBox[{"x", "-", 
+     RowBox[{"2", " ", "y"}]}], ")"}], "^", "4"}], "]"}]], "Input",
+ CellChangeTimes->{{3.740834774711935*^9, 3.740834782901935*^9}, {
+  3.7408348483549347`*^9, 3.740834863126935*^9}, {3.7408389704493656`*^9, 
+  3.7408389822105417`*^9}}],
+
+Cell[BoxData[{
+ RowBox[{"Expand", "[", 
+  RowBox[{"Cos", "[", 
+   RowBox[{"A", "+", "B"}], "]"}], "]"}], "\[IndentingNewLine]", 
+ RowBox[{"Expand", "[", 
+  RowBox[{
+   RowBox[{"Cos", "[", 
+    RowBox[{"A", "+", "B"}], "]"}], ",", 
+   RowBox[{"Trig", "\[Rule]", "True"}]}], "]"}]}], "Input",
+ CellChangeTimes->{{3.740835397588347*^9, 3.7408354023728256`*^9}, {
+  3.7408389089272137`*^9, 3.740838912717593*^9}}],
+
+Cell["Expand just expands, it doesn\[CloseCurlyQuote]t simplify:", "Text",
+ CellChangeTimes->{{3.740836281335867*^9, 3.740836296639761*^9}, {
+  3.740836616418171*^9, 3.7408366226426506`*^9}}],
+
+Cell[BoxData[{
+ RowBox[{"expr", "=", 
+  RowBox[{
+   RowBox[{"(", 
+    RowBox[{
+     RowBox[{"9", " ", 
+      RowBox[{"x", "^", "2"}]}], "-", 
+     RowBox[{"y", "^", "2"}]}], ")"}], "/", 
+   RowBox[{"(", 
+    RowBox[{
+     RowBox[{"3", "x"}], " ", "+", " ", "y"}], 
+    ")"}]}]}], "\[IndentingNewLine]", 
+ RowBox[{"Expand", "[", "expr", "]"}], "\[IndentingNewLine]", 
+ RowBox[{"Simplify", "[", "expr", "]"}]}], "Input",
+ CellChangeTimes->{{3.7408356591485004`*^9, 3.740835697119297*^9}, {
+  3.740835739172502*^9, 3.740835745635148*^9}, {3.740836221423644*^9, 
+  3.740836241064491*^9}, {3.74083644582543*^9, 3.740836466464627*^9}, {
+  3.7408387255598793`*^9, 3.7408387318685102`*^9}, {3.7473219021188946`*^9, 
+  3.7473219254572287`*^9}}],
+
+Cell[TextData[{
+ "Expand works only at the \[OpenCurlyDoubleQuote]top level\
+\[CloseCurlyDoubleQuote] of expressions, and doesn\[CloseCurlyQuote]t expand \
+sub-expressions.  Use ",
+ StyleBox["ExpandAll",
+  FontWeight->"Bold"],
+ " for that"
+}], "Text",
+ CellChangeTimes->{{3.7408363371225395`*^9, 3.7408363635806484`*^9}, 
+   3.7408387005903826`*^9, {3.7408406873940663`*^9, 3.7408406904383707`*^9}}],
+
+Cell[BoxData[{
+ RowBox[{"expr2", "=", 
+  RowBox[{"Sqrt", "[", 
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{"1", "-", "x"}], ")"}], "^", "2"}], 
+   "]"}]}], "\[IndentingNewLine]", 
+ RowBox[{"Expand", "[", "expr2", "]"}], "\[IndentingNewLine]", 
+ RowBox[{"ExpandAll", "[", "expr2", "]"}]}], "Input",
+ CellChangeTimes->{
+  3.7408361514810505`*^9, {3.74083639122438*^9, 3.7408363915207853`*^9}, {
+   3.7408364820961275`*^9, 3.7408364996620655`*^9}}],
+
+Cell[TextData[{
+ "Use ",
+ StyleBox["Together",
+  FontWeight->"Bold"],
+ " to group terms over one common denominator.  ",
+ StyleBox["Apart",
+  FontWeight->"Bold"],
+ " separates an expression into terms with simple denominators.  ",
+ StyleBox["Factor",
+  FontWeight->"Bold"],
+ " factors the terms"
+}], "Text",
+ CellChangeTimes->{{3.7408366856830587`*^9, 3.740836697898015*^9}, {
+  3.7408367354476967`*^9, 3.7408367516563044`*^9}, {3.7408367976330943`*^9, 
+  3.7408368305651164`*^9}}],
+
+Cell[BoxData[{
+ RowBox[{"expr", "=", 
+  RowBox[{
+   RowBox[{"1", "/", 
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{"x", "-", "a"}], ")"}], "^", "2"}]}], "+", 
+   RowBox[{"1", "/", 
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{"x", "+", "a"}], ")"}], "^", "2"}]}]}]}], "\[IndentingNewLine]", 
+ RowBox[{"Together", "[", "expr", "]"}], "\[IndentingNewLine]", 
+ RowBox[{"Apart", "[", "%", "]"}]}], "Input",
+ CellChangeTimes->{{3.740836972361335*^9, 3.7408369865263166`*^9}, 
+   3.740841160603383*^9, {3.7408412116634884`*^9, 3.7408412120075226`*^9}, {
+   3.74084143890521*^9, 3.74084146940626*^9}, {3.747325230885757*^9, 
+   3.747325249556624*^9}}],
+
+Cell[BoxData[{
+ RowBox[{"expr", "=", 
+  RowBox[{
+   RowBox[{"-", "1"}], "+", "x", "-", 
+   RowBox[{"x", "^", "2"}], "+", 
+   RowBox[{"x", "^", "3"}]}]}], "\[IndentingNewLine]", 
+ RowBox[{"Factor", "[", "%", "]"}]}], "Input",
+ CellChangeTimes->{{3.7408408812244473`*^9, 3.7408411289792204`*^9}}],
+
+Cell[TextData[{
+ "There is a deep connection between trigonometric functions of real \
+variables and complex exponential functions and between hyperbolic \
+trigonometric functions and exponential functions of a real variable.  In \
+this course you will find yourself switching back and forth between these \
+representations.  ",
+ StyleBox["TrigToExp",
+  FontWeight->"Bold"],
+ " converts a trig expression into an exponential expression"
+}], "Text",
+ CellChangeTimes->{{3.740838401484475*^9, 3.740838431400466*^9}, {
+  3.7473231902507043`*^9, 3.747323374404118*^9}, {3.7473275226279173`*^9, 
+  3.7473275257682314`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"TrigToExp", "[", 
+  RowBox[{"Tan", "[", "x", "]"}], "]"}]], "Input",
+ CellChangeTimes->{{3.747323382932971*^9, 3.7473233954772253`*^9}, {
+  3.747323566557331*^9, 3.7473235892455997`*^9}}],
+
+Cell[TextData[{
+ StyleBox["ExpToTrig",
+  FontWeight->"Bold"],
+ " converts an exponential into a trig or hyperbolic trig expression, and \
+evaluates the trig terms if possible"
+}], "Text",
+ CellChangeTimes->{{3.740838119316261*^9, 3.740838204359764*^9}, {
+  3.7408383182091484`*^9, 3.740838322009528*^9}}],
+
+Cell[BoxData[{
+ RowBox[{"ExpToTrig", "[", 
+  RowBox[{"Exp", "[", 
+   RowBox[{"I", " ", 
+    RowBox[{"Pi", "/", "3"}]}], "]"}], "]"}], "\[IndentingNewLine]", 
+ RowBox[{"ExpToTrig", "[", 
+  RowBox[{"Exp", "[", 
+   RowBox[{"Pi", "/", "3"}], "]"}], "]"}]}], "Input",
+ CellChangeTimes->{{3.7408380443437643`*^9, 3.7408380445417843`*^9}, {
+   3.740838086945024*^9, 3.740838087163046*^9}, {3.7408382123285613`*^9, 
+   3.740838244643792*^9}, {3.7408382840077286`*^9, 3.740838287409068*^9}, {
+   3.7408384506763935`*^9, 3.7408384837306986`*^9}, 3.7408418979851136`*^9, 
+   3.74732373766044*^9}],
+
+Cell[TextData[{
+ StyleBox["ComplexExpand",
+  FontWeight->"Bold"],
+ ": At times you may have a complicated algebraic expression that you need to \
+separate into real and imaginary parts. If you had numbers, it would be no \
+problem--you could just use the Re and Im commands. "
+}], "Text",
+ CellChangeTimes->{{3.4330821012263308`*^9, 3.433082151932662*^9}, {
+  3.4330831577247677`*^9, 3.433083338935546*^9}, {3.433083783285644*^9, 
+  3.433083862990687*^9}, {3.433091048558035*^9, 3.4330910574366093`*^9}, {
+  3.5449788361623025`*^9, 3.544978929901675*^9}, {3.5449789914238267`*^9, 
+  3.544979090786762*^9}, {3.5449792455052323`*^9, 3.54497931289097*^9}, {
+  3.5455933809243407`*^9, 3.5455934016504135`*^9}, {3.600448916412978*^9, 
+  3.600448923507978*^9}, {3.7473239916628375`*^9, 3.7473239957012415`*^9}}],
+
+Cell[BoxData[{
+ RowBox[{"complicatedz", " ", "=", " ", 
+  RowBox[{
+   RowBox[{"(", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{"3", " ", "+", " ", 
+        RowBox[{"4", " ", "I"}]}], ")"}], "/", 
+      RowBox[{"(", 
+       RowBox[{"2", " ", "-", " ", 
+        RowBox[{"5", " ", "I"}]}], ")"}]}], " ", "+", " ", 
+     RowBox[{"(", 
+      RowBox[{"1", " ", "+", " ", 
+       RowBox[{"3", " ", "I"}]}], ")"}]}], ")"}], "/", 
+   RowBox[{"(", 
+    RowBox[{"2", " ", "+", " ", 
+     RowBox[{"2", " ", "I"}]}], ")"}]}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Re", "[", "%", "]"}], " ", "//", "N"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Im", "[", "%%", "]"}], " ", "//", "N"}]}], "Input",
+ CellChangeTimes->{{3.5449793191665983`*^9, 3.5449794002987103`*^9}, {
+   3.5449875262142205`*^9, 3.544987536991298*^9}, 3.608300484938727*^9}],
+
+Cell["\<\
+But look what happens when you try to use Re and Im with an algebraic \
+expression containing unknowns:\
+\>", "Text",
+ CellChangeTimes->{{3.5455933835726056`*^9, 3.545593389378186*^9}, {
+  3.600448934027978*^9, 3.600448937322978*^9}, {3.634922802770109*^9, 
+  3.634922803648197*^9}}],
+
+Cell[BoxData[{
+ RowBox[{"complicatedz", "=", " ", 
+  RowBox[{
+   RowBox[{"(", 
+    RowBox[{"a", " ", "+", " ", 
+     RowBox[{"b", " ", "I"}]}], ")"}], "/", 
+   RowBox[{"(", 
+    RowBox[{"c", " ", "-", " ", 
+     RowBox[{"d", " ", "I"}]}], ")"}]}]}], "\[IndentingNewLine]", 
+ RowBox[{"Re", "[", "%", "]"}], "\[IndentingNewLine]", 
+ RowBox[{"Im", "[", "%%", "]"}]}], "Input",
+ CellChangeTimes->{{3.5449793887065516`*^9, 3.544979451823862*^9}, {
+  3.544987542968896*^9, 3.544987548755474*^9}, {3.747324079924663*^9, 
+  3.747324107279398*^9}}],
+
+Cell[TextData[{
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ " doesn\[CloseCurlyQuote]t know what to do, because it doesn\
+\[CloseCurlyQuote]t know whether the numbers ",
+ StyleBox["a",
+  FontSlant->"Italic"],
+ " ... ",
+ StyleBox["d",
+  FontSlant->"Italic"],
+ " themselves are real or complex.  The ",
+ StyleBox[ButtonBox["ComplexExpand",
+  BaseStyle->"Link",
+  ButtonData->"paclet://ref/ComplexExpand"],
+  FontWeight->"Bold"],
+ " function comes to our rescue. It will algebraically separate z into real \
+and imaginary parts, assuming that all of the unknown parameters are purely \
+real numbers. "
+}], "Text",
+ CellChangeTimes->{{3.4330821012263308`*^9, 3.433082151932662*^9}, {
+   3.4330831577247677`*^9, 3.433083338935546*^9}, {3.433083783285644*^9, 
+   3.433083862990687*^9}, {3.433091048558035*^9, 3.4330910574366093`*^9}, {
+   3.5449788361623025`*^9, 3.544978929901675*^9}, {3.5449789914238267`*^9, 
+   3.544979090786762*^9}, {3.5449792455052323`*^9, 3.54497931289097*^9}, {
+   3.544979456629343*^9, 3.5449795236210413`*^9}, 3.5449795626599445`*^9, {
+   3.5449796359482727`*^9, 3.544979693783056*^9}, {3.600448948235978*^9, 
+   3.600448948514978*^9}, {3.6083004980170345`*^9, 3.6083005217204046`*^9}, {
+   3.747327627630417*^9, 3.747327642150869*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"ComplexExpand", "[", "complicatedz", "]"}], " ", 
+  RowBox[{"(*", " ", 
+   RowBox[{
+    RowBox[{
+    "Notice", " ", "how", " ", "in", " ", "the", " ", "complicated", " ", 
+     "expression"}], ",", " ", 
+    RowBox[{
+    "the", " ", "real", " ", "stuff", " ", "comes", " ", "first", " ", "and", 
+     " ", "everything", " ", 
+     RowBox[{"that", "'"}], "s", " ", "multiplied", " ", "by", " ", 
+     StyleBox["i",
+      FontSlant->"Italic"], " ", "comes", " ", 
+     RowBox[{"second", "."}]}]}], " ", "*)"}]}]], "Input",
+ CellChangeTimes->{{3.5449795654462233`*^9, 3.544979634093087*^9}, {
+  3.5449796777944574`*^9, 3.5449796823089085`*^9}, {3.544987555324131*^9, 
+  3.5449875570193005`*^9}, {3.561165123780486*^9, 3.5611651738575563`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+Assignment 5. Converting between exponential and sin/cos forms\
+\>", "Subsubsection",
+ CellChangeTimes->{{3.5449690913689203`*^9, 3.5449691264744306`*^9}, {
+   3.5611435677811317`*^9, 3.5611435678911324`*^9}, {3.5631182799451456`*^9, 
+   3.5631182895531063`*^9}, 3.747323007464428*^9, {3.7473278240140533`*^9, 
+   3.747327831394791*^9}}],
+
+Cell[TextData[{
+ "(a) Use ",
+ StyleBox[ButtonBox["ExpToTrig",
+  BaseStyle->"Link",
+  ButtonData->"paclet://ref/ExpToTrig"],
+  FontWeight->"Bold"],
+ " to convert ",
+ Cell[BoxData[
+  FormBox[
+   SuperscriptBox["e", 
+    StyleBox["ix",
+     FontSlant->"Italic"]], TraditionalForm]]],
+ " into trigonometric form, to verify that ",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ " \[OpenCurlyDoubleQuote]knows\[CloseCurlyDoubleQuote] Euler\
+\[CloseCurlyQuote]s formula.\n(b) Use ",
+ StyleBox[ButtonBox["ExpToTrig",
+  BaseStyle->"Link",
+  ButtonData->"paclet://ref/ExpToTrig"],
+  FontWeight->"Bold"],
+ " to convert ",
+ Cell[BoxData[
+  FormBox[
+   SuperscriptBox["e", "x"], TraditionalForm]]],
+ " into trigonometric form. This is the analog of Euler\[CloseCurlyQuote]s \
+formula for hyperbolic functions sinh(x) and cosh(x).\n(c) Use ",
+ StyleBox[ButtonBox["TrigToExp",
+  BaseStyle->"Link",
+  ButtonData->"paclet://ref/TrigToExp"],
+  FontWeight->"Bold"],
+ " to convert cos(x) and sin(x) into exponential form.\n(d) Use ",
+ StyleBox[ButtonBox["TrigToExp",
+  BaseStyle->"Link",
+  ButtonData->"paclet://ref/TrigToExp"],
+  FontWeight->"Bold"],
+ " to convert cosh(x) and sinh(x) into exponential form. Notice the \
+similarity to the exponential forms of cosine and sine.\n(e) Use Mathematica \
+to take the complex conjugate of ",
+ Cell[BoxData[
+  FormBox[
+   SuperscriptBox["e", "ix"], TraditionalForm]]],
+ " and then show that it is equal to ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"cos", "(", "x", ")"}], "-", 
+    RowBox[{"isin", "(", "x", ")"}]}], TraditionalForm]]],
+ " (rather than the awkward \[OpenCurlyDoubleQuote]cos[Conjugate[x]]- i \
+sin[Conjugate[x]]\[CloseCurlyDoubleQuote]).  Don\[CloseCurlyQuote]t make \
+explicit use of Assumptions to define x as real."
+}], "Text",
+ CellChangeTimes->{{3.4303328171611757`*^9, 3.4303328617557817`*^9}, {
+   3.430337158416401*^9, 3.430337162963363*^9}, {3.4303440447361155`*^9, 
+   3.4303440608145494`*^9}, {3.430352154594947*^9, 3.430352177017253*^9}, 
+   3.430497670206213*^9, {3.4306011277463193`*^9, 3.4306011281682024`*^9}, 
+   3.430601271436578*^9, {3.4306013425004425`*^9, 3.430601366329025*^9}, {
+   3.4307097552544365`*^9, 3.430709783676858*^9}, {3.4307694207016554`*^9, 
+   3.43076964619036*^9}, {3.430769681566039*^9, 3.4307700168381014`*^9}, {
+   3.4311197804732823`*^9, 3.431119796661093*^9}, {3.431190525414815*^9, 
+   3.4311905257429466`*^9}, 3.4311905979787083`*^9, {3.4311907394970503`*^9, 
+   3.431190742981492*^9}, {3.431492886761525*^9, 3.431492887223022*^9}, {
+   3.431494062343462*^9, 3.431494337141776*^9}, {3.4317255415822144`*^9, 
+   3.4317255520667906`*^9}, {3.4318058441225057`*^9, 3.431805844450637*^9}, {
+   3.4318073279009933`*^9, 3.4318073289478884`*^9}, {3.4318785406526766`*^9, 
+   3.431878608466479*^9}, {3.4322908285673895`*^9, 3.4322909571167326`*^9}, {
+   3.4322922730482473`*^9, 3.432293150330716*^9}, {3.4329099693228593`*^9, 
+   3.432909970526007*^9}, {3.4329102356092215`*^9, 3.4329102393905444`*^9}, {
+   3.432910984811106*^9, 3.432911019280518*^9}, {3.4329110574843764`*^9, 
+   3.4329111183292947`*^9}, {3.432911200955881*^9, 3.4329112138936296`*^9}, {
+   3.4329118104050827`*^9, 3.43291181107697*^9}, {3.4329135996738105`*^9, 
+   3.4329136611593657`*^9}, {3.4329142475925007`*^9, 3.432914473831219*^9}, 
+   3.432916189082901*^9, 3.43291645930684*^9, {3.432916745640462*^9, 
+   3.4329167462810993`*^9}, 3.432918455923299*^9, {3.4329200177189093`*^9, 
+   3.4329200295472617`*^9}, {3.4329201734875255`*^9, 3.432920174690674*^9}, {
+   3.4330771548679743`*^9, 3.433077155785262*^9}, {3.433077225749404*^9, 
+   3.433077266621011*^9}, {3.4330774963861027`*^9, 3.433077496386738*^9}, {
+   3.433077544376306*^9, 3.433077546645076*^9}, {3.4330776410949593`*^9, 
+   3.4330776410955667`*^9}, {3.4330778044380903`*^9, 
+   3.4330778207405357`*^9}, {3.433077931529765*^9, 3.4330780259910383`*^9}, {
+   3.5449688347082567`*^9, 3.544968842624048*^9}, {3.5449688850282884`*^9, 
+   3.5449690896897526`*^9}, {3.544969130442827*^9, 3.544969169833766*^9}, {
+   3.5449701201037836`*^9, 3.5449701208758607`*^9}, {3.5449701678675594`*^9, 
+   3.544970250319804*^9}, {3.5449702946492367`*^9, 3.5449703356963406`*^9}, {
+   3.5631181367188244`*^9, 3.5631183057457256`*^9}, {3.600445709706978*^9, 
+   3.600445793461978*^9}, 3.747323665278202*^9, {3.747325328156483*^9, 
+   3.747325346496317*^9}, {3.7473256944601097`*^9, 3.7473257726729307`*^9}, {
+   3.747325808666529*^9, 3.7473259588335447`*^9}, {3.7473260307787385`*^9, 
+   3.747326065157176*^9}, {3.747326100415701*^9, 3.7473261665563145`*^9}, {
+   3.747327675943248*^9, 3.7473277238480377`*^9}, {3.7476733326141987`*^9, 
+   3.7476733629885936`*^9}, {3.7476735447005587`*^9, 
+   3.7476735469001727`*^9}, {3.7476738610099382`*^9, 3.7476738716336064`*^9}}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[StyleBox["Summary", "Section"]], "Text",
+ CellFrame->{{0, 0}, {0, 2}},
+ CellChangeTimes->{{3.740845472900347*^9, 3.740845474230214*^9}}],
+
+Cell[TextData[{
+ StyleBox["The following functions were discussed in this worksheet, or are \
+very closely related:\n",
+  FontWeight->"Bold"],
+ "Working with functions: ",
+ StyleBox[ButtonBox["->",
+  BaseStyle->"Link",
+  ButtonData->"paclet://ref/Rule"],
+  FontWeight->"Bold"],
+ StyleBox[" or ", "OperatorCharacter"],
+ StyleBox[ButtonBox["\[Rule]",
+  BaseStyle->"Link",
+  ButtonData->"paclet://ref/Rule"],
+  FontWeight->"Bold"],
+ StyleBox[" (", "OperatorCharacter"],
+ StyleBox[ButtonBox["Rule",
+  BaseStyle->"Link",
+  ButtonData->"paclet://ref/Rule"],
+  FontWeight->"Bold"],
+ "), ",
+ StyleBox[ButtonBox["/.",
+  BaseStyle->"Link",
+  ButtonData->"paclet://ref/ReplaceAll"],
+  FontWeight->"Bold"],
+ " (",
+ StyleBox[ButtonBox["ReplaceAll",
+  BaseStyle->"Link",
+  ButtonData->"paclet://ref/ReplaceAll"],
+  FontWeight->"Bold"],
+ "), ",
+ StyleBox[ButtonBox[":=",
+  BaseStyle->"Link",
+  ButtonData->"paclet://ref/SetDelayed"],
+  FontWeight->"Bold"],
+ " (",
+ StyleBox[ButtonBox["SetDelayed)",
+  BaseStyle->"Link",
+  ButtonData->"paclet://ref/SetDelayed"],
+  FontWeight->"Bold"],
+ ",",
+ StyleBox[ButtonBox[" ",
+  BaseStyle->"Link",
+  ButtonData->"paclet://ref/SetDelayed"],
+  FontWeight->"Bold"],
+ StyleBox[ButtonBox["//",
+  BaseStyle->"Link",
+  ButtonData->"paclet://ref/Postfix"],
+  FontWeight->"Bold"],
+ "  (",
+ StyleBox[ButtonBox["Postfix",
+  BaseStyle->"Link",
+  ButtonData->"paclet://ref/Postfix"],
+  FontWeight->"Bold"],
+ "), ",
+ StyleBox[ButtonBox["@",
+  BaseStyle->"Link",
+  ButtonData->"paclet://ref/Prefix"],
+  FontWeight->"Bold"],
+ " (",
+ StyleBox[ButtonBox["Prefix",
+  BaseStyle->"Link",
+  ButtonData->"paclet://ref/Prefix"],
+  FontWeight->"Bold"],
+ ")",
+ StyleBox[" ",
+  FontWeight->"Bold"],
+ "\nManipulating Algebraic functions: ",
+ Cell[BoxData[
+  FormBox[
+   StyleBox[
+    ButtonBox["Simplify",
+     BaseStyle->"Link",
+     ButtonData->"paclet://ref/Simplify"],
+    FontWeight->"Bold"], TraditionalForm]]],
+ ", ",
+ StyleBox[ButtonBox["Expand",
+  BaseStyle->"Link",
+  ButtonData->"paclet://ref/Expand"],
+  FontWeight->"Bold"],
+ ", ",
+ StyleBox[ButtonBox["Together",
+  BaseStyle->"Link",
+  ButtonData->"paclet://ref/Together"],
+  FontWeight->"Bold"],
+ ", ",
+ StyleBox[ButtonBox["Apart",
+  BaseStyle->"Link",
+  ButtonData->"paclet://ref/Apart"],
+  FontWeight->"Bold"],
+ ", ",
+ StyleBox[ButtonBox["Factor,",
+  BaseStyle->"Link",
+  ButtonData->"paclet://ref/Factor"],
+  FontWeight->"Bold"],
+ " ",
+ StyleBox[ButtonBox["Collect",
+  BaseStyle->"Link",
+  ButtonData->"paclet://ref/Collect"],
+  FontWeight->"Bold"],
+ ", ",
+ StyleBox[ButtonBox["TrigToExp",
+  BaseStyle->"Link",
+  ButtonData->"paclet://ref/TrigToExp"],
+  FontWeight->"Bold"],
+ ", ",
+ StyleBox[ButtonBox["ExpToTrig",
+  BaseStyle->"Link",
+  ButtonData->"paclet://ref/ExpToTrig"],
+  FontWeight->"Bold"],
+ ", ComplexExpand\n\n",
+ StyleBox["Potentially useful summary/tutorial pages\n",
+  FontWeight->"Bold"],
+ StyleBox[ButtonBox["Guide: Special Characters",
+  BaseStyle->"Link",
+  ButtonData->"paclet://guide/SpecialCharacters"],
+  FontWeight->"Bold"],
+ "\n",
+ StyleBox[ButtonBox["Tutorial: Strings and Characters Overview",
+  BaseStyle->"Link",
+  ButtonData->"paclet://tutorial/StringsAndCharactersOverview"],
+  FontWeight->"Bold"],
+ StyleBox["\n",
+  FontWeight->"Bold"],
+ StyleBox[ButtonBox["Guide: Constructing Lists",
+  BaseStyle->"Link",
+  ButtonData->"paclet://guide/ConstructingLists"],
+  FontWeight->"Bold"],
+ "\n",
+ StyleBox[ButtonBox["Guide: Elements of Lists",
+  BaseStyle->"Link",
+  ButtonData->"paclet://guide/ElementsOfLists"],
+  FontWeight->"Bold"],
+ "\n",
+ StyleBox[ButtonBox["Guide: List Manipulation",
+  BaseStyle->"Link",
+  ButtonData->"paclet://guide/ListManipulation"],
+  FontWeight->"Bold"],
+ "\n",
+ StyleBox[ButtonBox["Tutorial: Testing and Searching List Elements",
+  BaseStyle->"Link",
+  ButtonData->"paclet://tutorial/TestingAndSearchingListElements"],
+  FontWeight->"Bold"],
+ "\n",
+ StyleBox[ButtonBox["Tutorial: Expressions",
+  BaseStyle->"Link",
+  ButtonData->"paclet://tutorial/ExpressionsOverview"],
+  FontWeight->"Bold"],
+ "\n"
+}], "Text",
+ CellChangeTimes->{{3.5443720176193643`*^9, 3.5443720214027424`*^9}, 
+   3.544374426669873*^9, {3.544374458650873*^9, 3.544374469586873*^9}, {
+   3.544374604421873*^9, 3.544374908927873*^9}, {3.544374977881873*^9, 
+   3.5443750085508733`*^9}, {3.5443751861352777`*^9, 
+   3.5443751891005745`*^9}, {3.544375231637828*^9, 3.5443758941900764`*^9}, {
+   3.5443759269913564`*^9, 3.5443759371673737`*^9}, {3.5443759722488813`*^9, 
+   3.5443762604857025`*^9}, {3.5443763100326567`*^9, 3.54437634536919*^9}, {
+   3.544376386255278*^9, 3.5443765639670477`*^9}, {3.544376606456296*^9, 
+   3.5443766319928493`*^9}, {3.5443766680924587`*^9, 
+   3.5443766680984592`*^9}, {3.544376772133862*^9, 3.544376797996448*^9}, {
+   3.544376839572605*^9, 3.5443769524158883`*^9}, {3.5443770858482304`*^9, 
+   3.544377098264472*^9}, {3.5443771289055357`*^9, 3.5443771569543405`*^9}, {
+   3.5443771977324176`*^9, 3.544377673484988*^9}, {3.545909614658307*^9, 
+   3.545909659601801*^9}, {3.555505467496399*^9, 3.5555054727973986`*^9}, {
+   3.739645962267472*^9, 3.739645964997507*^9}, {3.7396459950590925`*^9, 
+   3.7396460027343903`*^9}, {3.739646047974971*^9, 3.739646116116644*^9}, {
+   3.7396462656767616`*^9, 3.739646270372422*^9}, {3.740834691543935*^9, 
+   3.7408346986309347`*^9}, {3.740841510345353*^9, 3.740841615280846*^9}, {
+   3.740841654043722*^9, 3.740841654045722*^9}, {3.7408417189462113`*^9, 
+   3.7408417189552126`*^9}, {3.7408417605893755`*^9, 3.740841812054521*^9}, 
+   3.740841950723387*^9, 3.7473191826420727`*^9, {3.747326637493893*^9, 
+   3.747326642367893*^9}, 3.747326693591893*^9, {3.7473267677418933`*^9, 
+   3.747326812260893*^9}, {3.747326903619893*^9, 3.747326903621893*^9}, 
+   3.7473269664628935`*^9, {3.7473270004958935`*^9, 3.747327000501893*^9}, {
+   3.7473270475568933`*^9, 3.7473270475638933`*^9}, {3.7473272071473727`*^9, 
+   3.7473272071563735`*^9}, {3.747327364673124*^9, 3.7473273646811247`*^9}, {
+   3.7473274641790733`*^9, 3.7473274787775335`*^9}}]
+}, Open  ]],
+
+Cell[TextData[{
+ StyleBox["What to turn in", "Section"],
+ "\nWhen you are done, SAVE this entire file, with all your work.  Then SAVE \
+it again under the new name \[OpenCurlyDoubleQuote]HW#4a-",
+ StyleBox["yourname",
+  FontSlant->"Italic"],
+ "\[CloseCurlyDoubleQuote], where ",
+ StyleBox["yourname",
+  FontSlant->"Italic"],
+ " is of course, ",
+ StyleBox["your",
+  FontWeight->"Bold"],
+ " name.  Delete all but the Assignments themselves (of which there are 5).  \
+Make sure the entire worksheet runs correctly and that you haven\
+\[CloseCurlyQuote]t deleted anything important!  Turn in this assignment \
+worksheet, with all of its input and output code, through the link on our \
+Moodle page."
+}], "Text",
+ CellFrame->{{0, 0}, {0, 2}},
+ CellChangeTimes->{
+  3.747319247022073*^9, {3.747319299594073*^9, 3.747319343466073*^9}, 
+   3.747321684996185*^9, 3.7473279456052113`*^9}]
+},
+AutoGeneratedPackage->None,
+CellGrouping->Manual,
+WindowSize->{1497, 982},
+WindowMargins->{{102, Automatic}, {Automatic, 0}},
+ShowSelection->True,
+ShowCellTags->True,
+Magnification->1.2000000476837158`,
+FrontEndVersion->"10.4 for Microsoft Windows (64-bit) (April 11, 2016)",
+StyleDefinitions->FrontEnd`FileName[{"Report"}, "StandardReport.nb", 
+  CharacterEncoding -> "UTF-8"]
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[545, 20, 1000, 15, 199, "Title"],
+Cell[1548, 37, 3500, 84, 284, "Text"],
+Cell[5051, 123, 1589, 25, 70, "Text"],
+Cell[6643, 150, 172, 3, 46, "Input"],
+Cell[6818, 155, 1227, 19, 35, "Text"],
+Cell[CellGroupData[{
+Cell[8070, 178, 153, 2, 63, "Text"],
+Cell[8226, 182, 715, 17, 38, "Text"],
+Cell[8944, 201, 331, 8, 46, "Input"],
+Cell[9278, 211, 150, 3, 46, "Input"],
+Cell[9431, 216, 1817, 28, 104, "Text"],
+Cell[11251, 246, 2151, 45, 139, "Input"],
+Cell[13405, 293, 317, 4, 35, "Text"],
+Cell[13725, 299, 1764, 33, 93, "Input"],
+Cell[15492, 334, 2065, 42, 219, "Text"],
+Cell[17560, 378, 1300, 25, 60, "Text"],
+Cell[18863, 405, 624, 15, 162, "Input"],
+Cell[19490, 422, 725, 17, 104, "Text"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[20252, 444, 136, 1, 63, "Text"],
+Cell[20391, 447, 1020, 17, 58, "Text"],
+Cell[21414, 466, 312, 8, 46, "Input"],
+Cell[21729, 476, 340, 8, 46, "Input"],
+Cell[22072, 486, 290, 5, 46, "Input"],
+Cell[22365, 493, 283, 6, 46, "Input"],
+Cell[22651, 501, 383, 8, 46, "Input"],
+Cell[23037, 511, 3465, 80, 360, "Text"],
+Cell[26505, 593, 637, 11, 58, "Text"],
+Cell[27145, 606, 522, 12, 46, "Input"],
+Cell[27670, 620, 409, 10, 46, "Input"],
+Cell[28082, 632, 652, 18, 46, "Input"],
+Cell[28737, 652, 130, 2, 46, "Input"],
+Cell[28870, 656, 124, 2, 46, "Input"],
+Cell[28997, 660, 1548, 33, 172, "Text"],
+Cell[CellGroupData[{
+Cell[30570, 697, 412, 5, 42, "Subsubsection"],
+Cell[30985, 704, 1409, 31, 103, "Text"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[32443, 741, 144, 1, 63, "Text"],
+Cell[CellGroupData[{
+Cell[32612, 746, 590, 8, 43, "Subsection"],
+Cell[33205, 756, 1083, 23, 59, "Text"],
+Cell[34291, 781, 985, 19, 70, "Input"],
+Cell[35279, 802, 827, 13, 35, "Text"],
+Cell[36109, 817, 126, 2, 46, "Input"],
+Cell[36238, 821, 236, 5, 46, "Input"],
+Cell[36477, 828, 154, 3, 46, "Input"],
+Cell[36634, 833, 153, 3, 46, "Input"],
+Cell[36790, 838, 317, 5, 46, "Input"],
+Cell[37110, 845, 1895, 29, 239, "Text"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[39042, 879, 590, 8, 43, "Subsection"],
+Cell[39635, 889, 867, 13, 35, "Text"],
+Cell[40505, 904, 1072, 20, 70, "Input"],
+Cell[41580, 926, 144, 1, 35, "Text"],
+Cell[41727, 929, 333, 8, 93, "Input"],
+Cell[CellGroupData[{
+Cell[42085, 941, 343, 4, 42, "Subsubsection"],
+Cell[42431, 947, 533, 10, 81, "Text"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[43001, 962, 3326, 48, 42, "Subsubsection"],
+Cell[46330, 1012, 4285, 67, 103, "Text"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[50676, 1086, 265, 3, 63, "Text"],
+Cell[50944, 1091, 122, 1, 35, "Text"],
+Cell[51069, 1094, 176, 4, 46, "Input"],
+Cell[51248, 1100, 186, 4, 46, "Input"],
+Cell[51437, 1106, 430, 9, 81, "Text"],
+Cell[51870, 1117, 686, 23, 93, "Input"],
+Cell[52559, 1142, 556, 11, 104, "Text"],
+Cell[53118, 1155, 679, 21, 93, "Input"],
+Cell[53800, 1178, 192, 2, 50, "Text"],
+Cell[53995, 1182, 3741, 106, 300, "Text"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[57773, 1293, 404, 5, 63, "Text"],
+Cell[58180, 1300, 111, 2, 46, "Input"],
+Cell[58294, 1304, 614, 12, 36, "Text"],
+Cell[58911, 1318, 287, 7, 70, "Input"],
+Cell[59201, 1327, 380, 9, 35, "Text"],
+Cell[59584, 1338, 327, 8, 46, "Input"],
+Cell[59914, 1348, 409, 10, 70, "Input"],
+Cell[60326, 1360, 191, 2, 35, "Text"],
+Cell[60520, 1364, 735, 18, 93, "Input"],
+Cell[61258, 1384, 399, 9, 35, "Text"],
+Cell[61660, 1395, 444, 11, 93, "Input"],
+Cell[62107, 1408, 481, 14, 35, "Text"],
+Cell[62591, 1424, 647, 16, 93, "Input"],
+Cell[63241, 1442, 294, 7, 70, "Input"],
+Cell[63538, 1451, 618, 12, 58, "Text"],
+Cell[64159, 1465, 211, 4, 46, "Input"],
+Cell[64373, 1471, 304, 7, 35, "Text"],
+Cell[64680, 1480, 585, 12, 70, "Input"],
+Cell[65268, 1494, 805, 13, 58, "Text"],
+Cell[66076, 1509, 859, 23, 93, "Input"],
+Cell[66938, 1534, 293, 6, 35, "Text"],
+Cell[67234, 1542, 539, 13, 93, "Input"],
+Cell[67776, 1557, 1263, 27, 59, "Text"],
+Cell[69042, 1586, 775, 17, 70, "Input"],
+Cell[CellGroupData[{
+Cell[69842, 1607, 347, 6, 42, "Subsubsection"],
+Cell[70192, 1615, 4775, 91, 155, "Text"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[75016, 1712, 150, 2, 75, "Text"],
+Cell[75169, 1716, 5996, 175, 307, "Text"]
+}, Open  ]],
+Cell[81180, 1894, 878, 21, 144, "Text"]
+}
+]
+*)
+
