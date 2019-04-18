@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       145,          7]
-NotebookDataLength[    578627,      11958]
-NotebookOptionsPosition[    546101,      11461]
-NotebookOutlinePosition[    546542,      11480]
-CellTagsIndexPosition[    546499,      11477]
+NotebookDataLength[    526953,      10743]
+NotebookOptionsPosition[    497203,      10289]
+NotebookOutlinePosition[    497644,      10308]
+CellTagsIndexPosition[    497601,      10305]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -4283,161 +4283,7 @@ Cell[BoxData[
   "Out[10]//MatrixForm=",ExpressionUUID->"07f7e5ec-017c-4e5b-843e-\
 e7891e73ba4f"]
 }, Open  ]]
-}, Open  ]]
 }, Open  ]],
-
-Cell[CellGroupData[{
-
-Cell["Eigenvalues and eigenvectors", "Section",
- CellChangeTimes->{{3.608155456228316*^9, 3.608155462498316*^9}, {
-   3.608292935177657*^9, 3.608292936649804*^9}, 3.7609725764452963`*^9, 
-   3.7631085599161935`*^9, {3.7639174696594257`*^9, 3.7639174772705784`*^9}, {
-   3.763918563286324*^9, 
-   3.7639185634563274`*^9}},ExpressionUUID->"f79b21cb-977d-4448-b6a6-\
-83b3bd58f774"],
-
-Cell[TextData[{
- "The functions ",
- StyleBox[ButtonBox["Eigenvalues",
-  BaseStyle->"Link",
-  ButtonData->"paclet://ref/Eigenvalues"],
-  FontWeight->"Bold"],
- " and ",
- StyleBox[ButtonBox["Eigenvectors",
-  BaseStyle->"Link",
-  ButtonData->"paclet://ref/Eigenvectors"],
-  FontWeight->"Bold"],
- " give you the eigenvalues and eigenvectors of a matrix. That is, they give \
-you the only possible numbers and vectors which are solutions of the \
-\[OpenCurlyDoubleQuote]eigenvalue equation\[CloseCurlyDoubleQuote]  ",
- StyleBox["M.r",
-  FontWeight->"Bold"],
- " = \[Lambda] ",
- StyleBox["r",
-  FontWeight->"Bold"],
- ", where \[Lambda] is a number, ",
- StyleBox["r",
-  FontWeight->"Bold"],
- " is a generalized \[OpenCurlyDoubleQuote]vector\[CloseCurlyDoubleQuote] \
-(i.e. not necessarily representing 3D space), and ",
- StyleBox["M ",
-  FontWeight->"Bold"],
- "is the matrix. The matrix must be square. There are the same number of \
-eigenvalues and eigenvectors as there are rows (or columns) of the matrix, \
-although some eigenvalues could be repeated. The solutions are sometimes \
-written as ",
- Cell[BoxData[
-  FormBox[
-   SubscriptBox["\[Lambda]", "1"], TraditionalForm]],ExpressionUUID->
-  "739b43d8-5e8a-422e-bdd3-d6a964abffb1"],
- ", ",
- Cell[BoxData[
-  FormBox[
-   SubscriptBox["\[Lambda]", "2"], TraditionalForm]],ExpressionUUID->
-  "71d41121-537f-4599-b78b-16423ea6e822"],
- ", ",
- Cell[BoxData[
-  FormBox[
-   SubscriptBox["\[Lambda]", "3"], TraditionalForm]],ExpressionUUID->
-  "45554efd-ee50-46dd-8df2-9cfceeb1fc97"],
- ", ..., and ",
- Cell[BoxData[
-  FormBox[
-   SubscriptBox[
-    StyleBox["r",
-     FontWeight->"Bold"], "1"], TraditionalForm]],ExpressionUUID->
-  "4e779264-4cc2-4cf5-9800-f7130ddc90e6"],
- ", ",
- Cell[BoxData[
-  FormBox[
-   SubscriptBox[
-    StyleBox["r",
-     FontWeight->"Bold"], "2"], TraditionalForm]],ExpressionUUID->
-  "61c6f21e-77ca-47cf-897f-80ccce22854e"],
- ", ",
- Cell[BoxData[
-  FormBox[
-   SubscriptBox[
-    StyleBox["r",
-     FontWeight->"Bold"], "3"], TraditionalForm]],ExpressionUUID->
-  "4bd19d34-1cf7-45d7-b6c9-e5fa2952bbba"],
- ", ..., meaning that ",
- Cell[BoxData[
-  FormBox[
-   RowBox[{
-    RowBox[{
-     StyleBox["M",
-      FontWeight->"Bold"], 
-     StyleBox[".",
-      FontWeight->"Bold"], 
-     FormBox[
-      SubscriptBox[
-       StyleBox["r",
-        FontWeight->"Bold"], "1"],
-      TraditionalForm]}], "=", 
-    SubscriptBox["\[Lambda]", "1"]}], TraditionalForm]],ExpressionUUID->
-  "0b3edde2-b7cd-471e-b4a7-62fdd626c79b"],
- Cell[BoxData[
-  FormBox[
-   SubscriptBox[
-    StyleBox["r",
-     FontWeight->"Bold"], "1"], TraditionalForm]],ExpressionUUID->
-  "425aead6-afe1-4f72-b76d-73e7c66bc7f6"],
- "  and so forth. \n\nThe command ",
- StyleBox["Eigenvalues",
-  FontWeight->"Bold"],
- " outputs a list containing the allowed values of the constant \[Lambda]. \n\
-\nThe command ",
- StyleBox["Eigenvectors",
-  FontWeight->"Bold"],
- " outputs a matrix in which each ROW contains the allowed values of the \
-vector ",
- StyleBox["r",
-  FontWeight->"Bold"],
- ". Eigenvectors are only defined up to a multiplicative constant. That is, \
-if you have a 2x2 matrix where (1,3) is an eigenvector, then ",
- StyleBox["Mathematica",
-  FontSlant->"Italic"],
- " might report (1,3) for the eigenvector... or (2,6), or even (1/sqrt(10), \
-3/sqrt(10)). They are all equivalent.\n\nEach eigenvalue has a particular \
-eigenvector associated with it. Unfortunately, ",
- StyleBox["Mathematica",
-  FontSlant->"Italic"],
- " doesn\[CloseCurlyQuote]t always sort the eigenvectors returned by the ",
- StyleBox["Eigenvectors",
-  FontWeight->"Bold"],
- " command in the same order that the eigenvalues are given in results of the \
-",
- StyleBox["Eigenvalues",
-  FontWeight->"Bold"],
- " command. The additional function called ",
- StyleBox[ButtonBox["Eigensystem ",
-  BaseStyle->"Link",
-  ButtonData->"paclet://ref/Eigensystem"],
-  FontWeight->"Bold"],
- "allows you to see which ones correspond to which."
-}], "Text",
- CellGroupingRules->{"GroupTogetherGrouping", 10000.},
- CellChangeTimes->{{3.4325829104031816`*^9, 3.432583012561393*^9}, {
-   3.4325836538237047`*^9, 3.432583693355714*^9}, {3.432584484933412*^9, 
-   3.4325844906522717`*^9}, {3.432663986855499*^9, 3.4326639964181824`*^9}, {
-   3.4396734241449146`*^9, 3.4396734254261723`*^9}, {3.5448879032994795`*^9, 
-   3.5448879314262915`*^9}, {3.608292910624202*^9, 3.60829291290443*^9}, {
-   3.6082950829264107`*^9, 3.6082951019513125`*^9}, {3.60829514303242*^9, 
-   3.608295261571273*^9}, {3.6082952968217974`*^9, 3.608295482981412*^9}, {
-   3.6082955207901926`*^9, 3.608295552943407*^9}, {3.6082955955706697`*^9, 
-   3.608295598466959*^9}, {3.608295636828795*^9, 3.6082959103881483`*^9}, {
-   3.608295952901399*^9, 3.608295962453354*^9}, {3.60829600541565*^9, 
-   3.6082960059597044`*^9}, {3.608298276208995*^9, 3.6082983319339604`*^9}, {
-   3.6346677110561934`*^9, 3.6346680390731936`*^9}, {3.6346681119801936`*^9, 
-   3.6346682010281935`*^9}, {3.6346682551921935`*^9, 
-   3.6346683089951935`*^9}, {3.634672697374465*^9, 3.6346726982739916`*^9}, 
-   3.7609725764452963`*^9, 3.7631085599317875`*^9, {3.763109776417967*^9, 
-   3.763109794248996*^9}, {3.7631098299578533`*^9, 3.7631098373055477`*^9}, {
-   3.7639167420982313`*^9, 3.763916769954789*^9}, {3.7639803840947604`*^9, 
-   3.7639804742945385`*^9}, 
-   3.763980506791547*^9},ExpressionUUID->"5711a04f-34e6-4adf-974f-\
-f9f61c725c95"],
 
 Cell[CellGroupData[{
 
@@ -4806,509 +4652,7 @@ Cell[BoxData[
    RowBox[{"-", "1"}], ",", "1", ",", "0"}], "}"}]], "Output",
  CellChangeTimes->{3.7644349858362703`*^9},
  CellLabel->"Out[29]=",ExpressionUUID->"646696c5-bc1c-49f6-9f54-c86561896db6"]
-}, Open  ]],
-
-Cell[CellGroupData[{
-
-Cell["Coupled harmonic oscillators: normal modes", "Subsection",
- CellGroupingRules->{"GroupTogetherGrouping", 10000.},
- CellChangeTimes->{{3.432477774309512*^9, 3.4324777770699263`*^9}, 
-   3.432481583502447*^9, {3.432481745099237*^9, 3.432481772636252*^9}, {
-   3.432488494136977*^9, 3.43248849667303*^9}, 3.432488549452938*^9, 
-   3.432516055748814*^9, 3.4325165331798553`*^9, {3.432565853630549*^9, 
-   3.43256585438869*^9}, {3.432571609601345*^9, 3.4325716467573566`*^9}, 
-   3.4325726686883163`*^9, 3.432585157540076*^9, {3.43258769530755*^9, 
-   3.4325876954638033`*^9}, {3.4329280998754807`*^9, 
-   3.4329281212981787`*^9}, {3.5448981760464635`*^9, 
-   3.5448981866470375`*^9}, {3.5620299456949224`*^9, 
-   3.5620299649068437`*^9}, {3.6082975149415874`*^9, 3.608297515588652*^9}, 
-   3.7609725764452963`*^9, 
-   3.763108559947382*^9},ExpressionUUID->"e308d5ce-4e5d-4161-a481-\
-414ccc2fb8c9"],
-
-Cell[TextData[{
- "Here is an example that may help you understand what eigenvalues and \
-eigenvectors represent and why they are useful in physics.\n\nThe following \
-system of two masses and three springs is an example of coupled harmonic \
-oscillators. The masses happen to be equal and two of the springs happen to \
-have the same spring constant, but that wouldn\[CloseCurlyQuote]t necessarily \
-need to be the case.\n\n",
- Cell[BoxData[
-  GraphicsBox[
-   {PointSize[0.075], Thickness[0.01], 
-    GeometricTransformationBox[
-     LineBox[{{-8.5, 0}, {-5, 
-       0}, {-4.5, 1}, {-3.5, -1}, {-2.5, 1}, {-1.5, -1}, {-0.5, 1}, {
-       0.5, -1}, {1.5, 1}, {2.5, -1}, {3.5, 1}, {4.5, -1}, {5, 0}, {
-       8.5, 0}}], {-17, 0}], 
-    LineBox[{{-8.5, 0}, {-5, 
-      0}, {-4.5, 1}, {-3.5, -1}, {-2.5, 1}, {-1.5, -1}, {-0.5, 1}, {
-      0.5, -1}, {1.5, 1}, {2.5, -1}, {3.5, 1}, {4.5, -1}, {5, 0}, {8.5, 0}}], 
-    GeometricTransformationBox[
-     LineBox[{{-8.5, 0}, {-5, 
-       0}, {-4.5, 1}, {-3.5, -1}, {-2.5, 1}, {-1.5, -1}, {-0.5, 1}, {
-       0.5, -1}, {1.5, 1}, {2.5, -1}, {3.5, 1}, {4.5, -1}, {5, 0}, {
-       8.5, 0}}], {17, 0}], {RectangleBox[{-26, -5}, {-25, 5}], 
-     {RGBColor[0, 0, 1], PointBox[{-8.5, 0}], PointBox[{8.5, 0}]}, 
-     RectangleBox[{25, -5}, {26, 5}]}, {InsetBox[
-      StyleBox["\<\"\!\(\*SubscriptBox[\(k\), \(b\)]\)\"\>",
-       StripOnInput->False,
-       FontSize->20], {-17, 3.5}], InsetBox[
-      StyleBox["\<\"\\!\\(\\*\\nStyleBox[\\\"m\\\",\\nFontSlant->\\\"Italic\\\
-\"]\\)\"\>",
-       StripOnInput->False,
-       FontSize->20], {-8, -3.5}], InsetBox[
-      StyleBox["\<\"\\!\\(\\*SubscriptBox[\\(k\\), \\(s\\)]\\)\"\>",
-       StripOnInput->False,
-       FontSize->20], {0, 3.5}], InsetBox[
-      StyleBox["\<\"\\!\\(\\*\\nStyleBox[\\\"m\\\",\\nFontSlant->\\\"Italic\\\
-\"]\\)\"\>",
-       StripOnInput->False,
-       FontSize->20], {9, -3.5}], InsetBox[
-      StyleBox["\<\"\\!\\(\\*SubscriptBox[\\(k\\), \\(b\\)]\\)\"\>",
-       StripOnInput->False,
-       FontSize->20], {17, 3}]}},
-   ImagePadding->{{0., 0.909091}, {0.909091, 0.}},
-   ImageSize->{325.4545462032996, Automatic},
-   PlotRange->{{-27.083333333333332`, 27.083333333333332`}, {-6.04, 6.04}},
-   PlotRangePadding->Automatic]],
-  Editable->False,
-  CellChangeTimes->{3.432651954851845*^9},ExpressionUUID->
-  "ac4644bb-e949-4698-aa13-bbe325df29b7"],
- "\n\nBefore we solve this system, let\[CloseCurlyQuote]s review the simpler \
-problem of a single mass connected to a single spring - the simple harmonic \
-oscillator.  Using  Newton\[CloseCurlyQuote]s Second Law: ",
- Cell[BoxData[
-  FormBox[
-   RowBox[{
-    SubscriptBox["F", "net"], "=", 
-    RowBox[{"m", " ", "a"}]}], TraditionalForm]],ExpressionUUID->
-  "7daf4f04-02c6-4877-b040-57a52628af01"],
- ", the only force acting on the mass is from the spring;  the equation \
-becomes:\n\n",
- Cell[BoxData[
-  FormBox[
-   RowBox[{
-    RowBox[{"m", 
-     FractionBox[
-      RowBox[{
-       SuperscriptBox["d", "2"], "x"}], 
-      SuperscriptBox["dt", "2"]]}], "=", 
-    RowBox[{
-     RowBox[{"-", "k"}], " ", "x"}]}], TraditionalForm]],ExpressionUUID->
-  "ff70f9bc-ff7b-4eb2-b9c5-5be2820c7b00"],
- "\n\nFor this you might guess a solution of the form ",
- Cell[BoxData[
-  FormBox[
-   RowBox[{"x", "=", 
-    RowBox[{"A", " ", 
-     RowBox[{"cos", "(", "\[Omega]t", ")"}]}]}], TraditionalForm]],
-  ExpressionUUID->"4b9a2021-c1d9-4999-86d6-f5bb07c7a4c1"],
- ", or perhaps ",
- Cell[BoxData[
-  FormBox[
-   RowBox[{"x", "=", 
-    RowBox[{
-     SubscriptBox["A", " "], 
-     RowBox[{"sin", "(", "\[Omega]t", ")"}]}]}], TraditionalForm]],
-  ExpressionUUID->"23b8908b-1221-43bc-95dd-b2638488de1a"],
- ", depending on whether it starts with some displacement or at equilibrium. \
-Plugging that trial solution into the equation, it\[CloseCurlyQuote]s easy to \
-show that the equation is true as long as ",
- Cell[BoxData[
-  FormBox[
-   RowBox[{"\[Omega]", "=", 
-    SqrtBox[
-     RowBox[{"k", "/", "m"}]]}], TraditionalForm]],ExpressionUUID->
-  "0024a362-a267-4a44-8b64-42988413c250"],
- ". Problem solved!\n\nBack to coupled masses & springs. If the middle spring \
-were not present the two masses would each oscillate at ",
- Cell[BoxData[
-  FormBox[
-   RowBox[{"\[Omega]", "=", 
-    SqrtBox[
-     RowBox[{
-      SubscriptBox["k", 
-       RowBox[{" ", "b"}]], "/", "m"}]]}], TraditionalForm]],ExpressionUUID->
-  "815995b5-f398-4f9b-9843-0f746c65ecd8"],
- ". However, the middle spring ",
- StyleBox["couples",
-  FontSlant->"Italic"],
- " the oscillations, and (as you will see) there are now ",
- StyleBox["two",
-  FontSlant->"Italic"],
- " different fundamental modes of oscillation at two different frequencies.\n\
-\nTo analyze the coupled system, we\[CloseCurlyQuote]ll do it like the SHO \
-and start with Newton\[CloseCurlyQuote]s Second Law--but applied to each mass \
-individually. Let\[CloseCurlyQuote]s call \[OpenCurlyDoubleQuote]u\
-\[CloseCurlyDoubleQuote] the displacement of the left mass and \
-\[OpenCurlyDoubleQuote]v\[CloseCurlyDoubleQuote] the displacement of the \
-right mass. The net displacement of the center spring is then v-u. Each \
-spring supplies a force according to Hooke\[CloseCurlyQuote]s Law, ",
- Cell[BoxData[
-  FormBox[
-   RowBox[{
-    SubscriptBox["F", "spring"], "=", "k\[CapitalDelta]x"}], 
-   TraditionalForm]],ExpressionUUID->"631d4c35-7b7b-4ecb-aee3-7b5996abb123"],
- ". Here are the two equations, with signs chosen very carefully so that the \
-springs push/pull in the right directions:\n\n",
- Cell[BoxData[
-  FormBox[
-   RowBox[{
-    RowBox[{"m", 
-     FractionBox[
-      RowBox[{
-       SuperscriptBox["d", "2"], "u"}], 
-      SuperscriptBox["dt", "2"]]}], "=", 
-    RowBox[{
-     RowBox[{
-      SubscriptBox["k", "s"], "(", 
-      RowBox[{"v", "-", "u"}], ")"}], "-", 
-     RowBox[{
-      SubscriptBox["k", "b"], "u"}]}]}], TraditionalForm]],ExpressionUUID->
-  "869ba470-5523-4be2-940c-b1f471df0f85"],
- "\n",
- Cell[BoxData[
-  FormBox[
-   RowBox[{
-    RowBox[{"m", 
-     FractionBox[
-      RowBox[{
-       SuperscriptBox["d", "2"], "v"}], 
-      SuperscriptBox["dt", "2"]]}], "=", 
-    RowBox[{
-     RowBox[{
-      RowBox[{"-", 
-       SubscriptBox["k", "b"]}], "v"}], "-", 
-     RowBox[{
-      SubscriptBox["k", "s"], "(", 
-      RowBox[{"v", "-", "u"}], ")"}]}]}], TraditionalForm]],ExpressionUUID->
-  "beff8d66-1988-4d72-8be0-2b0c7f68c335"],
- "\n\nGrouping terms a little differently:\n\n",
- Cell[BoxData[
-  FormBox[
-   RowBox[{
-    RowBox[{"m", 
-     FractionBox[
-      RowBox[{
-       SuperscriptBox["d", "2"], "u"}], 
-      SuperscriptBox["dt", "2"]]}], "=", 
-    RowBox[{
-     RowBox[{"u", "(", 
-      RowBox[{
-       RowBox[{"-", 
-        SubscriptBox["k", "b"]}], "-", 
-       SubscriptBox["k", "s"]}], ")"}], " ", "+", " ", 
-     RowBox[{"v", "(", 
-      SubscriptBox["k", "s"], ")"}]}]}], TraditionalForm]],ExpressionUUID->
-  "c4101e1c-1eca-468a-8f8a-af311e36ee6d"],
- "\n",
- Cell[BoxData[
-  FormBox[
-   RowBox[{
-    RowBox[{"m", 
-     FractionBox[
-      RowBox[{
-       SuperscriptBox["d", "2"], "v"}], 
-      SuperscriptBox["dt", "2"]]}], "=", 
-    RowBox[{
-     RowBox[{"u", "(", 
-      SubscriptBox["k", "s"], ")"}], "+", 
-     RowBox[{"v", "(", 
-      RowBox[{
-       RowBox[{"-", 
-        SubscriptBox["k", "b"]}], "-", 
-       SubscriptBox["k", "s"]}], ")"}]}]}], TraditionalForm]],ExpressionUUID->
-  "ec02e1fb-d23c-4055-a69e-11a273f5623e"],
- "\n\nSince a single mass on a spring oscillates sinusoidally, let\
-\[CloseCurlyQuote]s make a guess and assume that each mass here will just \
-oscillate back and forth in a sinusoidal fashion, both of them at the same \
-\[Omega] and each with a constant amplitude (not necessarily the same). This \
-assumption turns out to NOT be true in general, as you will see in the next \
-section. But it is true if the starting positions of the masses are chosen \
-carefully. ",
- StyleBox["The oscillation modes for which this assumption is true are called \
-the \[OpenCurlyDoubleQuote]normal modes\[CloseCurlyDoubleQuote] of the \
-system.",
-  FontWeight->"Bold"],
- " \n\nWith this assumption, the displacements u and v will then have \
-solutions of the form ",
- Cell[BoxData[
-  FormBox[
-   RowBox[{"u", "=", 
-    RowBox[{
-     SubscriptBox["u", "0"], 
-     RowBox[{"cos", "(", "\[Omega]t", ")"}]}]}], TraditionalForm]],
-  ExpressionUUID->"a61d2abf-093a-4d56-8fde-08d9a4c6895c"],
- " and ",
- Cell[BoxData[
-  FormBox[
-   RowBox[{"v", "=", 
-    RowBox[{
-     SubscriptBox["v", "0"], 
-     RowBox[{"cos", "(", "\[Omega]t", ")"}]}]}], TraditionalForm]],
-  ExpressionUUID->"12c78c41-65af-41f3-80d6-f7dffc645d30"],
- ", where ",
- Cell[BoxData[
-  FormBox[
-   SubscriptBox["u", "0"], TraditionalForm]],ExpressionUUID->
-  "11681e69-0a75-4936-9aea-3cecbc029146"],
- " and ",
- Cell[BoxData[
-  FormBox[
-   SubscriptBox["v", "0"], TraditionalForm]],ExpressionUUID->
-  "d674dade-d9f0-4f8d-8fa9-54f2409e705b"],
- " are the amplitudes of oscillation. As with solving the SHO, the next thing \
-to do is to plug those guesses into the equations and see under what \
-conditions the equations can be true.\n\nThe time derivative on the left hand \
-side of the top equation becomes: ",
- Cell[BoxData[
-  FormBox[
-   RowBox[{
-    RowBox[{
-     FractionBox[
-      SuperscriptBox["d", "2"], 
-      SuperscriptBox["dt", "2"]], 
-     RowBox[{"(", 
-      RowBox[{
-       SubscriptBox["u", "0"], "cos\[Omega]t"}], ")"}]}], " ", "=", 
-    RowBox[{
-     RowBox[{"-", 
-      SuperscriptBox["\[Omega]", "2"]}], 
-     SubscriptBox["u", "0"], 
-     RowBox[{"cos", "(", "\[Omega]t", ")"}]}]}], TraditionalForm]],
-  ExpressionUUID->"0b5c7cce-ade5-4323-b6dc-a6cb8be54324"],
- ", and the time derivative for the bottom equation is ",
- Cell[BoxData[
-  FormBox[
-   RowBox[{
-    RowBox[{"-", 
-     SuperscriptBox["\[Omega]", "2"]}], 
-    SubscriptBox["v", "0"], 
-    RowBox[{"cos", "(", "\[Omega]t", ")"}]}], TraditionalForm]],
-  ExpressionUUID->"e4068f17-a848-4da9-ba9d-132751b50546"],
- ". Multiplying by -1 and dividing by cos(\[Omega]t), the simultaneous \
-equations now simplify to:\n\n",
- Cell[BoxData[
-  FormBox[
-   RowBox[{
-    RowBox[{"m", " ", 
-     SuperscriptBox["\[Omega]", "2"], 
-     SubscriptBox["u", "0"]}], "=", 
-    RowBox[{
-     RowBox[{
-      SubscriptBox["u", "0"], "(", 
-      RowBox[{
-       SubscriptBox["k", "b"], "+", 
-       SubscriptBox["k", "s"]}], ")"}], " ", "+", " ", 
-     RowBox[{
-      SubscriptBox["v", "0"], "(", 
-      RowBox[{"-", 
-       SubscriptBox["k", "s"]}], ")"}]}]}], TraditionalForm]],ExpressionUUID->
-  "7757545b-ba44-4ef8-9e0f-073434c8267e"],
- "\n",
- Cell[BoxData[
-  FormBox[
-   RowBox[{
-    RowBox[{"m", " ", 
-     SuperscriptBox["\[Omega]", "2"], 
-     SubscriptBox["v", "0"]}], "=", 
-    RowBox[{
-     RowBox[{
-      SubscriptBox["u", "0"], "(", 
-      RowBox[{"-", 
-       SubscriptBox["k", "s"]}], ")"}], "+", 
-     RowBox[{
-      SubscriptBox["v", "0"], "(", 
-      RowBox[{
-       SubscriptBox["k", "b"], "+", 
-       SubscriptBox["k", "s"]}], ")"}]}]}], TraditionalForm]],ExpressionUUID->
-  "b2a03ef0-7577-44db-81dc-e49f0b3cd98a"],
- "\n\nOr, in matrix form, with ",
- Cell[BoxData[
-  FormBox[
-   RowBox[{"\[Lambda]", "=", 
-    RowBox[{"m", " ", 
-     SuperscriptBox["\[Omega]", "2"]}]}], TraditionalForm]],ExpressionUUID->
-  "51cd86d1-bdf0-4451-82ac-0a4c8272118f"],
- ":\n\n\[Lambda]",
- Cell[BoxData[
-  FormBox[
-   RowBox[{"(", GridBox[{
-      {
-       SubscriptBox["u", "0"]},
-      {
-       SubscriptBox["v", "0"]}
-     }], ")"}], TraditionalForm]],ExpressionUUID->
-  "7aa4f5cd-5373-4079-998a-0fc84460f46d"],
- " = ",
- Cell[BoxData[
-  FormBox[
-   RowBox[{"(", GridBox[{
-      {
-       RowBox[{
-        SubscriptBox["k", "b"], "+", 
-        SubscriptBox["k", "s"]}], 
-       RowBox[{"-", 
-        SubscriptBox["k", "s"]}]},
-      {
-       RowBox[{"-", 
-        SubscriptBox["k", "s"]}], 
-       RowBox[{
-        SubscriptBox["k", "b"], "+", 
-        SubscriptBox["k", "s"]}]}
-     }], ")"}], TraditionalForm]],ExpressionUUID->
-  "c35ed6e7-cf2a-4296-baee-2b21e96ea69c"],
- Cell[BoxData[
-  FormBox[
-   RowBox[{"(", GridBox[{
-      {
-       SubscriptBox["u", "0"]},
-      {
-       SubscriptBox["v", "0"]}
-     }], ")"}], TraditionalForm]],ExpressionUUID->
-  "2422167a-ea4c-45e7-b2d8-e75dbc3ef895"],
- "\n\nThis is now an ",
- StyleBox["eigenvalue equation:",
-  FontWeight->"Bold"],
- "  ",
- StyleBox["M.r ",
-  FontWeight->"Bold"],
- "=",
- StyleBox[" ",
-  FontWeight->"Bold"],
- "\[Lambda] ",
- StyleBox["r",
-  FontWeight->"Bold"],
- " , where \[Lambda] is a constant, ",
- StyleBox["r",
-  FontWeight->"Bold"],
- " is a two element \[OpenCurlyDoubleQuote]vector\[CloseCurlyDoubleQuote], \
-and ",
- StyleBox["M ",
-  FontWeight->"Bold"],
- "is a matrix. Not just any \[Lambda] and ",
- StyleBox["r ",
-  FontWeight->"Bold"],
- "can work! In fact, in this case only two \[Lambda]\[CloseCurlyQuote]s will \
-yield solutions to the equation. (Remember there are the same number of \
-eigenvalues as there are simultaneous equations.) Finding the eigenvalues \
-will tell you what the allowed oscillation frequencies are: one allowed \
-\[Omega] for each \[Lambda] (because ",
- Cell[BoxData[
-  FormBox[
-   RowBox[{"\[Omega]", "=", 
-    SqrtBox[
-     RowBox[{"\[Lambda]", "/", "m"}]]}], TraditionalForm]],ExpressionUUID->
-  "6311521d-70e9-40ee-a45c-9289877e1516"],
- "). \n\nEach eigenvalue & frequency will also have a particular ",
- StyleBox["r",
-  FontWeight->"Bold"],
- " (eigenvector) associated with it. In this example ",
- StyleBox["r",
-  FontWeight->"Bold"],
- " = ",
- Cell[BoxData[
-  FormBox[
-   RowBox[{"(", 
-    RowBox[{
-     SubscriptBox["u", "0"], ",", 
-     SubscriptBox["v", "0"]}]}], TraditionalForm]],ExpressionUUID->
-  "763528c2-7b8b-4218-9209-c296c2e9523b"],
- ")... that means the eigenvectors give you information about the initial \
-displacements of each mass that will give rise to the allowed frequencies. As \
-mentioned above, eigenvectors can always be multiplied by a constant, so if a \
-particular (u,v) combination \[OpenCurlyDoubleQuote]works\
-\[CloseCurlyDoubleQuote], then any constant times that (u,v) pair will also \
-work and will produce the same \[Lambda]--so the eigenvectors really only \
-tell you about the ",
- StyleBox["ratios",
-  FontVariations->{"Underline"->True}],
- " of the amplitudes, not about their absolute values. As an example, this \
-means that if you get (1,3) as an eigenvector, then for that mode of \
-oscillation the second mass would always have three times the amplitude of \
-the first mass. It wouldn\[CloseCurlyQuote]t matter if the amplitudes of \
-oscillation were 1 cm vs. 3 cm, 2 cm vs. 6 cm, etc., all such amplitudes will \
-give rise to the same frequency. Or, if you get (-1,3) as an eigenvector, \
-then that means the oscillations are out of phase: the ratio of amplitudes is \
-still 3 to 1, but one starts out displaced to the left of its equilibrium \
-point while the other is displaced to the right.\n\nEnough discussion, let\
-\[CloseCurlyQuote]s solve the problem already!"
-}], "Text",
- CellGroupingRules->{"GroupTogetherGrouping", 10000.},
- CellChangeTimes->{{3.432564721977771*^9, 3.432564737691535*^9}, {
-   3.432564792103362*^9, 3.432565255468696*^9}, {3.432571484258397*^9, 
-   3.4325714845708947`*^9}, {3.432572026911174*^9, 3.43257202753617*^9}, {
-   3.4325720627703195`*^9, 3.4325722249880314`*^9}, {3.4325722829720354`*^9, 
-   3.432572313253091*^9}, {3.4325724511272087`*^9, 3.432572662985228*^9}, {
-   3.432573774078693*^9, 3.4325737746099358`*^9}, {3.4325738285154963`*^9, 
-   3.4325738355779057`*^9}, {3.4325739204361944`*^9, 3.432574004356995*^9}, {
-   3.4325743731049156`*^9, 3.4325744504047585`*^9}, {3.4325850464754434`*^9, 
-   3.4325850971639166`*^9}, {3.4326681888268003`*^9, 3.432668192201865*^9}, {
-   3.432732296729523*^9, 3.432732355449401*^9}, {3.4329100494962735`*^9, 
-   3.432910061027745*^9}, {3.439673770584632*^9, 3.439673770584632*^9}, {
-   3.475426102722923*^9, 3.475426121395156*^9}, 3.501282170832631*^9, {
-   3.528717933816077*^9, 3.5287179531890774`*^9}, {3.528718001143077*^9, 
-   3.528718002721077*^9}, {3.5448982104953327`*^9, 3.5448982167999163`*^9}, {
-   3.5448982862210016`*^9, 3.544898314159413*^9}, {3.5449007436998825`*^9, 
-   3.5449007505648823`*^9}, {3.5449008195278826`*^9, 
-   3.5449009980248823`*^9}, {3.5449010646598825`*^9, 
-   3.5449012200298824`*^9}, {3.5449012762048826`*^9, 3.544901791313883*^9}, {
-   3.5449018355108824`*^9, 3.5449023822818823`*^9}, {3.5449025011068826`*^9, 
-   3.5449025056828823`*^9}, {3.544902881162883*^9, 3.5449028889138823`*^9}, {
-   3.5449029485908823`*^9, 3.5449029810438824`*^9}, {3.544956121634898*^9, 
-   3.5449561631610503`*^9}, {3.544956205403274*^9, 3.544956281836917*^9}, {
-   3.5449566287246017`*^9, 3.5449566462143507`*^9}, {3.544956685885318*^9, 
-   3.5449567079055195`*^9}, {3.5449567379845266`*^9, 3.544957100532778*^9}, {
-   3.5449571393206563`*^9, 3.5449573138191047`*^9}, {3.5449573471054325`*^9, 
-   3.544957347905513*^9}, {3.544957449230644*^9, 3.5449575751872387`*^9}, {
-   3.5449576293096504`*^9, 3.5449576838961086`*^9}, {3.5449597415008483`*^9, 
-   3.5449598071594133`*^9}, {3.544960150405735*^9, 3.5449602646371565`*^9}, 
-   3.5449719002797832`*^9, {3.5449719911348677`*^9, 3.544972078373591*^9}, {
-   3.5449725773084793`*^9, 3.544972578001549*^9}, {3.544976442681978*^9, 
-   3.5449764715658665`*^9}, {3.5449765488195906`*^9, 3.5449765727019787`*^9}, 
-   3.5620286994993153`*^9, {3.56202876304867*^9, 3.562028764611826*^9}, {
-   3.5620288193573*^9, 3.5620289602273855`*^9}, {3.562029003039666*^9, 
-   3.562029541262483*^9}, {3.562029640018358*^9, 3.5620297518085356`*^9}, {
-   3.5620297924536*^9, 3.562029888073161*^9}, {3.5620299715075035`*^9, 
-   3.562030137939145*^9}, {3.5620301799703474`*^9, 3.5620303801083593`*^9}, {
-   3.5620304151338615`*^9, 3.562030759973342*^9}, {3.5620308838607297`*^9, 
-   3.5620309150378475`*^9}, {3.5620309541547585`*^9, 3.562031001654508*^9}, {
-   3.5620310515444965`*^9, 3.5620310571210537`*^9}, {3.562031094052747*^9, 
-   3.5620311070630474`*^9}, {3.5620315571480513`*^9, 
-   3.5620317040637417`*^9}, {3.562032860391363*^9, 3.5620328871210356`*^9}, {
-   3.5620329269970226`*^9, 3.5620329282041435`*^9}, {3.5620329664219646`*^9, 
-   3.5620329672080436`*^9}, {3.5883493129976187`*^9, 3.588349312997677*^9}, {
-   3.588349345764327*^9, 3.588349345764385*^9}, {3.58902976389154*^9, 
-   3.589029763891602*^9}, {3.58902979997818*^9, 3.5890298017356167`*^9}, 
-   3.5976805453698053`*^9, {3.600199207339304*^9, 3.600199288064376*^9}, {
-   3.600199320877657*^9, 3.600199320992668*^9}, {3.600199412232791*^9, 
-   3.6001994439619637`*^9}, 3.6001995015737247`*^9, {3.600199533843951*^9, 
-   3.600199534280995*^9}, {3.6001996088844547`*^9, 3.600199655265092*^9}, {
-   3.6001996886444297`*^9, 3.6001997165192165`*^9}, {3.6001997697135353`*^9, 
-   3.600199811178682*^9}, {3.600199845823146*^9, 3.600199850083572*^9}, {
-   3.600199897217285*^9, 3.600199935993162*^9}, {3.6001999912736893`*^9, 
-   3.6002000157781396`*^9}, {3.600200090525614*^9, 3.6002003446460233`*^9}, {
-   3.6002003951050687`*^9, 3.600200608327389*^9}, {3.6002006628918447`*^9, 
-   3.6002006630178576`*^9}, {3.6002010097105227`*^9, 3.600201022829835*^9}, {
-   3.608294749731094*^9, 3.6082947514182625`*^9}, {3.6082948417262926`*^9, 
-   3.608294962972416*^9}, {3.608295125002618*^9, 3.608295125176635*^9}, {
-   3.608296055603668*^9, 3.608296390567161*^9}, {3.608297530489142*^9, 
-   3.6082975356856613`*^9}, {3.634672912550644*^9, 3.6346729619324503`*^9}, {
-   3.634672998755345*^9, 3.634673012177734*^9}, {3.6346730483650475`*^9, 
-   3.6346731340519857`*^9}, {3.6346732205144677`*^9, 
-   3.6346732211469097`*^9}, {3.6346732834718323`*^9, 
-   3.6346732866387825`*^9}, {3.6346733282582645`*^9, 3.634673437627065*^9}, {
-   3.6346734682302437`*^9, 3.634673474747198*^9}, {3.6346735624214926`*^9, 
-   3.634673645330166*^9}, 3.7609725764452963`*^9, {3.7609778431144905`*^9, 
-   3.7609779719804907`*^9}, {3.76097802211349*^9, 3.7609780365644903`*^9}, 
-   3.7631085599629765`*^9, {3.7631109045759325`*^9, 3.763110904965933*^9}, {
-   3.763747512280568*^9, 3.763747561592484*^9}, {3.7639185497720537`*^9, 
-   3.7639185523221045`*^9}, {3.7639237841190004`*^9, 
-   3.7639238303709264`*^9}, {3.763980730765978*^9, 3.7639807341823997`*^9}, {
-   3.7639808403732805`*^9, 
-   3.7639808885775895`*^9}},ExpressionUUID->"16f11ca8-8923-42ca-9e52-\
-596822cb1b62"]
+}, Open  ]]
 }, Open  ]]
 }, Open  ]],
 
@@ -10430,277 +9774,6 @@ co8OKOeHkt6oLKL/971a+P/fq/0/duA9jg==
   3.7645995021874485`*^9}},ExpressionUUID->"db84e94e-c868-4e43-af1d-\
 6f8b0d55857a"],
 
-Cell["Animations", "Subsection",
- CellGroupingRules->{"GroupTogetherGrouping", 10000.},
- CellChangeTimes->{{3.432477774309512*^9, 3.4324777770699263`*^9}, 
-   3.432481583502447*^9, {3.432481745099237*^9, 3.432481772636252*^9}, {
-   3.432488494136977*^9, 3.43248849667303*^9}, 3.432488549452938*^9, 
-   3.432516055748814*^9, 3.4325165331798553`*^9, {3.432565853630549*^9, 
-   3.43256585438869*^9}, {3.432571609601345*^9, 3.4325716467573566`*^9}, 
-   3.4325726686883163`*^9, 3.432585157540076*^9, {3.43258769530755*^9, 
-   3.4325876954638033`*^9}, {3.4329280998754807`*^9, 
-   3.4329281212981787`*^9}, {3.5448981760464635`*^9, 
-   3.5448981866470375`*^9}, {3.5449029209038825`*^9, 
-   3.5449029267828827`*^9}, {3.562031428925231*^9, 3.562031430709409*^9}, 
-   3.7609725764452963`*^9, 3.7631085599629765`*^9, {3.7637466275528927`*^9, 
-   3.7637466313281164`*^9}},ExpressionUUID->"4e64ded2-0d61-4738-b37a-\
-37c4cf06b06b"],
-
-Cell["\<\
-A little animation goes a long way in helping you visualize the normal modes. \
- You do that with a combination of Animate and Graphics.  Here is an example \
-of each:\
-\>", "Text",
- CellChangeTimes->{{3.7637431550960636`*^9, 3.7637431740657854`*^9}, {
-   3.7637442143156614`*^9, 3.7637443255317745`*^9}, {3.7637464105530996`*^9, 
-   3.763746412955515*^9}, 3.763746634806939*^9, {3.763982051794164*^9, 
-   3.7639820714970903`*^9}},ExpressionUUID->"9f242459-6a6d-42c4-a9d4-\
-28acff48ccaf"],
-
-Cell[CellGroupData[{
-
-Cell[BoxData[
- RowBox[{"Graphics", "[", 
-  RowBox[{"{", 
-   RowBox[{"Thick", ",", "Green", ",", 
-    RowBox[{"Line", "[", 
-     RowBox[{"{", 
-      RowBox[{
-       RowBox[{"{", 
-        RowBox[{"0", ",", "0"}], "}"}], ",", 
-       RowBox[{"{", 
-        RowBox[{"3", ",", "0"}], "}"}]}], "}"}], "]"}], ",", "Blue", ",", 
-    RowBox[{"Ball", "[", 
-     RowBox[{
-      RowBox[{"{", 
-       RowBox[{"1.5", ",", "0"}], "}"}], ",", ".15"}], "]"}]}], "}"}], 
-  "]"}]], "Input",
- CellChangeTimes->{{3.763744657524503*^9, 3.7637446678049693`*^9}, {
-  3.7637447204085064`*^9, 3.76374483021961*^9}, {3.76374497517774*^9, 
-  3.7637449756301427`*^9}, {3.7637456073775845`*^9, 3.7637456075491915`*^9}},
- CellLabel->"In[52]:=",ExpressionUUID->"88860688-3f20-4f37-a900-a180d67248ae"],
-
-Cell[BoxData[
- GraphicsBox[
-  {RGBColor[0, 1, 0], Thickness[Large], LineBox[{{0, 0}, {3, 0}}], 
-   {RGBColor[0, 0, 1], 
-    TagBox[DiskBox[{1.5, 0}, 0.15],
-     "Ball"]}}]], "Output",
- CellChangeTimes->{3.7646011213620586`*^9},
- CellLabel->"Out[52]=",ExpressionUUID->"5fd01dc1-1eab-4015-b3be-a8781c67b522"]
-}, Open  ]],
-
-Cell[CellGroupData[{
-
-Cell[BoxData[
- RowBox[{"Animate", "[", 
-  RowBox[{
-   RowBox[{"Graphics", "[", 
-    RowBox[{
-     RowBox[{"{", 
-      RowBox[{"Thick", ",", "Green", ",", 
-       RowBox[{"Line", "[", 
-        RowBox[{"{", 
-         RowBox[{
-          RowBox[{"{", 
-           RowBox[{"0", ",", "0"}], "}"}], ",", 
-          RowBox[{"{", 
-           RowBox[{"3", ",", "0"}], "}"}]}], "}"}], "]"}], ",", "Blue", ",", 
-       RowBox[{"Ball", "[", 
-        RowBox[{
-         RowBox[{"{", 
-          RowBox[{
-           RowBox[{"1.5", "+", 
-            RowBox[{"upos1", "[", "t", "]"}]}], ",", "0"}], "}"}], ",", 
-         ".15"}], "]"}]}], "}"}], ",", 
-     RowBox[{"PlotRange", "\[Rule]", "All"}]}], "]"}], ",", 
-   RowBox[{"{", 
-    RowBox[{"t", ",", "0", ",", "10"}], "}"}]}], "]"}]], "Input",
- CellChangeTimes->{{3.7637443283553925`*^9, 3.763744446214148*^9}, {
-   3.763744496321669*^9, 3.7637446180406504`*^9}, {3.7637448501409383`*^9, 
-   3.763744958688434*^9}, {3.763744990138236*^9, 3.763745002009912*^9}, {
-   3.763745049107614*^9, 3.763745049747218*^9}, {3.7637456106849117`*^9, 
-   3.763745610872119*^9}, 3.763922302726347*^9},
- CellLabel->"In[8]:=",ExpressionUUID->"e6d1162d-a628-4879-8cfe-aaa4bdce2904"],
-
-Cell[BoxData[
- TagBox[
-  StyleBox[
-   DynamicModuleBox[{$CellContext`t$$ = 3.398746910093905, Typeset`show$$ = 
-    True, Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
-    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
-    "\"untitled\"", Typeset`specs$$ = {{
-      Hold[$CellContext`t$$], 0, 10}}, Typeset`size$$ = {540., {33., 40.}}, 
-    Typeset`update$$ = 0, Typeset`initDone$$, Typeset`skipInitDone$$ = 
-    True, $CellContext`t$5250$$ = 0}, 
-    DynamicBox[Manipulate`ManipulateBoxes[
-     1, StandardForm, "Variables" :> {$CellContext`t$$ = 0}, 
-      "ControllerVariables" :> {
-        Hold[$CellContext`t$$, $CellContext`t$5250$$, 0]}, 
-      "OtherVariables" :> {
-       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
-        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
-        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
-         Typeset`skipInitDone$$}, "Body" :> Graphics[{Thick, Green, 
-         Line[{{0, 0}, {3, 0}}], Blue, 
-         Ball[{1.5 + $CellContext`upos1[$CellContext`t$$], 0}, 0.15]}, 
-        PlotRange -> All], 
-      "Specifications" :> {{$CellContext`t$$, 0, 10, 
-         AppearanceElements -> {
-          "ProgressSlider", "PlayPauseButton", "FasterSlowerButtons", 
-           "DirectionButton"}}}, 
-      "Options" :> {
-       ControlType -> Animator, AppearanceElements -> None, DefaultBaseStyle -> 
-        "Animate", DefaultLabelStyle -> "AnimateLabel", SynchronousUpdating -> 
-        True, ShrinkingDelay -> 10.}, "DefaultOptions" :> {}],
-     ImageSizeCache->{612., {89., 98.}},
-     SingleEvaluation->True],
-    Deinitialization:>None,
-    DynamicModuleValues:>{},
-    SynchronousInitialization->True,
-    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
-    UnsavedVariables:>{Typeset`initDone$$},
-    UntrackedVariables:>{Typeset`size$$}], "Animate",
-   Deployed->True,
-   StripOnInput->False],
-  Manipulate`InterpretManipulate[1]]], "Output",
- CellChangeTimes->{
-  3.764601130529402*^9, {3.7646011857133665`*^9, 3.764601233234209*^9}},
- CellLabel->"Out[8]=",ExpressionUUID->"8987d873-304f-44ac-9f56-fde88fb3b9a0"]
-}, Open  ]],
-
-Cell[TextData[{
- StyleBox["Things to notice",
-  FontWeight->"Bold"],
- ":\n- All of the Graphics elements are collected together into a list and \
-enclosed in {curly brackets}.\n- Items are plotted in the order in which they \
-are called.  Try switching Blue and Green in one of the Graphics calls above.\
-\nTry altering some of the other graphics parameters to see if they behave as \
-you would expect\nThere are many other options you can add to these commands. \
- Put your cursor on Animate and press F1 to see some examples\n\n",
- StyleBox["Important",
-  FontWeight->"Bold"],
- ":  Animate is fussy - it wants to see all of the time-dependent functions \
-directly inside the Animate call.  So THIS doesn\[CloseCurlyQuote]t work, \
-even though it seems like it should behave exactly the same as the call above:"
-}], "Text",
- CellChangeTimes->{{3.763745089232071*^9, 3.763745266923292*^9}, {
-  3.763745563023079*^9, 3.7637455703085594`*^9}, {3.7637456269875393`*^9, 
-  3.763745650809655*^9}, {3.763745773946665*^9, 3.763745774835882*^9}, {
-  3.7637464383212776`*^9, 3.763746462704234*^9}, {3.7639858499540195`*^9, 
-  3.76398585099922*^9}},ExpressionUUID->"37c4c809-ab0d-4658-a236-\
-7634256bcc61"],
-
-Cell[CellGroupData[{
-
-Cell[BoxData[{
- RowBox[{
-  RowBox[{
-   RowBox[{"testposn", "=", 
-    RowBox[{"upos1", "[", "t", "]"}]}], ";"}], " ", 
-  RowBox[{"(*", " ", 
-   RowBox[{"This", " ", 
-    RowBox[{"doesn", "'"}], "t", " ", "work", " ", "inside", " ", "the", " ", 
-    "Animate", " ", "command"}], " ", "*)"}]}], "\[IndentingNewLine]", 
- RowBox[{"Animate", "[", 
-  RowBox[{
-   RowBox[{"Graphics", "[", 
-    RowBox[{
-     RowBox[{"{", 
-      RowBox[{"Thick", ",", "Green", ",", 
-       RowBox[{"Line", "[", 
-        RowBox[{"{", 
-         RowBox[{
-          RowBox[{"{", 
-           RowBox[{"0", ",", "0"}], "}"}], ",", 
-          RowBox[{"{", 
-           RowBox[{"3", ",", "0"}], "}"}]}], "}"}], "]"}], ",", "Blue", ",", 
-       RowBox[{"Ball", "[", 
-        RowBox[{
-         RowBox[{"{", 
-          RowBox[{
-           RowBox[{"1.5", "+", "testposn"}], ",", "0"}], "}"}], ",", ".15"}], 
-        "]"}]}], "}"}], ",", 
-     RowBox[{"PlotRange", "\[Rule]", "All"}]}], "]"}], ",", 
-   RowBox[{"{", 
-    RowBox[{"t", ",", "0", ",", "10"}], "}"}]}], "]"}]}], "Input",
- CellChangeTimes->{{3.763745959016024*^9, 3.7637459934332867`*^9}, {
-   3.763746201250559*^9, 3.763746203106982*^9}, {3.7637462996489887`*^9, 
-   3.7637463106168585`*^9}, {3.7637463434706697`*^9, 
-   3.7637463678546257`*^9}, {3.7637464682120695`*^9, 3.76374650732152*^9}, 
-   3.763922350249299*^9, {3.7639820901860104`*^9, 3.7639820979548597`*^9}},
- CellLabel->"In[32]:=",ExpressionUUID->"f49b649b-10f1-41bd-a619-cb007fe0a636"],
-
-Cell[BoxData[
- TagBox[
-  StyleBox[
-   DynamicModuleBox[{$CellContext`t$$ = 7.6754608154296875`, Typeset`show$$ = 
-    True, Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
-    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
-    "\"untitled\"", Typeset`specs$$ = {{
-      Hold[$CellContext`t$$], 0, 10}}, Typeset`size$$ = {540., {179., 188.}}, 
-    Typeset`update$$ = 0, Typeset`initDone$$, Typeset`skipInitDone$$ = 
-    True, $CellContext`t$8160$$ = 0}, 
-    DynamicBox[Manipulate`ManipulateBoxes[
-     1, StandardForm, "Variables" :> {$CellContext`t$$ = 0}, 
-      "ControllerVariables" :> {
-        Hold[$CellContext`t$$, $CellContext`t$8160$$, 0]}, 
-      "OtherVariables" :> {
-       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
-        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
-        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
-         Typeset`skipInitDone$$}, "Body" :> Graphics[{Thick, Green, 
-         Line[{{0, 0}, {3, 0}}], Blue, 
-         Ball[{1.5 + CloudObject`Private`testposn, 0}, 0.15]}, PlotRange -> 
-        All], "Specifications" :> {{$CellContext`t$$, 0, 10, 
-         AppearanceElements -> {
-          "ProgressSlider", "PlayPauseButton", "FasterSlowerButtons", 
-           "DirectionButton"}}}, 
-      "Options" :> {
-       ControlType -> Animator, AppearanceElements -> None, DefaultBaseStyle -> 
-        "Animate", DefaultLabelStyle -> "AnimateLabel", SynchronousUpdating -> 
-        True, ShrinkingDelay -> 10.}, "DefaultOptions" :> {}],
-     ImageSizeCache->{612., {236., 245.}},
-     SingleEvaluation->True],
-    Deinitialization:>None,
-    DynamicModuleValues:>{},
-    SynchronousInitialization->True,
-    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
-    UnsavedVariables:>{Typeset`initDone$$},
-    UntrackedVariables:>{Typeset`size$$}], "Animate",
-   Deployed->True,
-   StripOnInput->False],
-  Manipulate`InterpretManipulate[1]]], "Output",
- CellChangeTimes->{{3.7646013216625423`*^9, 3.764601329891555*^9}},
- CellLabel->"Out[33]=",ExpressionUUID->"3144d707-7346-4aa6-9931-31888b33cec6"]
-}, Open  ]],
-
-Cell[TextData[{
- StyleBox["Back to the problem:",
-  FontWeight->"Bold"],
- " For this problem we want to show the strings stretching in time, attached \
-to the balls which move in time.  We\[CloseCurlyQuote]ll set this inside a \
-frame containing the outer walls, and some tickmarks which show the \
-equilibrium points.  \n\nTo start a complicated Animate command like this, \
-break it down into managable parts which you can debug then combine together. \
-\nI\[CloseCurlyQuote]ll start with the piece \
-\[OpenCurlyDoubleQuote]wallgraphics\[CloseCurlyDoubleQuote] which contains \
-the info needed to plot the walls & equilibrium points.  \n\nThrough trial \
-and error I found that good values to use for the equilibrium positions of \
-the two masses (i.e. the places where u=0 and v=0) are at -1.5 and +1.5, and \
-that a good position for the walls that the springs are attached to are -3.5 \
-and +3.5.  I made the walls extend from y = - 0.5 to +0.5, and the \
-equilibrium markers extend from y = - 0.1 to + 0.1.  Nothing sacred about \
-these values!"
-}], "Text",
- CellChangeTimes->{
-  3.763744318262128*^9, {3.7637452821827555`*^9, 3.763745437761861*^9}, {
-   3.7637456591715765`*^9, 3.76374566158967*^9}, {3.7637465246220307`*^9, 
-   3.7637465318614774`*^9}, {3.7639825572662926`*^9, 3.763982636250105*^9}, {
-   3.763982667887311*^9, 
-   3.7639827398364334`*^9}},ExpressionUUID->"71aa6ce5-f212-43a4-9d82-\
-78c2be15ddf4"],
-
 Cell[BoxData[{
  RowBox[{
   RowBox[{"x0", "=", "1.5"}], " ", 
@@ -10875,250 +9948,6 @@ Cell[BoxData[
   "}"}]], "Output",
  CellChangeTimes->{3.764601535705514*^9},
  CellLabel->"Out[40]=",ExpressionUUID->"7be8be96-4dfe-4efd-b161-e95ba500f16f"]
-}, Open  ]],
-
-Cell["\<\
-The way to see what it holds is to insert it into the Graphics command:\
-\>", "Text",
- CellChangeTimes->{{3.7637432026607685`*^9, 3.7637432099460154`*^9}, {
-  3.763743714143649*^9, 3.7637437336779747`*^9}, {3.7637455251136208`*^9, 
-  3.763745527188501*^9}},ExpressionUUID->"7e1d5cf2-dc12-49ea-843f-\
-9dab165e6762"],
-
-Cell[CellGroupData[{
-
-Cell[BoxData[
- RowBox[{"Graphics", "[", "wallgraphics", "]"}]], "Input",
- CellChangeTimes->{{3.7637432722060146`*^9, 3.763743278773657*^9}},
- CellLabel->"In[41]:=",ExpressionUUID->"5c60c55b-2339-4e74-82e5-2f5858671679"],
-
-Cell[BoxData[
- GraphicsBox[
-  {GrayLevel[0], Thickness[Large], LineBox[{{-3.5, -0.5}, {-3.5, 0.5}}], 
-   LineBox[{{3.5, -0.5}, {3.5, 0.5}}], 
-   {Thickness[Tiny], LineBox[{{-1.5, -0.1}, {-1.5, 0.1}}], 
-    LineBox[{{1.5, -0.1}, {1.5, 0.1}}]}}]], "Output",
- CellChangeTimes->{3.764601539751683*^9},
- CellLabel->"Out[41]=",ExpressionUUID->"3cee0435-68f8-4679-a174-f034b2386ba0"]
-}, Open  ]],
-
-Cell[TextData[{
- "Now we want to animate the balls & springs.  You do this by assembling \
-another Graphics call which tells Mathematica where the spring endpoints are \
-(using Line), where the balls are located and what their size is (using \
-Ball), then placing that inside an Animate command.  Here\[CloseCurlyQuote]s \
-what that looks like for the ",
- StyleBox["first",
-  FontWeight->"Bold"],
- " ball & spring oscillating in the ",
- StyleBox["first",
-  FontWeight->"Bold"],
- " normal mode:"
-}], "Text",
- CellChangeTimes->{{3.7637438520341377`*^9, 3.7637440150651836`*^9}, {
-  3.7639822194484386`*^9, 3.7639822308983135`*^9}, {3.7639827803969536`*^9, 
-  3.76398278559182*^9}, {3.7639828620806007`*^9, 
-  3.7639828747323627`*^9}},ExpressionUUID->"11fc5c99-7c06-4fdd-b54c-\
-4775d04ad1dc"],
-
-Cell[CellGroupData[{
-
-Cell[BoxData[
- RowBox[{"Animate", "[", 
-  RowBox[{
-   RowBox[{"Graphics", "[", 
-    RowBox[{
-     RowBox[{"{", 
-      RowBox[{"Thick", ",", "Blue", ",", 
-       RowBox[{"Line", "[", 
-        RowBox[{"{", 
-         RowBox[{
-          RowBox[{"{", 
-           RowBox[{
-            RowBox[{"-", "xwall"}], ",", "0"}], "}"}], ",", 
-          RowBox[{"{", 
-           RowBox[{
-            RowBox[{
-             RowBox[{"-", "x0"}], "+", 
-             RowBox[{"upos1", "[", "t", "]"}]}], ",", "0"}], "}"}]}], "}"}], 
-        "]"}], ",", 
-       RowBox[{"Ball", "[", 
-        RowBox[{
-         RowBox[{"{", 
-          RowBox[{
-           RowBox[{
-            RowBox[{"-", "x0"}], "+", 
-            RowBox[{"upos1", "[", "t", "]"}]}], ",", "0"}], "}"}], ",", 
-         ".15"}], "]"}]}], "}"}], ",", 
-     RowBox[{"PlotRange", "\[Rule]", 
-      RowBox[{"{", 
-       RowBox[{
-        RowBox[{"{", 
-         RowBox[{
-          RowBox[{"-", "xwall"}], ",", "xwall"}], "}"}], ",", 
-        RowBox[{"{", 
-         RowBox[{
-          RowBox[{"-", "1"}], ",", "1"}], "}"}]}], "}"}]}]}], "]"}], ",", 
-   RowBox[{"{", 
-    RowBox[{"t", ",", "0", ",", "50"}], "}"}], ",", 
-   RowBox[{"AnimationRate", "\[Rule]", "2"}]}], "]"}]], "Input",
- CellChangeTimes->{
-  3.7637440574088554`*^9, {3.76392237676483*^9, 3.7639223879670544`*^9}, 
-   3.7639822801323385`*^9, {3.7639823491556244`*^9, 3.7639823512460513`*^9}, {
-   3.763983301590036*^9, 3.7639833020580416`*^9}},
- CellLabel->"In[42]:=",ExpressionUUID->"ca69002f-0953-4903-a402-ed575959aac5"],
-
-Cell[BoxData[
- TagBox[
-  StyleBox[
-   DynamicModuleBox[{$CellContext`t$$ = 5.471681594848633, Typeset`show$$ = 
-    True, Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
-    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
-    "\"untitled\"", Typeset`specs$$ = {{
-      Hold[$CellContext`t$$], 0, 50}}, Typeset`size$$ = {540., {73., 81.}}, 
-    Typeset`update$$ = 0, Typeset`initDone$$, Typeset`skipInitDone$$ = 
-    True, $CellContext`t$9074$$ = 0}, 
-    DynamicBox[Manipulate`ManipulateBoxes[
-     1, StandardForm, "Variables" :> {$CellContext`t$$ = 0}, 
-      "ControllerVariables" :> {
-        Hold[$CellContext`t$$, $CellContext`t$9074$$, 0]}, 
-      "OtherVariables" :> {
-       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
-        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
-        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
-         Typeset`skipInitDone$$}, "Body" :> Graphics[{Thick, Blue, 
-         Line[{{-CloudObject`Private`xwall, 
-            0}, {-CloudObject`Private`x0 + \
-$CellContext`upos1[$CellContext`t$$], 0}}], 
-         Ball[{-CloudObject`Private`x0 + $CellContext`upos1[$CellContext`t$$],
-            0}, 0.15]}, 
-        PlotRange -> {{-CloudObject`Private`xwall, 
-           CloudObject`Private`xwall}, {-1, 1}}], 
-      "Specifications" :> {{$CellContext`t$$, 0, 50, AnimationRate -> 2, 
-         AppearanceElements -> {
-          "ProgressSlider", "PlayPauseButton", "FasterSlowerButtons", 
-           "DirectionButton"}}}, 
-      "Options" :> {
-       ControlType -> Animator, AppearanceElements -> None, DefaultBaseStyle -> 
-        "Animate", DefaultLabelStyle -> "AnimateLabel", SynchronousUpdating -> 
-        True, ShrinkingDelay -> 10.}, "DefaultOptions" :> {}],
-     ImageSizeCache->{612., {130., 139.}},
-     SingleEvaluation->True],
-    Deinitialization:>None,
-    DynamicModuleValues:>{},
-    SynchronousInitialization->True,
-    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
-    UnsavedVariables:>{Typeset`initDone$$},
-    UntrackedVariables:>{Typeset`size$$}], "Animate",
-   Deployed->True,
-   StripOnInput->False],
-  Manipulate`InterpretManipulate[1]]], "Output",
- CellChangeTimes->{3.7646015921564064`*^9},
- CellLabel->"Out[42]=",ExpressionUUID->"45b5421a-77ce-4a65-85fe-bbd01093439b"]
-}, Open  ]],
-
-Cell["\<\
-Once you have everything as you wish, put it together under a single Animate \
-call:\
-\>", "Text",
- CellChangeTimes->{{3.7637440828838186`*^9, 
-  3.7637441025087442`*^9}},ExpressionUUID->"36e2c4aa-fea1-4673-80b3-\
-e2f777537bf0"],
-
-Cell[CellGroupData[{
-
-Cell[BoxData[
- RowBox[{"Animate", "[", 
-  RowBox[{
-   RowBox[{"Graphics", "[", 
-    RowBox[{
-     RowBox[{"{", 
-      RowBox[{"wallgraphics", ",", "Thick", ",", "Blue", ",", 
-       RowBox[{"Line", "[", 
-        RowBox[{"{", 
-         RowBox[{
-          RowBox[{"{", 
-           RowBox[{
-            RowBox[{"-", "xwall"}], ",", "0"}], "}"}], ",", 
-          RowBox[{"{", 
-           RowBox[{
-            RowBox[{
-             RowBox[{"-", "x0"}], "+", 
-             RowBox[{"upos1", "[", "t", "]"}]}], ",", "0"}], "}"}]}], "}"}], 
-        "]"}], ",", 
-       RowBox[{"Ball", "[", 
-        RowBox[{
-         RowBox[{"{", 
-          RowBox[{
-           RowBox[{
-            RowBox[{"-", "x0"}], "+", 
-            RowBox[{"upos1", "[", "t", "]"}]}], ",", "0"}], "}"}], ",", 
-         ".15"}], "]"}]}], "}"}], ",", 
-     RowBox[{"PlotRange", "\[Rule]", 
-      RowBox[{"{", 
-       RowBox[{
-        RowBox[{"{", 
-         RowBox[{
-          RowBox[{"-", "xwall"}], ",", "xwall"}], "}"}], ",", 
-        RowBox[{"{", 
-         RowBox[{
-          RowBox[{"-", "1"}], ",", "1"}], "}"}]}], "}"}]}]}], "]"}], ",", 
-   RowBox[{"{", 
-    RowBox[{"t", ",", "0", ",", "50"}], "}"}], ",", 
-   RowBox[{"AnimationRate", "\[Rule]", "2"}]}], "]"}]], "Input",
- CellChangeTimes->{{3.763924459762556*^9, 3.763924468034722*^9}, {
-   3.7639823837422676`*^9, 3.763982392946386*^9}, 3.7639833156926165`*^9, 
-   3.76460310488478*^9},
- CellLabel->"In[43]:=",ExpressionUUID->"0b18ba40-e6aa-45aa-b85d-cb1d8e27fbc9"],
-
-Cell[BoxData[
- TagBox[
-  StyleBox[
-   DynamicModuleBox[{$CellContext`t$$ = 15.722000122070312`, Typeset`show$$ = 
-    True, Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
-    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
-    "\"untitled\"", Typeset`specs$$ = {{
-      Hold[$CellContext`t$$], 0, 50}}, Typeset`size$$ = {540., {73., 81.}}, 
-    Typeset`update$$ = 0, Typeset`initDone$$, Typeset`skipInitDone$$ = 
-    True, $CellContext`t$9274$$ = 0}, 
-    DynamicBox[Manipulate`ManipulateBoxes[
-     1, StandardForm, "Variables" :> {$CellContext`t$$ = 0}, 
-      "ControllerVariables" :> {
-        Hold[$CellContext`t$$, $CellContext`t$9274$$, 0]}, 
-      "OtherVariables" :> {
-       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
-        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
-        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
-         Typeset`skipInitDone$$}, "Body" :> 
-      Graphics[{CloudObject`Private`wallgraphics, Thick, Blue, 
-         Line[{{-CloudObject`Private`xwall, 
-            0}, {-CloudObject`Private`x0 + \
-$CellContext`upos1[$CellContext`t$$], 0}}], 
-         Ball[{-CloudObject`Private`x0 + $CellContext`upos1[$CellContext`t$$],
-            0}, 0.15]}, 
-        PlotRange -> {{-CloudObject`Private`xwall, 
-           CloudObject`Private`xwall}, {-1, 1}}], 
-      "Specifications" :> {{$CellContext`t$$, 0, 50, AnimationRate -> 2, 
-         AppearanceElements -> {
-          "ProgressSlider", "PlayPauseButton", "FasterSlowerButtons", 
-           "DirectionButton"}}}, 
-      "Options" :> {
-       ControlType -> Animator, AppearanceElements -> None, DefaultBaseStyle -> 
-        "Animate", DefaultLabelStyle -> "AnimateLabel", SynchronousUpdating -> 
-        True, ShrinkingDelay -> 10.}, "DefaultOptions" :> {}],
-     ImageSizeCache->{612., {130., 139.}},
-     SingleEvaluation->True],
-    Deinitialization:>None,
-    DynamicModuleValues:>{},
-    SynchronousInitialization->True,
-    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
-    UnsavedVariables:>{Typeset`initDone$$},
-    UntrackedVariables:>{Typeset`size$$}], "Animate",
-   Deployed->True,
-   StripOnInput->False],
-  Manipulate`InterpretManipulate[1]]], "Output",
- CellChangeTimes->{3.7646016367556334`*^9},
- CellLabel->"Out[43]=",ExpressionUUID->"d57c5b3e-efa0-4240-9c48-361794a93a74"]
 }, Open  ]]
 }, Open  ]],
 
@@ -11457,7 +10286,6 @@ Moodle page."
    3.7639863929851303`*^9}},ExpressionUUID->"6e0d9485-0b23-46d3-9024-\
 3fccf558212a"]
 }, Open  ]]
-}, Open  ]]
 },
 AutoGeneratedPackage->None,
 WindowSize->{1149, 812},
@@ -11783,182 +10611,139 @@ Cell[CellGroupData[{
 Cell[177491, 4250, 389, 9, 102, "Input",ExpressionUUID->"2d7a8cd8-68ce-4915-b753-67e33a27961d"],
 Cell[177883, 4261, 751, 22, 117, "Output",ExpressionUUID->"07f7e5ec-017c-4e5b-843e-e7891e73ba4f"]
 }, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[178683, 4289, 875, 12, 67, "Subsubsection",ExpressionUUID->"fc9b47d5-6b0f-4682-9557-dd05176bd6ce"],
+Cell[179561, 4303, 3506, 63, 408, "Text",ExpressionUUID->"3489b19d-c071-47a2-9df4-0ce8197c4316"],
+Cell[CellGroupData[{
+Cell[183092, 4370, 677, 18, 102, "Input",ExpressionUUID->"0563cc32-cd7d-4b0a-a3aa-9bfdd22baea8"],
+Cell[183772, 4390, 383, 10, 49, "Output",ExpressionUUID->"c2f2440b-ada2-4b44-b8e7-bed80a45ade3"],
+Cell[184158, 4402, 755, 22, 117, "Output",ExpressionUUID->"bbd05cae-4821-4ce2-8e75-76e6619c82f0"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[184950, 4429, 448, 10, 102, "Input",ExpressionUUID->"977a7a69-f672-4473-b1bd-c38deb35a129"],
+Cell[185401, 4441, 244, 5, 49, "Output",ExpressionUUID->"eba7f6a0-3563-4cb5-bd82-f7d3d5df38c6"],
+Cell[185648, 4448, 423, 11, 49, "Output",ExpressionUUID->"c3d2b0f2-28c7-476d-a9fd-cdae03cc7615"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[186108, 4464, 400, 8, 102, "Input",ExpressionUUID->"619ccb36-9e29-4ab0-8703-86bdf9999c74"],
+Cell[186511, 4474, 803, 25, 117, "Output",ExpressionUUID->"775c4736-5606-416a-a9a7-7666886ceac4"],
+Cell[187317, 4501, 779, 23, 117, "Output",ExpressionUUID->"48953ae1-1e0c-4e55-83cc-8838eddb37c5"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[188133, 4529, 402, 9, 73, "Input",ExpressionUUID->"9cfa4143-53e3-4497-a031-2884ae0ae780"],
+Cell[188538, 4540, 225, 5, 49, "Output",ExpressionUUID->"d1a399fd-a3d4-4b16-83ba-95c809fd315c"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[188800, 4550, 348, 7, 73, "Input",ExpressionUUID->"3d63fde8-5c9e-4862-89c5-ba20d4f69a6e"],
+Cell[189151, 4559, 547, 16, 49, "Output",ExpressionUUID->"a9c294f1-86cb-473e-adfd-3ff91c97ef7f"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[189735, 4580, 247, 4, 43, "Input",ExpressionUUID->"33673a28-79f0-466b-bd99-e3530598d610"],
+Cell[189985, 4586, 976, 29, 91, "Output",ExpressionUUID->"8b91c088-7b8a-4ce1-bacf-9e3f6453fcac"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[190998, 4620, 427, 10, 73, "Input",ExpressionUUID->"1dd2951e-7bcc-4050-8b7c-51e3c9e34cd9"],
+Cell[191428, 4632, 192, 3, 49, "Output",ExpressionUUID->"10fffa3d-ca27-44ec-8428-91fd8f47b71c"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[191657, 4640, 287, 6, 43, "Input",ExpressionUUID->"b119356c-6991-448a-873f-ef9b22aa3e0b"],
+Cell[191947, 4648, 225, 5, 49, "Output",ExpressionUUID->"646696c5-bc1c-49f6-9f54-c86561896db6"]
+}, Open  ]]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[178695, 4290, 378, 6, 99, "Section",ExpressionUUID->"f79b21cb-977d-4448-b6a6-83b3bd58f774"],
-Cell[179076, 4298, 5361, 141, 655, "Text",ExpressionUUID->"5711a04f-34e6-4adf-974f-f9f61c725c95",
+Cell[192233, 4660, 228, 3, 80, "Subsection",ExpressionUUID->"07f8423f-dda2-4c47-bc95-fad96c09b4c9"],
+Cell[192464, 4665, 4277, 86, 454, "Text",ExpressionUUID->"72b6bf95-7831-4196-8c20-ba00d427acdb",
  CellGroupingRules->{"GroupTogetherGrouping", 10000.}],
 Cell[CellGroupData[{
-Cell[184462, 4443, 875, 12, 67, "Subsubsection",ExpressionUUID->"fc9b47d5-6b0f-4682-9557-dd05176bd6ce"],
-Cell[185340, 4457, 3506, 63, 408, "Text",ExpressionUUID->"3489b19d-c071-47a2-9df4-0ce8197c4316"],
-Cell[CellGroupData[{
-Cell[188871, 4524, 677, 18, 102, "Input",ExpressionUUID->"0563cc32-cd7d-4b0a-a3aa-9bfdd22baea8"],
-Cell[189551, 4544, 383, 10, 49, "Output",ExpressionUUID->"c2f2440b-ada2-4b44-b8e7-bed80a45ade3"],
-Cell[189937, 4556, 755, 22, 117, "Output",ExpressionUUID->"bbd05cae-4821-4ce2-8e75-76e6619c82f0"]
+Cell[196766, 4755, 1281, 36, 160, "Input",ExpressionUUID->"ffa7c708-31ce-489d-90d6-303839862b9c"],
+Cell[198050, 4793, 735, 22, 91, "Output",ExpressionUUID->"d68c6f9e-8c77-4d55-bd96-74d4a61db4fb"],
+Cell[198788, 4817, 732, 22, 91, "Output",ExpressionUUID->"304f1caf-cd34-43e9-b3d4-d4e9e7052502"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[190729, 4583, 448, 10, 102, "Input",ExpressionUUID->"977a7a69-f672-4473-b1bd-c38deb35a129"],
-Cell[191180, 4595, 244, 5, 49, "Output",ExpressionUUID->"eba7f6a0-3563-4cb5-bd82-f7d3d5df38c6"],
-Cell[191427, 4602, 423, 11, 49, "Output",ExpressionUUID->"c3d2b0f2-28c7-476d-a9fd-cdae03cc7615"]
+Cell[199557, 4844, 383, 8, 73, "Input",ExpressionUUID->"63c37203-ee50-4005-b6f6-8b68dc0d5b64"],
+Cell[199943, 4854, 827, 25, 91, "Output",ExpressionUUID->"e504ada4-a2d5-4f52-b420-662b94188753"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[191887, 4618, 400, 8, 102, "Input",ExpressionUUID->"619ccb36-9e29-4ab0-8703-86bdf9999c74"],
-Cell[192290, 4628, 803, 25, 117, "Output",ExpressionUUID->"775c4736-5606-416a-a9a7-7666886ceac4"],
-Cell[193096, 4655, 779, 23, 117, "Output",ExpressionUUID->"48953ae1-1e0c-4e55-83cc-8838eddb37c5"]
+Cell[200807, 4884, 493, 10, 73, "Input",ExpressionUUID->"40dd4942-0f05-49a5-b2c6-e39d35f90f68"],
+Cell[201303, 4896, 807, 25, 98, "Output",ExpressionUUID->"a79e3ca7-3bb2-4d30-95fe-946460bf24b1"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[193912, 4683, 402, 9, 73, "Input",ExpressionUUID->"9cfa4143-53e3-4497-a031-2884ae0ae780"],
-Cell[194317, 4694, 225, 5, 49, "Output",ExpressionUUID->"d1a399fd-a3d4-4b16-83ba-95c809fd315c"]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[194579, 4704, 348, 7, 73, "Input",ExpressionUUID->"3d63fde8-5c9e-4862-89c5-ba20d4f69a6e"],
-Cell[194930, 4713, 547, 16, 49, "Output",ExpressionUUID->"a9c294f1-86cb-473e-adfd-3ff91c97ef7f"]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[195514, 4734, 247, 4, 43, "Input",ExpressionUUID->"33673a28-79f0-466b-bd99-e3530598d610"],
-Cell[195764, 4740, 976, 29, 91, "Output",ExpressionUUID->"8b91c088-7b8a-4ce1-bacf-9e3f6453fcac"]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[196777, 4774, 427, 10, 73, "Input",ExpressionUUID->"1dd2951e-7bcc-4050-8b7c-51e3c9e34cd9"],
-Cell[197207, 4786, 192, 3, 49, "Output",ExpressionUUID->"10fffa3d-ca27-44ec-8428-91fd8f47b71c"]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[197436, 4794, 287, 6, 43, "Input",ExpressionUUID->"b119356c-6991-448a-873f-ef9b22aa3e0b"],
-Cell[197726, 4802, 225, 5, 49, "Output",ExpressionUUID->"646696c5-bc1c-49f6-9f54-c86561896db6"]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[197988, 4812, 899, 14, 80, "Subsection",ExpressionUUID->"e308d5ce-4e5d-4161-a481-414ccc2fb8c9",
- CellGroupingRules->{"GroupTogetherGrouping", 10000.}],
-Cell[198890, 4828, 20196, 482, 2882, "Text",ExpressionUUID->"16f11ca8-8923-42ca-9e52-596822cb1b62",
- CellGroupingRules->{"GroupTogetherGrouping", 10000.}]
+Cell[202147, 4926, 468, 10, 73, "Input",ExpressionUUID->"bccaea70-85b1-4746-84c9-35ecd29dd97f"],
+Cell[202618, 4938, 235, 4, 53, "Output",ExpressionUUID->"58d3c0f5-1330-4b6a-b0de-51e831c89ee1"],
+Cell[202856, 4944, 222, 3, 49, "Output",ExpressionUUID->"c57a3579-27b2-4885-b6d3-80ad1067ce0b"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[219135, 5316, 228, 3, 80, "Subsection",ExpressionUUID->"07f8423f-dda2-4c47-bc95-fad96c09b4c9"],
-Cell[219366, 5321, 4277, 86, 454, "Text",ExpressionUUID->"72b6bf95-7831-4196-8c20-ba00d427acdb",
- CellGroupingRules->{"GroupTogetherGrouping", 10000.}],
+Cell[203127, 4953, 226, 4, 93, "Subsection",ExpressionUUID->"8c39cb12-001d-4a36-b1c8-862c27260885"],
+Cell[203356, 4959, 267, 6, 86, "Text",ExpressionUUID->"6302ceba-817a-4bf2-92c4-187f321af65d"],
 Cell[CellGroupData[{
-Cell[223668, 5411, 1281, 36, 160, "Input",ExpressionUUID->"ffa7c708-31ce-489d-90d6-303839862b9c"],
-Cell[224952, 5449, 735, 22, 91, "Output",ExpressionUUID->"d68c6f9e-8c77-4d55-bd96-74d4a61db4fb"],
-Cell[225690, 5473, 732, 22, 91, "Output",ExpressionUUID->"304f1caf-cd34-43e9-b3d4-d4e9e7052502"]
+Cell[203648, 4969, 814, 21, 73, "Input",ExpressionUUID->"ce4ccaf5-e259-45b4-8794-93ef712b7264"],
+Cell[204465, 4992, 263, 5, 53, "Output",ExpressionUUID->"aeccec46-6b9f-4fe8-b0ac-578042d177d5"],
+Cell[204731, 4999, 254, 4, 49, "Output",ExpressionUUID->"838006f1-71fc-4512-8983-13139576539b"]
 }, Open  ]],
+Cell[205000, 5006, 436, 8, 119, "Text",ExpressionUUID->"1b346eff-a10f-4c25-8c56-111986d5baf3"],
 Cell[CellGroupData[{
-Cell[226459, 5500, 383, 8, 73, "Input",ExpressionUUID->"63c37203-ee50-4005-b6f6-8b68dc0d5b64"],
-Cell[226845, 5510, 827, 25, 91, "Output",ExpressionUUID->"e504ada4-a2d5-4f52-b420-662b94188753"]
+Cell[205461, 5018, 848, 22, 131, "Input",ExpressionUUID->"0de43feb-9eea-4f92-997f-724e2a4bea56"],
+Cell[206312, 5042, 217, 4, 49, "Output",ExpressionUUID->"a626b595-89b3-42bf-9b25-554780aefd8c"],
+Cell[206532, 5048, 199, 3, 49, "Output",ExpressionUUID->"520cd33c-dd08-4eeb-9d94-2f25574d76b9"],
+Cell[206734, 5053, 200, 3, 49, "Output",ExpressionUUID->"0902323d-f524-4677-82ae-6e49b5ed6b33"],
+Cell[206937, 5058, 200, 3, 49, "Output",ExpressionUUID->"dd0584b8-8e9b-413a-a24a-fc57646be5e3"]
 }, Open  ]],
+Cell[207152, 5064, 285, 6, 86, "Text",ExpressionUUID->"dc5fcf34-b68f-4191-957f-0766250e4e05"],
 Cell[CellGroupData[{
-Cell[227709, 5540, 493, 10, 73, "Input",ExpressionUUID->"40dd4942-0f05-49a5-b2c6-e39d35f90f68"],
-Cell[228205, 5552, 807, 25, 98, "Output",ExpressionUUID->"a79e3ca7-3bb2-4d30-95fe-946460bf24b1"]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[229049, 5582, 468, 10, 73, "Input",ExpressionUUID->"bccaea70-85b1-4746-84c9-35ecd29dd97f"],
-Cell[229520, 5594, 235, 4, 53, "Output",ExpressionUUID->"58d3c0f5-1330-4b6a-b0de-51e831c89ee1"],
-Cell[229758, 5600, 222, 3, 82, "Output",ExpressionUUID->"c57a3579-27b2-4885-b6d3-80ad1067ce0b"]
+Cell[207462, 5074, 887, 23, 131, "Input",ExpressionUUID->"cb2d0fe4-a56b-4556-8042-88ed490a409a"],
+Cell[208352, 5099, 382, 8, 57, "Output",ExpressionUUID->"0bab2366-dc13-4258-92c6-ae286f7fd57f"],
+Cell[208737, 5109, 360, 7, 57, "Output",ExpressionUUID->"23eb024a-e3ad-4138-81ae-668cdd5e3ae7"],
+Cell[209100, 5118, 326, 5, 49, "Output",ExpressionUUID->"1003b990-d55b-4176-b27b-def3091839c7"],
+Cell[209429, 5125, 323, 5, 49, "Output",ExpressionUUID->"901f4cc5-3e83-4e08-8264-6dae6084a6e6"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[230029, 5609, 226, 4, 93, "Subsection",ExpressionUUID->"8c39cb12-001d-4a36-b1c8-862c27260885"],
-Cell[230258, 5615, 267, 6, 86, "Text",ExpressionUUID->"6302ceba-817a-4bf2-92c4-187f321af65d"],
+Cell[209801, 5136, 272, 4, 80, "Subsection",ExpressionUUID->"d8f08601-8ca6-46a7-8809-f3bbe9aa609f"],
+Cell[210076, 5142, 350, 8, 119, "Text",ExpressionUUID->"dfdefbd9-d014-4a6a-9e99-f7595199da11"],
 Cell[CellGroupData[{
-Cell[230550, 5625, 814, 21, 73, "Input",ExpressionUUID->"ce4ccaf5-e259-45b4-8794-93ef712b7264"],
-Cell[231367, 5648, 263, 5, 53, "Output",ExpressionUUID->"aeccec46-6b9f-4fe8-b0ac-578042d177d5"],
-Cell[231633, 5655, 254, 4, 49, "Output",ExpressionUUID->"838006f1-71fc-4512-8983-13139576539b"]
+Cell[210451, 5154, 845, 21, 73, "Input",ExpressionUUID->"30f3a1a2-1909-48ab-8a1e-14dc0b2418ff"],
+Cell[211299, 5177, 54616, 955, 363, "Output",ExpressionUUID->"87506e78-3dbb-48c2-9be2-014df1506539"]
 }, Open  ]],
-Cell[231902, 5662, 436, 8, 119, "Text",ExpressionUUID->"1b346eff-a10f-4c25-8c56-111986d5baf3"],
 Cell[CellGroupData[{
-Cell[232363, 5674, 848, 22, 131, "Input",ExpressionUUID->"0de43feb-9eea-4f92-997f-724e2a4bea56"],
-Cell[233214, 5698, 217, 4, 49, "Output",ExpressionUUID->"a626b595-89b3-42bf-9b25-554780aefd8c"],
-Cell[233434, 5704, 199, 3, 49, "Output",ExpressionUUID->"520cd33c-dd08-4eeb-9d94-2f25574d76b9"],
-Cell[233636, 5709, 200, 3, 49, "Output",ExpressionUUID->"0902323d-f524-4677-82ae-6e49b5ed6b33"],
-Cell[233839, 5714, 200, 3, 49, "Output",ExpressionUUID->"dd0584b8-8e9b-413a-a24a-fc57646be5e3"]
-}, Open  ]],
-Cell[234054, 5720, 285, 6, 86, "Text",ExpressionUUID->"dc5fcf34-b68f-4191-957f-0766250e4e05"],
-Cell[CellGroupData[{
-Cell[234364, 5730, 887, 23, 131, "Input",ExpressionUUID->"cb2d0fe4-a56b-4556-8042-88ed490a409a"],
-Cell[235254, 5755, 382, 8, 57, "Output",ExpressionUUID->"0bab2366-dc13-4258-92c6-ae286f7fd57f"],
-Cell[235639, 5765, 360, 7, 57, "Output",ExpressionUUID->"23eb024a-e3ad-4138-81ae-668cdd5e3ae7"],
-Cell[236002, 5774, 326, 5, 49, "Output",ExpressionUUID->"1003b990-d55b-4176-b27b-def3091839c7"],
-Cell[236331, 5781, 323, 5, 106, "Output",ExpressionUUID->"901f4cc5-3e83-4e08-8264-6dae6084a6e6"]
+Cell[265952, 6137, 1044, 27, 102, "Input",ExpressionUUID->"8a1fca71-3722-441c-9e11-1f9b64c834af"],
+Cell[266999, 6166, 41352, 741, 363, "Output",ExpressionUUID->"cf8eb6ed-4e5b-4b9d-89e4-06222754cd9f"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[236703, 5792, 272, 4, 80, "Subsection",ExpressionUUID->"d8f08601-8ca6-46a7-8809-f3bbe9aa609f"],
-Cell[236978, 5798, 350, 8, 119, "Text",ExpressionUUID->"dfdefbd9-d014-4a6a-9e99-f7595199da11"],
+Cell[308400, 6913, 306, 4, 80, "Subsection",ExpressionUUID->"2a1adf4c-6186-4f2e-a3d4-1dd7bcbe74f3"],
+Cell[308709, 6919, 1845, 39, 301, "Text",ExpressionUUID->"206a9204-0149-4de3-8ecd-a56063973e5e"],
 Cell[CellGroupData[{
-Cell[237353, 5810, 845, 21, 73, "Input",ExpressionUUID->"30f3a1a2-1909-48ab-8a1e-14dc0b2418ff"],
-Cell[238201, 5833, 54616, 955, 363, "Output",ExpressionUUID->"87506e78-3dbb-48c2-9be2-014df1506539"]
+Cell[310579, 6962, 966, 29, 102, "Input",ExpressionUUID->"d0677ef4-1e35-4830-a9c0-fdcef44c969a"],
+Cell[311548, 6993, 390, 11, 69, "Output",ExpressionUUID->"1c9d90f2-7dee-4dc8-afff-5feb2d429dda"],
+Cell[311941, 7006, 388, 11, 69, "Output",ExpressionUUID->"596b06f7-e86f-418c-b0de-b3137da28ab3"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[292854, 6793, 1044, 27, 102, "Input",ExpressionUUID->"8a1fca71-3722-441c-9e11-1f9b64c834af"],
-Cell[293901, 6822, 41352, 741, 363, "Output",ExpressionUUID->"cf8eb6ed-4e5b-4b9d-89e4-06222754cd9f"]
+Cell[312366, 7022, 532, 14, 43, "Input",ExpressionUUID->"8111ebf4-1d04-4bec-a1a0-aa3a1447474d"],
+Cell[312901, 7038, 81391, 1357, 589, "Output",ExpressionUUID->"36567d8d-18e3-4f9f-b217-4e855a1cb2e5"]
+}, Open  ]],
+Cell[394307, 8398, 82316, 1376, 239, InheritFromParent,ExpressionUUID->"db84e94e-c868-4e43-af1d-6f8b0d55857a"],
+Cell[476626, 9776, 3162, 75, 160, "Input",ExpressionUUID->"1663252d-9f02-4203-ad24-8add569be821"],
+Cell[479791, 9853, 181, 3, 52, "Text",ExpressionUUID->"95e69743-9e19-4fc6-bb00-e41465342afe"],
+Cell[CellGroupData[{
+Cell[479997, 9860, 187, 2, 43, "Input",ExpressionUUID->"da5b8264-3572-4e5a-b681-067dcb959c9b"],
+Cell[480187, 9864, 2853, 85, 79, "Output",ExpressionUUID->"7be8be96-4dfe-4efd-b161-e95ba500f16f"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[335302, 7569, 306, 4, 80, "Subsection",ExpressionUUID->"2a1adf4c-6186-4f2e-a3d4-1dd7bcbe74f3"],
-Cell[335611, 7575, 1845, 39, 301, "Text",ExpressionUUID->"206a9204-0149-4de3-8ecd-a56063973e5e"],
+Cell[483089, 9955, 328, 5, 80, "Subsection",ExpressionUUID->"b0c0f806-a611-475b-816f-081949a23dcf"],
+Cell[483420, 9962, 1336, 21, 287, "Text",ExpressionUUID->"0ff550d3-dc21-4c0b-862e-cd19d197d3c3"],
 Cell[CellGroupData[{
-Cell[337481, 7618, 966, 29, 102, "Input",ExpressionUUID->"d0677ef4-1e35-4830-a9c0-fdcef44c969a"],
-Cell[338450, 7649, 390, 11, 69, "Output",ExpressionUUID->"1c9d90f2-7dee-4dc8-afff-5feb2d429dda"],
-Cell[338843, 7662, 388, 11, 126, "Output",ExpressionUUID->"596b06f7-e86f-418c-b0de-b3137da28ab3"]
+Cell[484781, 9987, 3028, 79, 189, "Input",ExpressionUUID->"a0f886a9-7425-405a-83d6-9dba4ff04c1e"],
+Cell[487812, 10068, 3102, 59, 297, "Output",ExpressionUUID->"b60ffee8-ec80-4545-92a0-79856a48a0cb"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[339268, 7678, 532, 14, 43, "Input",ExpressionUUID->"8111ebf4-1d04-4bec-a1a0-aa3a1447474d"],
-Cell[339803, 7694, 81391, 1357, 589, "Output",ExpressionUUID->"36567d8d-18e3-4f9f-b217-4e855a1cb2e5"]
+Cell[490951, 10132, 2387, 71, 131, "Input",ExpressionUUID->"2d4a72fa-52ca-435e-8699-7347f5d64f74"],
+Cell[493341, 10205, 2842, 55, 297, "Output",ExpressionUUID->"0c6fda84-f787-44f5-895b-04a76972825f"]
 }, Open  ]],
-Cell[421209, 9054, 82316, 1376, 239, InheritFromParent,ExpressionUUID->"db84e94e-c868-4e43-af1d-6f8b0d55857a"],
-Cell[503528, 10432, 917, 14, 80, "Subsection",ExpressionUUID->"4e64ded2-0d61-4738-b37a-37c4cf06b06b",
- CellGroupingRules->{"GroupTogetherGrouping", 10000.}],
-Cell[504448, 10448, 498, 9, 86, "Text",ExpressionUUID->"9f242459-6a6d-42c4-a9d4-28acff48ccaf"],
-Cell[CellGroupData[{
-Cell[504971, 10461, 767, 19, 43, "Input",ExpressionUUID->"88860688-3f20-4f37-a900-a180d67248ae"],
-Cell[505741, 10482, 306, 7, 99, "Output",ExpressionUUID->"5fd01dc1-1eab-4015-b3be-a8781c67b522"]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[506084, 10494, 1195, 29, 102, "Input",ExpressionUUID->"e6d1162d-a628-4879-8cfe-aaa4bdce2904"],
-Cell[507282, 10525, 2160, 43, 215, "Output",ExpressionUUID->"8987d873-304f-44ac-9f56-fde88fb3b9a0"]
-}, Open  ]],
-Cell[509457, 10571, 1196, 20, 387, "Text",ExpressionUUID->"37c4c809-ab0d-4658-a236-7634256bcc61"],
-Cell[CellGroupData[{
-Cell[510678, 10595, 1470, 36, 131, "Input",ExpressionUUID->"f49b649b-10f1-41bd-a619-cb007fe0a636"],
-Cell[512151, 10633, 2127, 41, 509, "Output",ExpressionUUID->"3144d707-7346-4aa6-9931-31888b33cec6"]
-}, Open  ]],
-Cell[514293, 10677, 1422, 24, 454, "Text",ExpressionUUID->"71aa6ce5-f212-43a4-9d82-78c2be15ddf4"],
-Cell[515718, 10703, 3162, 75, 160, "Input",ExpressionUUID->"1663252d-9f02-4203-ad24-8add569be821"],
-Cell[518883, 10780, 181, 3, 52, "Text",ExpressionUUID->"95e69743-9e19-4fc6-bb00-e41465342afe"],
-Cell[CellGroupData[{
-Cell[519089, 10787, 187, 2, 43, "Input",ExpressionUUID->"da5b8264-3572-4e5a-b681-067dcb959c9b"],
-Cell[519279, 10791, 2853, 85, 79, "Output",ExpressionUUID->"7be8be96-4dfe-4efd-b161-e95ba500f16f"]
-}, Open  ]],
-Cell[522147, 10879, 324, 6, 52, "Text",ExpressionUUID->"7e1d5cf2-dc12-49ea-843f-9dab165e6762"],
-Cell[CellGroupData[{
-Cell[522496, 10889, 219, 3, 43, "Input",ExpressionUUID->"5c60c55b-2339-4e74-82e5-2f5858671679"],
-Cell[522718, 10894, 376, 7, 122, "Output",ExpressionUUID->"3cee0435-68f8-4679-a174-f034b2386ba0"]
-}, Open  ]],
-Cell[523109, 10904, 789, 17, 153, "Text",ExpressionUUID->"11fc5c99-7c06-4fdd-b54c-4775d04ad1dc"],
-Cell[CellGroupData[{
-Cell[523923, 10925, 1521, 43, 102, "Input",ExpressionUUID->"ca69002f-0953-4903-a402-ed575959aac5"],
-Cell[525447, 10970, 2335, 46, 297, "Output",ExpressionUUID->"45b5421a-77ce-4a65-85fe-bbd01093439b"]
-}, Open  ]],
-Cell[527797, 11019, 238, 6, 52, "Text",ExpressionUUID->"36e2c4aa-fea1-4673-80b3-e2f777537bf0"],
-Cell[CellGroupData[{
-Cell[528060, 11029, 1485, 42, 131, "Input",ExpressionUUID->"0b18ba40-e6aa-45aa-b85d-cb1d8e27fbc9"],
-Cell[529548, 11073, 2378, 47, 297, "Output",ExpressionUUID->"d57c5b3e-efa0-4240-9c48-361794a93a74"]
-}, Open  ]]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[531975, 11126, 328, 5, 80, "Subsection",ExpressionUUID->"b0c0f806-a611-475b-816f-081949a23dcf"],
-Cell[532306, 11133, 1336, 21, 287, "Text",ExpressionUUID->"0ff550d3-dc21-4c0b-862e-cd19d197d3c3"],
-Cell[CellGroupData[{
-Cell[533667, 11158, 3028, 79, 189, "Input",ExpressionUUID->"a0f886a9-7425-405a-83d6-9dba4ff04c1e"],
-Cell[536698, 11239, 3102, 59, 297, "Output",ExpressionUUID->"b60ffee8-ec80-4545-92a0-79856a48a0cb"]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[539837, 11303, 2387, 71, 131, "Input",ExpressionUUID->"2d4a72fa-52ca-435e-8699-7347f5d64f74"],
-Cell[542227, 11376, 2842, 55, 330, "Output",ExpressionUUID->"0c6fda84-f787-44f5-895b-04a76972825f"]
-}, Open  ]],
-Cell[545084, 11434, 989, 23, 258, "Text",ExpressionUUID->"6e0d9485-0b23-46d3-9024-3fccf558212a"]
-}, Open  ]]
+Cell[496198, 10263, 989, 23, 258, "Text",ExpressionUUID->"6e0d9485-0b23-46d3-9024-3fccf558212a"]
 }, Open  ]]
 }
 ]
