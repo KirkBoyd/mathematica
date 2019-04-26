@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       153,          7]
-NotebookDataLength[     25277,        623]
-NotebookOptionsPosition[     22861,        567]
-NotebookOutlinePosition[     23489,        592]
-CellTagsIndexPosition[     23446,        589]
+NotebookDataLength[     23784,        583]
+NotebookOptionsPosition[     22050,        540]
+NotebookOutlinePosition[     22677,        565]
+CellTagsIndexPosition[     22634,        562]
 WindowTitle->Electric Flux - Source
 WindowFrame->Normal*)
 
@@ -99,44 +99,6 @@ FP/69esnAAAAAAAAAAAAwM74B4thROM=
 Cell[CellGroupData[{
 
 Cell[BoxData[
- RowBox[{"Cos", "[", "0", "]"}]], "Input",
- CellChangeTimes->{{3.765303759571227*^9, 3.7653037814027047`*^9}},
- CellLabel->"In[1]:=",ExpressionUUID->"79f7bfa7-7cdb-461d-8d72-8546dbe9d262"],
-
-Cell[BoxData["1"], "Output",
- CellChangeTimes->{3.7653037825017614`*^9},
- CellLabel->"Out[1]=",ExpressionUUID->"30955533-896c-462e-ad59-b0e78f67554b"]
-}, Open  ]],
-
-Cell[CellGroupData[{
-
-Cell[BoxData[
- RowBox[{"Cos", "[", 
-  RowBox[{"Pi", "/", "2"}], "]"}]], "Input",
- CellChangeTimes->{{3.765303784443572*^9, 3.765303793918237*^9}},
- CellLabel->"In[2]:=",ExpressionUUID->"11dea7db-ed7f-4498-b990-c601041a71f6"],
-
-Cell[BoxData["0"], "Output",
- CellChangeTimes->{3.7653037949591894`*^9},
- CellLabel->"Out[2]=",ExpressionUUID->"11c51087-5502-41d5-ade1-ed209d73857b"]
-}, Open  ]],
-
-Cell[CellGroupData[{
-
-Cell[BoxData[
- RowBox[{"Cos", "[", "3.14", "]"}]], "Input",
- CellChangeTimes->{{3.7653037965728755`*^9, 3.765303802398282*^9}},
- CellLabel->"In[3]:=",ExpressionUUID->"e999d776-c212-4e31-a594-355886afe37e"],
-
-Cell[BoxData[
- RowBox[{"-", "0.9999987317275395`"}]], "Output",
- CellChangeTimes->{3.7653038030884657`*^9},
- CellLabel->"Out[3]=",ExpressionUUID->"6499b248-6da9-4d74-9773-f8e5166dcdbe"]
-}, Open  ]],
-
-Cell[CellGroupData[{
-
-Cell[BoxData[
  RowBox[{"Manipulate", "[", "\[IndentingNewLine]", 
   RowBox[{
    RowBox[{"Column", "[", 
@@ -162,7 +124,13 @@ Cell[BoxData[
            RowBox[{"Graphics3D", "[", "\[IndentingNewLine]", 
             RowBox[{
              RowBox[{"{", 
-              RowBox[{"Green", ",", 
+              RowBox[{
+               RowBox[{"Hue", "[", 
+                RowBox[{
+                 RowBox[{"(", 
+                  RowBox[{
+                   RowBox[{"Cos", "[", "\[Theta]", "]"}], "+", "1"}], ")"}], 
+                 "/", "5"}], "]"}], ",", 
                RowBox[{"Polygon", "[", 
                 RowBox[{"{", 
                  RowBox[{
@@ -275,7 +243,12 @@ Cell[BoxData[
            RowBox[{"Graphics3D", "[", 
             RowBox[{"{", 
              RowBox[{"Thick", ",", 
-              RowBox[{"GrayLevel", "[", "0.4", "]"}], ",", 
+              RowBox[{"Hue", "[", 
+               RowBox[{
+                RowBox[{"(", 
+                 RowBox[{
+                  RowBox[{"Cos", "[", "\[Theta]", "]"}], "+", "1"}], ")"}], 
+                "/", "5"}], "]"}], ",", 
               RowBox[{"Arrow", "[", 
                RowBox[{"{", 
                 RowBox[{
@@ -321,33 +294,35 @@ Cell[BoxData[
   3.53772723002632*^9, 3.5377272479709053`*^9}, {3.537727302881323*^9, 
   3.537727350447258*^9}, {3.5377274093637247`*^9, 3.537727457893488*^9}, {
   3.53772813387403*^9, 3.537728142108193*^9}, {3.537728183892457*^9, 
-  3.537728434450694*^9}, {3.537729113476709*^9, 3.537729116353281*^9}},
+  3.537728434450694*^9}, {3.537729113476709*^9, 3.537729116353281*^9}, {
+  3.765309079238646*^9, 3.76530910452009*^9}},
+ CellLabel->"In[1]:=",
  CellID->1888195481,ExpressionUUID->"2459f391-e09c-4931-bf60-56a0edf93585"],
 
 Cell[BoxData[
  TagBox[
   StyleBox[
-   DynamicModuleBox[{$CellContext`A$$ = 4., $CellContext`efs$$ = 
-    100., $CellContext`\[Theta]$$ = 3.14, Typeset`show$$ = True, 
+   DynamicModuleBox[{$CellContext`A$$ = 1, $CellContext`efs$$ = 
+    10, $CellContext`\[Theta]$$ = 0., Typeset`show$$ = True, 
     Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
     Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
     "\"untitled\"", Typeset`specs$$ = {{{
-       Hold[$CellContext`\[Theta]$$], 0., "angle (rad)"}, 0, 3.14, 0.01}, {{
+       Hold[$CellContext`\[Theta]$$], 0, "angle (rad)"}, 0, 3.14, 0.01}, {{
        Hold[$CellContext`efs$$], 10, "electric field strength (N/C)"}, 0, 100,
        0.01}, {{
        Hold[$CellContext`A$$], 1, 
        "area (\!\(\*SuperscriptBox[\(m\), \(2\)]\))"}, 0, 4, 0.01}}, 
     Typeset`size$$ = {380., {197.5, 203.5}}, Typeset`update$$ = 0, 
     Typeset`initDone$$, Typeset`skipInitDone$$ = 
-    True, $CellContext`\[Theta]$22394$$ = 0, $CellContext`efs$22395$$ = 
-    0, $CellContext`A$22396$$ = 0}, 
+    True, $CellContext`\[Theta]$2576$$ = 0, $CellContext`efs$2577$$ = 
+    0, $CellContext`A$2578$$ = 0}, 
     DynamicBox[Manipulate`ManipulateBoxes[
      1, StandardForm, 
       "Variables" :> {$CellContext`A$$ = 1, $CellContext`efs$$ = 
-        10, $CellContext`\[Theta]$$ = 0.}, "ControllerVariables" :> {
-        Hold[$CellContext`\[Theta]$$, $CellContext`\[Theta]$22394$$, 0], 
-        Hold[$CellContext`efs$$, $CellContext`efs$22395$$, 0], 
-        Hold[$CellContext`A$$, $CellContext`A$22396$$, 0]}, 
+        10, $CellContext`\[Theta]$$ = 0}, "ControllerVariables" :> {
+        Hold[$CellContext`\[Theta]$$, $CellContext`\[Theta]$2576$$, 0], 
+        Hold[$CellContext`efs$$, $CellContext`efs$2577$$, 0], 
+        Hold[$CellContext`A$$, $CellContext`A$2578$$, 0]}, 
       "OtherVariables" :> {
        Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
         Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
@@ -356,26 +331,24 @@ Cell[BoxData[
          Text[
           Row[{"flux (N \!\(\*SuperscriptBox[\(m\), \(2\)]\)/C): ", 
             
-            NumberForm[($CellContext`A$$ $CellContext`efs$$) 
+            NumberForm[$CellContext`A$$ $CellContext`efs$$ 
              Cos[$CellContext`\[Theta]$$], {5, 2}]}]], 
          Show[{
-           Graphics3D[{Green, 
+           Graphics3D[{
+             Hue[(Cos[$CellContext`\[Theta]$$] + 1)/5], 
              
-             Polygon[{{(-($CellContext`A$$^Rational[1, 2]/2)) 
-                Sin[$CellContext`\[Theta]$$], -($CellContext`A$$^
-                  Rational[1, 2]/2), ($CellContext`A$$^Rational[1, 2]/2) 
-                Cos[$CellContext`\[Theta]$$]}, {(-($CellContext`A$$^
-                   Rational[1, 2]/2)) 
-                Sin[$CellContext`\[Theta]$$], $CellContext`A$$^Rational[1, 2]/
-                2, ($CellContext`A$$^Rational[1, 2]/2) 
-                Cos[$CellContext`\[Theta]$$]}, {($CellContext`A$$^
-                  Rational[1, 2]/2) 
-                Sin[$CellContext`\[Theta]$$], $CellContext`A$$^Rational[1, 2]/
-                2, (-($CellContext`A$$^Rational[1, 2]/2)) 
-                Cos[$CellContext`\[Theta]$$]}, {($CellContext`A$$^
-                  Rational[1, 2]/2) 
-                Sin[$CellContext`\[Theta]$$], -($CellContext`A$$^
-                  Rational[1, 2]/2), (-($CellContext`A$$^Rational[1, 2]/2)) 
+             Polygon[{{(-(Sqrt[$CellContext`A$$]/2)) 
+                Sin[$CellContext`\[Theta]$$], -(Sqrt[$CellContext`A$$]/2), (
+                 Sqrt[$CellContext`A$$]/2) 
+                Cos[$CellContext`\[Theta]$$]}, {(-(Sqrt[$CellContext`A$$]/2)) 
+                Sin[$CellContext`\[Theta]$$], Sqrt[$CellContext`A$$]/
+                2, (Sqrt[$CellContext`A$$]/2) 
+                Cos[$CellContext`\[Theta]$$]}, {(Sqrt[$CellContext`A$$]/2) 
+                Sin[$CellContext`\[Theta]$$], Sqrt[$CellContext`A$$]/
+                2, (-(Sqrt[$CellContext`A$$]/2)) 
+                Cos[$CellContext`\[Theta]$$]}, {(Sqrt[$CellContext`A$$]/2) 
+                Sin[$CellContext`\[Theta]$$], -(Sqrt[$CellContext`A$$]/
+                 2), (-(Sqrt[$CellContext`A$$]/2)) 
                 Cos[$CellContext`\[Theta]$$]}}]}, Boxed -> False, 
             PlotRange -> {{-1, 1}, {-1, 1}, {-1, 1}}], 
            
@@ -390,24 +363,24 @@ Cell[BoxData[
                1]}, VectorStyle -> {Red, 
               Arrowheads[{0.03, 0.03, Automatic}]}], 
            Graphics3D[{Thick, 
-             GrayLevel[0.4], 
+             Hue[(Cos[$CellContext`\[Theta]$$] + 1)/5], 
              Arrow[{{0, 0, 0}, {
                 Cos[$CellContext`\[Theta]$$], 0, 
                 Sin[$CellContext`\[Theta]$$]}}]}]}, ImageSize -> 380 {1, 1}]},
          Alignment -> Center], 
-      "Specifications" :> {{{$CellContext`\[Theta]$$, 0., "angle (rad)"}, 0, 
+      "Specifications" :> {{{$CellContext`\[Theta]$$, 0, "angle (rad)"}, 0, 
          3.14, 0.01, Appearance -> 
          "Labeled"}, {{$CellContext`efs$$, 10, 
           "electric field strength (N/C)"}, 0, 100, 0.01, Appearance -> 
          "Labeled"}, {{$CellContext`A$$, 1, 
           "area (\!\(\*SuperscriptBox[\(m\), \(2\)]\))"}, 0, 4, 0.01, 
-         Appearance -> "Labeled"}}, "Options" :> {}, 
-      "DefaultOptions" :> {ControllerLinking -> True}],
+         Appearance -> "Labeled"}}, "Options" :> {}, "DefaultOptions" :> {}],
      ImageSizeCache->{436., {273., 279.}},
      SingleEvaluation->True],
     Deinitialization:>None,
     DynamicModuleValues:>{},
     SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
     UnsavedVariables:>{Typeset`initDone$$},
     UntrackedVariables:>{Typeset`size$$}], "Manipulate",
    Deployed->True,
@@ -416,8 +389,8 @@ Cell[BoxData[
  GeneratedCell->False,
  CellAutoOverwrite->False,
  CellChangeTimes->{{3.7653008207751126`*^9, 3.7653008221743784`*^9}, {
-  3.7653010145514784`*^9, 3.765301044650984*^9}},
- CellID->1313856824,ExpressionUUID->"26995d9a-f832-421e-bcf0-b0f533d8ca14"]
+   3.7653010145514784`*^9, 3.765301044650984*^9}, 3.7653091095954733`*^9},
+ CellLabel->"Out[1]=",ExpressionUUID->"85fe3e31-e41f-4f01-af71-3f7c202b7c93"]
 }, Open  ]]
 }, Open  ]],
 
@@ -569,8 +542,8 @@ Editable->True,
 Saveable->False,
 ScreenStyleEnvironment->"Working",
 CellInsertionPointCell->None,
-WindowSize->{1536, 821},
-WindowMargins->{{-8, Automatic}, {Automatic, -8}},
+WindowSize->{1520, 805},
+WindowMargins->{{-8, Automatic}, {Automatic, 0}},
 WindowElements->{
  "StatusArea", "MemoryMonitor", "MagnificationPopUp", "VerticalScrollBar", 
   "MenuBar"},
@@ -595,39 +568,24 @@ Cell[589, 21, 286, 6, 62, "Section",ExpressionUUID->"ce029c39-e939-4ba4-9789-650
 Cell[CellGroupData[{
 Cell[900, 31, 3758, 65, 45, "Section",ExpressionUUID->"059967b3-a2e2-44af-bcce-3e601956f6af"],
 Cell[CellGroupData[{
-Cell[4683, 100, 202, 3, 28, "Input",ExpressionUUID->"79f7bfa7-7cdb-461d-8d72-8546dbe9d262"],
-Cell[4888, 105, 150, 2, 32, "Output",ExpressionUUID->"30955533-896c-462e-ad59-b0e78f67554b"]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[5075, 112, 224, 4, 28, "Input",ExpressionUUID->"11dea7db-ed7f-4498-b990-c601041a71f6"],
-Cell[5302, 118, 150, 2, 32, "Output",ExpressionUUID->"11c51087-5502-41d5-ade1-ed209d73857b"]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[5489, 125, 205, 3, 28, "Input",ExpressionUUID->"e999d776-c212-4e31-a594-355886afe37e"],
-Cell[5697, 130, 185, 3, 32, "Output",ExpressionUUID->"6499b248-6da9-4d74-9773-f8e5166dcdbe"]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[5919, 138, 7581, 186, 409, "Input",ExpressionUUID->"2459f391-e09c-4931-bf60-56a0edf93585",
+Cell[4683, 100, 8050, 199, 409, "Input",ExpressionUUID->"2459f391-e09c-4931-bf60-56a0edf93585",
  CellID->1888195481],
-Cell[13503, 326, 4692, 93, 571, "Output",ExpressionUUID->"26995d9a-f832-421e-bcf0-b0f533d8ca14",
- CellID->1313856824]
+Cell[12736, 301, 4648, 91, 571, "Output",ExpressionUUID->"85fe3e31-e41f-4f01-af71-3f7c202b7c93"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[18244, 425, 271, 8, 46, "Section",ExpressionUUID->"41c67628-7c25-4d57-9912-0e82937391f5"],
-Cell[18518, 435, 191, 3, 70, "Text",ExpressionUUID->"297b59be-188e-498c-b312-fdcab8060637"]
+Cell[17433, 398, 271, 8, 46, "Section",ExpressionUUID->"41c67628-7c25-4d57-9912-0e82937391f5"],
+Cell[17707, 408, 191, 3, 70, "Text",ExpressionUUID->"297b59be-188e-498c-b312-fdcab8060637"]
 }, Closed]],
 Cell[CellGroupData[{
-Cell[18746, 443, 496, 12, 20, "Text",ExpressionUUID->"686083a8-b28e-4b84-9252-31ce4bc16030",
+Cell[17935, 416, 496, 12, 20, "Text",ExpressionUUID->"686083a8-b28e-4b84-9252-31ce4bc16030",
  CellGroupingRules->{"SectionGrouping", 25}],
-Cell[19245, 457, 477, 14, 20, "Text",ExpressionUUID->"f4ba8a1c-445b-45df-b391-6b5f6033375c"],
-Cell[19725, 473, 1021, 28, 65, "Text",ExpressionUUID->"f9b0d35a-42c0-4545-bdd5-3c3a78a0299e"],
-Cell[20749, 503, 851, 25, 100, "Text",ExpressionUUID->"9ff9a73a-9a44-47dc-8ca6-78f828d7c2ee"],
-Cell[21603, 530, 1242, 34, 89, "Text",ExpressionUUID->"cd4be6a0-9eac-4314-b8f1-c972c2349782"]
+Cell[18434, 430, 477, 14, 20, "Text",ExpressionUUID->"f4ba8a1c-445b-45df-b391-6b5f6033375c"],
+Cell[18914, 446, 1021, 28, 65, "Text",ExpressionUUID->"f9b0d35a-42c0-4545-bdd5-3c3a78a0299e"],
+Cell[19938, 476, 851, 25, 100, "Text",ExpressionUUID->"9ff9a73a-9a44-47dc-8ca6-78f828d7c2ee"],
+Cell[20792, 503, 1242, 34, 89, "Text",ExpressionUUID->"cd4be6a0-9eac-4314-b8f1-c972c2349782"]
 }, Open  ]]
 }
 ]
 *)
-
-(* End of internal cache information *)
 
